@@ -1,0 +1,5 @@
+"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S D:\car_3\car_project1 -B D:\car_3\car_project1\cmake-build-debug
+-- Minimal optimization, debug info included
+-- Configuring done (0.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: D:/car_3/car_project1/cmake-build-debug
