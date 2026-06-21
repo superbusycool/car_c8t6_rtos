@@ -514,6 +514,9 @@
 		<Unit filename="D:/car_3/car_project1/modules/Inc/key.h">
 			<Option target="car_project1.elf"/>
 		</Unit>
+		<Unit filename="D:/car_3/car_project1/modules/Inc/led.h">
+			<Option target="car_project1.elf"/>
+		</Unit>
 		<Unit filename="D:/car_3/car_project1/modules/Inc/module.h">
 			<Option target="car_project1.elf"/>
 		</Unit>
@@ -539,6 +542,9 @@
 			<Option target="car_project1.elf"/>
 		</Unit>
 		<Unit filename="D:/car_3/car_project1/modules/Src/key.c">
+			<Option target="car_project1.elf"/>
+		</Unit>
+		<Unit filename="D:/car_3/car_project1/modules/Src/led.c">
 			<Option target="car_project1.elf"/>
 		</Unit>
 		<Unit filename="D:/car_3/car_project1/modules/Src/motor.c">

@@ -80,4 +80,5 @@ CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj: \
  D:\car_3\car_project1\modules\Inc/motor.h \
  D:\car_3\car_project1\modules\Inc/oled.h \
  D:\car_3\car_project1\modules\Inc/SR04.h \
- D:\car_3\car_project1\modules\Inc/music.h
+ D:\car_3\car_project1\modules\Inc/music.h \
+ D:\car_3\car_project1\modules\Inc/led.h

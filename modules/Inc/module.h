@@ -12,5 +12,6 @@
 #include "pid.h"
 #include "SR04.h"
 #include "music.h"
+#include "led.h"
 
 #endif //CAR_PROJECT1_MODULE_H

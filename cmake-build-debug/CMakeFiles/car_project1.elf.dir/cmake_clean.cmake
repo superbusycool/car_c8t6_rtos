@@ -88,6 +88,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj.d"
   "CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj"
   "CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj.d"
+  "CMakeFiles/car_project1.elf.dir/modules/Src/led.c.obj"
+  "CMakeFiles/car_project1.elf.dir/modules/Src/led.c.obj.d"
   "CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj"
   "CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj.d"
   "CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj"

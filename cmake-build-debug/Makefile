@@ -1192,6 +1192,30 @@ modules/Src/key.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\car_project1.elf.dir\build.make CMakeFiles/car_project1.elf.dir/modules/Src/key.c.s
 .PHONY : modules/Src/key.c.s
 
+modules/Src/led.obj: modules/Src/led.c.obj
+.PHONY : modules/Src/led.obj
+
+# target to build an object file
+modules/Src/led.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\car_project1.elf.dir\build.make CMakeFiles/car_project1.elf.dir/modules/Src/led.c.obj
+.PHONY : modules/Src/led.c.obj
+
+modules/Src/led.i: modules/Src/led.c.i
+.PHONY : modules/Src/led.i
+
+# target to preprocess a source file
+modules/Src/led.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\car_project1.elf.dir\build.make CMakeFiles/car_project1.elf.dir/modules/Src/led.c.i
+.PHONY : modules/Src/led.c.i
+
+modules/Src/led.s: modules/Src/led.c.s
+.PHONY : modules/Src/led.s
+
+# target to generate assembly for a file
+modules/Src/led.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\car_project1.elf.dir\build.make CMakeFiles/car_project1.elf.dir/modules/Src/led.c.s
+.PHONY : modules/Src/led.c.s
+
 modules/Src/motor.obj: modules/Src/motor.c.obj
 .PHONY : modules/Src/motor.obj
 
@@ -1430,6 +1454,9 @@ help:
 	@echo ... modules/Src/key.obj
 	@echo ... modules/Src/key.i
 	@echo ... modules/Src/key.s
+	@echo ... modules/Src/led.obj
+	@echo ... modules/Src/led.i
+	@echo ... modules/Src/led.s
 	@echo ... modules/Src/motor.obj
 	@echo ... modules/Src/motor.i
 	@echo ... modules/Src/motor.s

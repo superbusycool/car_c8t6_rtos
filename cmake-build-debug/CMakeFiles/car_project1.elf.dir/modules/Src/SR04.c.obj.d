@@ -70,4 +70,5 @@ CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj: \
  D:\car_3\car_project1\modules\Inc/oled.h \
  D:\car_3\car_project1\modules\Inc/SR04.h \
  D:\car_3\car_project1\modules\Inc/music.h \
- D:\car_3\car_project1\Core\Inc/tim.h
+ D:\car_3\car_project1\Core\Inc/tim.h \
+ D:\car_3\car_project1\modules\Inc/led.h

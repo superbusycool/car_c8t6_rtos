@@ -140,20 +140,21 @@ static uint16_t distance;/*测距距离*/
 __weak void Start_cmd(void const * argument)
 {
   /* USER CODE BEGIN Start_cmd */
-    OLED_ShowString(1,1,"question:");
-    OLED_ShowString(3,1,"pwm:");
 
   /* Infinite loop */
   for(;;)
   {
 
-      Motor_SetLQSpeed(-90);
-      Motor_SetRQSpeed(-90);
-      Motor_SetRHSpeed(-90);
-      Motor_SetLHSpeed(-90);
-      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 90); //LH_F
-      __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 0);//LH_B
+//      Motor_SetLQSpeed(-90);
+//      Motor_SetRQSpeed(-90);
+//      Motor_SetRHSpeed(-90);
+//      Motor_SetLHSpeed(-90);
+//      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 90); //LH_F
+//      __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 0);//LH_B
 
+      /* 开机播放一段旋律 (软件PWM, 阻塞播出后再进入主循环) */
+//      Music_Play(Spirited_Away, SPIRITED_AWAY_LEN, 1);
+      Battery_Alarming();
 
     osDelay(1);
   }
@@ -173,8 +174,7 @@ __weak void Start_chassis(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-      /* 开机播放一段旋律 (软件PWM, 阻塞播出后再进入主循环) */
-      Music_Play(Spirited_Away, SPIRITED_AWAY_LEN, 1);
+
     osDelay(1);
   }
   /* USER CODE END Start_chassis */
@@ -202,6 +202,13 @@ __weak void Start_sensor(void const * argument)
       Key_Update();
       OLED_ShowSignedNum(1,1,Key1.debounce_counter,1);
       OLED_ShowSignedNum(2,1,distance,2);
+
+//      Motor_SetLQSpeed(-90);
+//      Motor_SetRQSpeed(-90);
+//      Motor_SetRHSpeed(-90);
+//      Motor_SetLHSpeed(-90);
+//      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 90); //LH_F
+//      __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 0);//LH_B
 
 
     osDelay(1);

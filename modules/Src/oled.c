@@ -228,16 +228,17 @@ void OLED_ShowSignedNum(uint8_t Line, uint8_t Column, int32_t Number, uint8_t Le
 {
     uint8_t i;
     uint32_t Number1;
-    if (Number >= 0)
-    {
-        OLED_ShowChar(Line, Column, '+');
-        Number1 = Number;
-    }
-    else
-    {
-        OLED_ShowChar(Line, Column, '-');
-        Number1 = -Number;
-    }
+//    if (Number >= 0)
+//    {
+//        OLED_ShowChar(Line, Column, '+');
+//        Number1 = Number;
+//    }
+//    else
+//    {
+//        OLED_ShowChar(Line, Column, '-');
+//        Number1 = -Number;
+//    }
+    Number1 =  Number;
     for (i = 0; i < Length; i++)
     {
         OLED_ShowChar(Line, Column + i + 1, Number1 / OLED_Pow(10, Length - i - 1) % 10 + '0');
