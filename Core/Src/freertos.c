@@ -142,12 +142,12 @@ __weak void Start_cmd(void const * argument)
   for(;;)
   {
 
-//      Motor_SetLQSpeed(-90);
-//      Motor_SetRQSpeed(-90);
-//      Motor_SetRHSpeed(-90);
-//      Motor_SetLHSpeed(-90);
-//      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 90); //LH_F
-//      __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 0);//LH_B
+      Motor_SetLQSpeed(-90);
+      Motor_SetRQSpeed(-90);
+      Motor_SetRHSpeed(-90);
+      Motor_SetLHSpeed(-90);
+      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 90); //LH_F
+      __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 0);//LH_B
 
 
     osDelay(1);
@@ -168,6 +168,8 @@ __weak void Start_chassis(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+      /* 开机播放一段旋律 (软件PWM, 阻塞播出后再进入主循环) */
+      Music_Play(Spirited_Away, SPIRITED_AWAY_LEN, 2);
     osDelay(1);
   }
   /* USER CODE END Start_chassis */
@@ -191,7 +193,7 @@ __weak void Start_sensor(void const * argument)
   for(;;)
   {
       Key_Update();
-      OLED_ShowSignedNum(2,5,Key1.debounce_counter,1);
+      OLED_ShowSignedNum(2,5,Key1.debounce_counter,2);
 
 
     osDelay(1);

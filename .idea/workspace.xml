@@ -20,7 +20,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b6e57c6-704c-4822-aa95-17ef737364c1" name="更改" comment="" />
+    <list default="true" id="8b6e57c6-704c-4822-aa95-17ef737364c1" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Inc/main.h" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Inc/main.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/adc.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/adc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/freertos.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/gpio.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/gpio.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/tim.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/tim.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_project1.ioc" beforeDir="false" afterPath="$PROJECT_DIR$/car_project1.ioc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/Inc/music.h" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Inc/music.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/Src/music.c" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Src/music.c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +40,9 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
@@ -52,6 +65,7 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "D:/car_3/car_project1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -63,9 +77,9 @@
   }
 }]]></component>
   <component name="RunManager" selected="OpenOCD 下载并运行.car_project1.elf">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="car_project1.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="car_project1" TARGET_NAME="car_project1.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="car_project1" RUN_TARGET_NAME="car_project1.elf">
@@ -98,6 +112,7 @@
       <workItem from="1781925813937" duration="8178000" />
       <workItem from="1781939593392" duration="8610000" />
       <workItem from="1781959354310" duration="10686000" />
+      <workItem from="1782044172035" duration="747000" />
     </task>
     <servers />
   </component>

@@ -1,10 +1,15 @@
 //
 // Created by SuperChen on 2026/6/20.
+// 软件PWM版本 — 使用DWT微秒延时 + GPIO直接翻转, 无需TIM
 //
 
 #include "music.h"
+#include "main.h"          // BUZZER_Pin, BUZZER_GPIO_Port, SystemCoreClock
+#include "cmsis_os.h"      // osDelay
+#include "core_cm3.h"      // DWT, CoreDebug
 
-uint16_t midiFreq_table[] =
+/* ───────────────────── 频率表 (MIDI索引 → Hz) ───────────────────── */
+static const uint16_t midiFreq_table[] =
         {
                 8,
                 9,
@@ -136,7 +141,7 @@ uint16_t midiFreq_table[] =
                 12544
         };
 
-
+/* ───────────────────── 千与千寻 · 主题曲数据 ───────────────────── */
 const midiType Spirited_Away[] =
         {
                 0x90,0x59,0x14A0,
@@ -640,35 +645,71 @@ const midiType Spirited_Away[] =
 
         };
 
+const uint16_t SPIRITED_AWAY_LEN = sizeof(Spirited_Away) / sizeof(midiType);
 
-static int16_t cnt = 0;
-static uint16_t noteIdx = 1;
-
-void play(midiType* mid)
+/* ───────────────────── 微秒延时 (DWT 周期计数器) ───────────────────── */
+static void delay_us(uint32_t us)
 {
+    uint32_t start = DWT->CYCCNT;
+    uint32_t ticks = us * (SystemCoreClock / 1000000u);
+    while ((DWT->CYCCNT - start) < ticks);
+}
 
-    cnt++;
+/* ───────────────────── 软件PWM播放 ───────────────────── */
+/**
+ * @brief  在任务中阻塞播放乐曲
+ * @param  mid      歌曲数组
+ * @param  len      总事件数
+ * @param  tick_ms  每个 tick 对应的毫秒数 (推荐 2)
+ *
+ * @note   onoff=0x90 → GPIO 翻转输出对应频率的方波 (软件PWM)
+ *         onoff=0x80 → 拉低引脚, 静音等待
+ *         从索引 1 开始播放, 与原始 play() 行为一致
+ */
+void Music_Play(const midiType *mid, uint16_t len, uint32_t tick_ms)
+{
+    /* 开启 DWT 周期计数器 (首次调用时) */
+    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+    DWT->CYCCNT = 0;
+    DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 
-    if (cnt >= mid[noteIdx].tick)
+    /* 从索引 1 开始 (与原 play 函数一致, 索引 0 为前奏头) */
+    for (uint16_t i = 1; i < len; i++)
     {
-        switch (mid[noteIdx].onoff)
+        uint32_t dur_ms = (uint32_t)mid[i].tick * tick_ms;
+
+        if (mid[i].onoff == 0x90)
         {
-            case 0x80:
+            /* ── 响音: 软件产生方波 ── */
+            uint16_t freq = midiFreq_table[mid[i].freq];
+            if (freq > 0)
             {
-                HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1);
-                break;
+                uint32_t half_us = 500000u / freq;
+
+                /* 忙等翻转 GPIO, 持续 dur_ms 毫秒 */
+                uint32_t t_start = HAL_GetTick();
+                while ((HAL_GetTick() - t_start) < dur_ms)
+                {
+                    HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
+                    delay_us(half_us);
+                    HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+                    delay_us(half_us);
+                }
             }
-            case 0x90:
+            else
             {
-                __HAL_TIM_SET_AUTORELOAD(&htim2, 1000000u / midiFreq_table[mid[noteIdx].freq]);
-                __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 500000u / midiFreq_table[mid[noteIdx].freq]);
-                HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-                break;
+                /* 频率为 0 → 当作休止 */
+                osDelay(dur_ms);
             }
-            default:
-                break;
         }
-        noteIdx++;
-        cnt = 0;
+        else
+        {
+            /* ── 休止: 拉低引脚, 让出 CPU ── */
+            HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+            osDelay(dur_ms);
+        }
     }
+
+    /* 播放完毕, 拉低引脚 */
+    HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
 }
