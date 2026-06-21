@@ -1,12 +1,12 @@
 //
 // Created by SuperChen on 2026/6/20.
-// 软件PWM版本 — 使用DWT微秒延时 + GPIO直接翻转, 无需TIM
+// 软件PWM版本 — 使用 DWT 微秒延时 + GPIO 直接翻转, 无需 TIM
 //
 
 #include "music.h"
-#include "main.h"          // BUZZER_Pin, BUZZER_GPIO_Port, SystemCoreClock
+#include "main.h"          // BUZZER_Pin, BUZZER_GPIO_Port
+#include "dwt.h"           // dwt_delay_us (main.c 已调用 dwt_init)
 #include "cmsis_os.h"      // osDelay
-#include "core_cm3.h"      // DWT, CoreDebug
 
 /* ───────────────────── 频率表 (MIDI索引 → Hz) ───────────────────── */
 static const uint16_t midiFreq_table[] =
@@ -647,69 +647,57 @@ const midiType Spirited_Away[] =
 
 const uint16_t SPIRITED_AWAY_LEN = sizeof(Spirited_Away) / sizeof(midiType);
 
-/* ───────────────────── 微秒延时 (DWT 周期计数器) ───────────────────── */
-static void delay_us(uint32_t us)
-{
-    uint32_t start = DWT->CYCCNT;
-    uint32_t ticks = us * (SystemCoreClock / 1000000u);
-    while ((DWT->CYCCNT - start) < ticks);
-}
-
-/* ───────────────────── 软件PWM播放 ───────────────────── */
+/* ───────────────────── 软件PWM播放 (legato 连奏) ───────────────────── */
 /**
  * @brief  在任务中阻塞播放乐曲
  * @param  mid      歌曲数组
  * @param  len      总事件数
- * @param  tick_ms  每个 tick 对应的毫秒数 (推荐 2)
+ * @param  tick_ms  每个 tick 对应的毫秒数 (推荐 1~2)
  *
- * @note   onoff=0x90 → GPIO 翻转输出对应频率的方波 (软件PWM)
- *         onoff=0x80 → 拉低引脚, 静音等待
- *         从索引 1 开始播放, 与原始 play() 行为一致
+ * @note   0x90 = 切换频率 (连续播放, 不中断)
+ *         0x80 = 保持当前频率继续播放 (只等时间, 不关声音)
+ *         首个事件如果是 0x80 且从未收到过 0x90, 则是前奏静音
+ *
+ *         原版硬件 PWM 代码中 HAL_TIM_PWM_Stop 误用了 htim3 (电机),
+ *         导致蜂鸣器从来不会被关停, 旋律以 legato 方式连续播出.
+ *         此处软件实现复刻该行为: 声音持续, 仅在 0x90 时切换频率.
  */
 void Music_Play(const midiType *mid, uint16_t len, uint32_t tick_ms)
 {
-    /* 开启 DWT 周期计数器 (首次调用时) */
-    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-    DWT->CYCCNT = 0;
-    DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+    uint32_t cur_half_us = 0;          /* 0 = 静音; >0 = 当前方波半周期(us) */
 
-    /* 从索引 1 开始 (与原 play 函数一致, 索引 0 为前奏头) */
     for (uint16_t i = 1; i < len; i++)
     {
         uint32_t dur_ms = (uint32_t)mid[i].tick * tick_ms;
 
         if (mid[i].onoff == 0x90)
         {
-            /* ── 响音: 软件产生方波 ── */
+            /* 切换音符 → 更新频率, 声音持续不中断 */
             uint16_t freq = midiFreq_table[mid[i].freq];
-            if (freq > 0)
-            {
-                uint32_t half_us = 500000u / freq;
+            cur_half_us = (freq > 0) ? (500000u / freq) : 0;
+        }
+        /* else 0x80: 保持当前频率, 继续播放 */
 
-                /* 忙等翻转 GPIO, 持续 dur_ms 毫秒 */
-                uint32_t t_start = HAL_GetTick();
-                while ((HAL_GetTick() - t_start) < dur_ms)
-                {
-                    HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
-                    delay_us(half_us);
-                    HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
-                    delay_us(half_us);
-                }
-            }
-            else
+        if (cur_half_us > 0)
+        {
+            /* ── 软件产生方波, 持续 dur_ms ── */
+            uint32_t t_start = HAL_GetTick();
+            while ((HAL_GetTick() - t_start) < dur_ms)
             {
-                /* 频率为 0 → 当作休止 */
-                osDelay(dur_ms);
+                HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
+                dwt_delay_us(cur_half_us);
+                HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+                dwt_delay_us(cur_half_us);
             }
         }
         else
         {
-            /* ── 休止: 拉低引脚, 让出 CPU ── */
+            /* ── 静音, 让出 CPU ── */
             HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
             osDelay(dur_ms);
         }
     }
 
-    /* 播放完毕, 拉低引脚 */
+    /* 播完拉低 */
     HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
 }

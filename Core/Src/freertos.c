@@ -126,6 +126,11 @@ void MX_FREERTOS_Init(void) {
 }
 
 /* USER CODE BEGIN Header_Start_cmd */
+/***********value define*************************/
+static uint16_t ADC_Value[5];/*循迹模块adc采样*/
+static uint16_t distance;/*测距距离*/
+/************************************/
+
 /**
   * @brief  Function implementing the cmd_task thread.
   * @param  argument: Not used
@@ -169,7 +174,7 @@ __weak void Start_chassis(void const * argument)
   for(;;)
   {
       /* 开机播放一段旋律 (软件PWM, 阻塞播出后再进入主循环) */
-      Music_Play(Spirited_Away, SPIRITED_AWAY_LEN, 2);
+      Music_Play(Spirited_Away, SPIRITED_AWAY_LEN, 1);
     osDelay(1);
   }
   /* USER CODE END Start_chassis */
@@ -192,8 +197,11 @@ __weak void Start_sensor(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+      /* ---- SR04 超声波测距 ---- */
+      distance = SR04_Measure();
       Key_Update();
-      OLED_ShowSignedNum(2,5,Key1.debounce_counter,2);
+      OLED_ShowSignedNum(1,1,Key1.debounce_counter,1);
+      OLED_ShowSignedNum(2,1,distance,2);
 
 
     osDelay(1);
