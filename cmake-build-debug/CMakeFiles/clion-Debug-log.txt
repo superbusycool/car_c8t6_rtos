@@ -14,6 +14,6 @@
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 -- Minimal optimization, debug info included
--- Configuring done (6.7s)
--- Generating done (0.2s)
+-- Configuring done (8.0s)
+-- Generating done (0.3s)
 -- Build files have been written to: D:/car_3/car_project1/cmake-build-debug

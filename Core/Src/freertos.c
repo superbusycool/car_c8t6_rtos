@@ -154,7 +154,7 @@ __weak void Start_cmd(void const * argument)
 
       /* 开机播放一段旋律 (软件PWM, 阻塞播出后再进入主循环) */
 //      Music_Play(Spirited_Away, SPIRITED_AWAY_LEN, 1);
-      Battery_Alarming();
+//      Battery_Alarming();
 
     osDelay(1);
   }
@@ -199,6 +199,8 @@ __weak void Start_sensor(void const * argument)
   {
       /* ---- SR04 超声波测距 ---- */
       distance = SR04_Measure();
+      /*************寻迹ADC采样****************/
+      HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Value,5);
       Key_Update();
       OLED_ShowSignedNum(1,1,Key1.debounce_counter,1);
       OLED_ShowSignedNum(2,1,distance,2);
