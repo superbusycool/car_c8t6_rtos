@@ -129,6 +129,23 @@ void MX_FREERTOS_Init(void) {
 /***********value define*************************/
 static uint16_t ADC_Value[5];/*循迹模块adc采样*/
 static uint16_t distance;/*测距距离*/
+static uint16_t Basic_vel;
+
+static  pid_obj_t *CarTurn_pid;  // 转向PID控制器
+static pid_config_t CarTurn_pid_config = INIT_PID_CONFIG(CarTurn_KP_V, CarTurn_KI_V, CarTurn_KD_V,CarTurn_INTEGRAL_V, CarTurn_MAX_V,
+                                                         (PID_Trapezoid_Intergral | PID_Integral_Limit | PID_Derivative_On_Measurement));
+static uint16_t detect_value_current;/*由寻迹模块得到的权重*/
+static uint16_t target_value;/*设置的目标值*/
+
+void Detection_val_calc(uint16_t adc_value[5]);/*计算寻迹权重*/
+
+#define ADC_HRESHOLD_VALUE_MID 300  //判断是否寻到线的ADC阈值
+#define ADC_HRESHOLD_VALUE_OUT2 300  //判断是否寻到线的ADC阈值
+#define ADC_HRESHOLD_VALUE_OUT1 300  //判断是否寻到线的ADC阈值
+
+#define ADC_OUT2_VALUE  30   //对称最外侧的两个光电管寻到黑线
+#define ADC_OUT1_VALUE  15   //对称次外侧的两个光电管寻到黑线
+#define ADC_MID_VALUE  0     //中间寻到黑线
 /************************************/
 
 /**
@@ -171,17 +188,30 @@ __weak void Start_cmd(void const * argument)
 __weak void Start_chassis(void const * argument)
 {
   /* USER CODE BEGIN Start_chassis */
+    CarTurn_pid = pid_register(&CarTurn_pid_config);
+    target_value = 0;
+    Basic_vel = 30;
+    Key_Init();
+    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 999);//开启循迹模块
   /* Infinite loop */
   for(;;)
   {
-
+      Detection_val_calc(ADC_Value);
+      pid_calculate(CarTurn_pid,detect_value_current,target_value);
+      Car_direction_change(Basic_vel,(uint16_t )CarTurn_pid->Output);
+//      Motor_SetLQSpeed(-90);
+//      Motor_SetRQSpeed(-90);
+//      Motor_SetRHSpeed(-90);
+//      Motor_SetLHSpeed(-90);
+//      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 90); //LH_F
+//      __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 0);//LH_B
     osDelay(1);
   }
   /* USER CODE END Start_chassis */
 }
 
 /* USER CODE BEGIN Header_Start_sensor */
-static uint16_t ADC_Value[5];
+
 /**
 * @brief Function implementing the sensor thread.
 * @param argument: Not used
@@ -191,7 +221,6 @@ static uint16_t ADC_Value[5];
 __weak void Start_sensor(void const * argument)
 {
   /* USER CODE BEGIN Start_sensor */
-    HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Value,5);
     Key_Init();
     __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 999);//开启循迹模块
   /* Infinite loop */
@@ -205,14 +234,6 @@ __weak void Start_sensor(void const * argument)
       OLED_ShowSignedNum(1,1,Key1.debounce_counter,1);
       OLED_ShowSignedNum(2,1,distance,2);
 
-//      Motor_SetLQSpeed(-90);
-//      Motor_SetRQSpeed(-90);
-//      Motor_SetRHSpeed(-90);
-//      Motor_SetLHSpeed(-90);
-//      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 90); //LH_F
-//      __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 0);//LH_B
-
-
     osDelay(1);
   }
   /* USER CODE END Start_sensor */
@@ -220,6 +241,23 @@ __weak void Start_sensor(void const * argument)
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
+void Detection_val_calc(uint16_t adc_value[5]){
 
+    if(adc_value[3] < ADC_HRESHOLD_VALUE_MID){/*中间*/
+        detect_value_current = ADC_MID_VALUE;
+    }
+    if(adc_value[4] < ADC_HRESHOLD_VALUE_OUT1){/*次外侧左*/
+        detect_value_current = -ADC_OUT1_VALUE;
+    }
+    if(adc_value[1] < ADC_HRESHOLD_VALUE_OUT1){/*次外侧右*/
+        detect_value_current = ADC_OUT1_VALUE;
+    }
+    if(adc_value[2] < ADC_HRESHOLD_VALUE_OUT2){/*最外侧左*/
+        detect_value_current = -ADC_OUT2_VALUE;
+    }
+    if(adc_value[0] < ADC_HRESHOLD_VALUE_OUT2){/*最外侧右*/
+        detect_value_current = ADC_OUT2_VALUE;
+    }
+}
 /* USER CODE END Application */
 

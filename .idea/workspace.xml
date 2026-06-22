@@ -22,6 +22,14 @@
   <component name="ChangeListManager">
     <list default="true" id="8b6e57c6-704c-4822-aa95-17ef737364c1" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/freertos.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.elf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.hex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/Inc/config.h" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Inc/config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/Inc/motor.h" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Inc/motor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/Src/motor.c" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Src/motor.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +113,8 @@
       <workItem from="1782044172035" duration="960000" />
       <workItem from="1782046835952" duration="72000" />
       <workItem from="1782047504091" duration="3390000" />
+      <workItem from="1782137325278" duration="500000" />
+      <workItem from="1782138639283" duration="2828000" />
     </task>
     <servers />
   </component>

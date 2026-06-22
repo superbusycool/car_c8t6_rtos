@@ -18,5 +18,6 @@ void Motor_SetRHSpeed(int speed);
 void Motor_SetLeftSpeed(int Motor1Speed);
 
 void Motor_SetRightSpeed(int Motor2Speed);
-
+/*关于转向*/
+void Car_direction_change(uint16_t basic_vel,uint16_t vel_delta);
 #endif //CAR_PROJECT1_RZ7899_H

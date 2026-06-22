@@ -22,9 +22,9 @@
 
 #define CarTurn_KP_V         2
 #define CarTurn_KI_V         0
-#define CarTurn_KD_V         0.002f
-#define CarTurn_INTEGRAL_V   0
-#define CarTurn_MAX_V        3
+#define CarTurn_KD_V         0
+#define CarTurn_INTEGRAL_V   10
+#define CarTurn_MAX_V        30
 
 #define CarSelfTurn_KP_A         0.5
 #define CarSelfTurn_KI_A         0

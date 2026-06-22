@@ -3,9 +3,6 @@
 #include "motor.h"
 #include "tim.h"
 
-//这里电机pwm占空比分母最大为100
-//即传入的电机速度值最大为100
-
 //左前,方向正确
 void Motor_SetLQSpeed(int speed)
 {
@@ -157,4 +154,9 @@ void Motor_SetRightSpeed(int Motor2Speed)
     Motor_SetRQSpeed(Motor2Speed);
     Motor_SetRHSpeed(Motor2Speed);
 
+}
+
+void Car_direction_change(uint16_t basic_vel,uint16_t vel_delta){/*vel_delta由pid计算得出*/
+    Motor_SetLeftSpeed(basic_vel + vel_delta);
+    Motor_SetRightSpeed(basic_vel - vel_delta);
 }
