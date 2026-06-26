@@ -29,7 +29,7 @@ void Key_Update(void)
     // 更新Key1状态
     if (HAL_GPIO_ReadPin(Key1.GPIO_Port, Key1.GPIO_Pin) == GPIO_PIN_RESET) {
         // 按键按下
-        osDelay(200);
+//        osDelay(10);
         if(HAL_GPIO_ReadPin(Key1.GPIO_Port, Key1.GPIO_Pin) == GPIO_PIN_RESET){
             if (Key1.debounce_counter < 5) {
                 Key1.debounce_counter++;

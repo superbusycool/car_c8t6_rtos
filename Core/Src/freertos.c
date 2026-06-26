@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
+#include <stdbool.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "main.h"
@@ -129,23 +130,29 @@ void MX_FREERTOS_Init(void) {
 /***********value define*************************/
 static uint16_t ADC_Value[5];/*循迹模块adc采样*/
 static uint16_t distance;/*测距距离*/
-static uint16_t Basic_vel;
+static float Basic_vel;
 
 static  pid_obj_t *CarTurn_pid;  // 转向PID控制器
 static pid_config_t CarTurn_pid_config = INIT_PID_CONFIG(CarTurn_KP_V, CarTurn_KI_V, CarTurn_KD_V,CarTurn_INTEGRAL_V, CarTurn_MAX_V,
                                                          (PID_Trapezoid_Intergral | PID_Integral_Limit | PID_Derivative_On_Measurement));
-static uint16_t detect_value_current;/*由寻迹模块得到的权重*/
-static uint16_t target_value;/*设置的目标值*/
+static float detect_current[5];/*每路是否识别到黑线*/
+bool detect_detect_lost;
+static float detect_value_current;/*由寻迹模块得到的权重*/
+static float target_value;/*设置的目标值*/
 
-void Detection_val_calc(uint16_t adc_value[5]);/*计算寻迹权重*/
+void Detection_val_calc(uint16_t* adc_value);/*计算寻迹权重*/
 
-#define ADC_HRESHOLD_VALUE_MID 300  //判断是否寻到线的ADC阈值
-#define ADC_HRESHOLD_VALUE_OUT2 300  //判断是否寻到线的ADC阈值
-#define ADC_HRESHOLD_VALUE_OUT1 300  //判断是否寻到线的ADC阈值
+/*权重从左到右 : -4 -1 0 1 4*/
+#define ADC_HRESHOLD_VALUE_MID 1620  //判断是否寻到线的ADC阈值
+#define ADC_HRESHOLD_VALUE_OUT2 1620  //判断是否寻到线的ADC阈值
+#define ADC_HRESHOLD_VALUE_OUT1 1620  //判断是否寻到线的ADC阈值
 
-#define ADC_OUT2_VALUE  30   //对称最外侧的两个光电管寻到黑线
-#define ADC_OUT1_VALUE  15   //对称次外侧的两个光电管寻到黑线
-#define ADC_MID_VALUE  0     //中间寻到黑线
+#define ADC_OUT2_VALUE  6.0f   //对称最外侧的两个光电管寻到黑线
+#define ADC_OUT1_VALUE  4.0f   //对称次外侧的两个光电管寻到黑线
+#define ADC_MID_VALUE  0.0f     //中间寻到黑
+uint16_t ADC_NORMAL_VALUE = ADC_OUT2_VALUE+ADC_OUT1_VALUE;
+
+bool move_start_flag;/*开始循迹标志位*/
 /************************************/
 
 /**
@@ -162,16 +169,13 @@ __weak void Start_cmd(void const * argument)
   for(;;)
   {
 
-//      Motor_SetLQSpeed(-90);
-//      Motor_SetRQSpeed(-90);
-//      Motor_SetRHSpeed(-90);
-//      Motor_SetLHSpeed(-90);
-//      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 90); //LH_F
-//      __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 0);//LH_B
-
       /* 开机播放一段旋律 (软件PWM, 阻塞播出后再进入主循环) */
-//      Music_Play(Spirited_Away, SPIRITED_AWAY_LEN, 1);
+      if(move_start_flag == 1){
+//          Music_Play(Spirited_Away, SPIRITED_AWAY_LEN, 1);
+      }
 //      Battery_Alarming();
+//      LED_R();
+//      LED_L();
 
     osDelay(1);
   }
@@ -189,22 +193,31 @@ __weak void Start_chassis(void const * argument)
 {
   /* USER CODE BEGIN Start_chassis */
     CarTurn_pid = pid_register(&CarTurn_pid_config);
-    target_value = 0;
-    Basic_vel = 30;
+    target_value = 0.0f;
+    Basic_vel = 45;
     Key_Init();
-    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 999);//开启循迹模块
+    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 60);//开启循迹模块
   /* Infinite loop */
   for(;;)
   {
-      Detection_val_calc(ADC_Value);
-      pid_calculate(CarTurn_pid,detect_value_current,target_value);
-      Car_direction_change(Basic_vel,(uint16_t )CarTurn_pid->Output);
-//      Motor_SetLQSpeed(-90);
-//      Motor_SetRQSpeed(-90);
-//      Motor_SetRHSpeed(-90);
-//      Motor_SetLHSpeed(-90);
-//      __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_2, 90); //LH_F
-//      __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_4, 0);//LH_B
+      if(Key1.state == KEY_PRESSED && move_start_flag == 0){/*开始循迹*/
+          move_start_flag = 1;
+
+      }
+      if(move_start_flag == 1){
+          pid_calculate(CarTurn_pid,detect_value_current,target_value);
+          Car_direction_change(Basic_vel,CarTurn_pid->Output);
+      }
+//      if(move_start_flag == 1 && detect_detect_lost == 1){
+////          Motor_SetLQSpeed(-35);
+////          Motor_SetLHSpeed(-35);
+////          Motor_SetRQSpeed(-35);
+////          Motor_SetRQSpeed(-35);
+//          Car_move(-40);
+//      }
+
+
+
     osDelay(1);
   }
   /* USER CODE END Start_chassis */
@@ -222,7 +235,7 @@ __weak void Start_sensor(void const * argument)
 {
   /* USER CODE BEGIN Start_sensor */
     Key_Init();
-    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 999);//开启循迹模块
+    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 0);//开启循迹模块
   /* Infinite loop */
   for(;;)
   {
@@ -230,9 +243,15 @@ __weak void Start_sensor(void const * argument)
       distance = SR04_Measure();
       /*************寻迹ADC采样****************/
       HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Value,5);
+      Detection_val_calc(ADC_Value);
       Key_Update();
       OLED_ShowSignedNum(1,1,Key1.debounce_counter,1);
       OLED_ShowSignedNum(2,1,distance,2);
+      OLED_ShowSignedNum(3,1,ADC_Value[2],4);
+      OLED_ShowSignedNum(3,6,ADC_Value[4],4);
+      OLED_ShowSignedNum(3,11,ADC_Value[3],4);
+      OLED_ShowSignedNum(4,1,ADC_Value[1],4);
+      OLED_ShowSignedNum(4,6,ADC_Value[0],4);
 
     osDelay(1);
   }
@@ -241,23 +260,31 @@ __weak void Start_sensor(void const * argument)
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
-void Detection_val_calc(uint16_t adc_value[5]){
+void Detection_val_calc(uint16_t * adc_value){
 
-    if(adc_value[3] < ADC_HRESHOLD_VALUE_MID){/*中间*/
-        detect_value_current = ADC_MID_VALUE;
+    if(adc_value[3] > ADC_HRESHOLD_VALUE_MID){/*中间*/
+        detect_current[3] = ADC_MID_VALUE;
+    }else{detect_current[3] = 0;}
+    if(adc_value[4] > ADC_HRESHOLD_VALUE_OUT1){/*次外侧左*/
+        detect_current[4] = -ADC_OUT1_VALUE;
+    }else{detect_current[4] = 0;}
+    if(adc_value[2] > ADC_HRESHOLD_VALUE_OUT2){/*最外侧左*/
+        detect_current[2] = -ADC_OUT2_VALUE;
+    }else{detect_current[2] = 0;}
+    if(adc_value[1] > ADC_HRESHOLD_VALUE_OUT1){/*次外侧右*/
+        detect_current[1] = ADC_OUT1_VALUE;
+    }else{detect_current[1] = 0;}
+    if(adc_value[0] > ADC_HRESHOLD_VALUE_OUT2){/*最外侧右*/
+        detect_current[0] = ADC_OUT2_VALUE;
+    }else{detect_current[0] = 0;}
+
+    if(detect_current[0]==0&&detect_current[1]==0&&detect_current[2]==0&&detect_current[3]==0&&detect_current[4]==0){
+        detect_detect_lost = 1;
+    }else{
+        detect_detect_lost = 0;
     }
-    if(adc_value[4] < ADC_HRESHOLD_VALUE_OUT1){/*次外侧左*/
-        detect_value_current = -ADC_OUT1_VALUE;
-    }
-    if(adc_value[1] < ADC_HRESHOLD_VALUE_OUT1){/*次外侧右*/
-        detect_value_current = ADC_OUT1_VALUE;
-    }
-    if(adc_value[2] < ADC_HRESHOLD_VALUE_OUT2){/*最外侧左*/
-        detect_value_current = -ADC_OUT2_VALUE;
-    }
-    if(adc_value[0] < ADC_HRESHOLD_VALUE_OUT2){/*最外侧右*/
-        detect_value_current = ADC_OUT2_VALUE;
-    }
+    detect_value_current = (detect_current[0]+detect_current[1]+detect_current[2]+detect_current[3]+detect_current[4])/ADC_NORMAL_VALUE;
+//    detect_value_current = (detect_current[0]+detect_current[1]+detect_current[2]+detect_current[3]+detect_current[4]);
 }
 /* USER CODE END Application */
 

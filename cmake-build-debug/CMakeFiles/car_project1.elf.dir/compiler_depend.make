@@ -82,6 +82,7 @@ CMakeFiles/car_project1.elf.dir/Core/Src/dma.c.obj: D:/car_3/car_project1/Core/S
   D:/car_3/car_project1/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 
 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj: D:/car_3/car_project1/Core/Src/freertos.c \
+  D:/stm32environment/arm/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h \
   D:/car_3/car_project1/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
   D:/stm32environment/arm/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h \
   D:/stm32environment/arm/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
@@ -1874,7 +1875,8 @@ CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj: D:/car_3/car_project1/m
   D:/car_3/car_project1/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
   D:/car_3/car_project1/Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
   D:/car_3/car_project1/Core/Inc/tim.h \
-  D:/car_3/car_project1/Core/Inc/main.h
+  D:/car_3/car_project1/Core/Inc/main.h \
+  D:/car_3/car_project1/modules/Inc/led.h
 
 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj: D:/car_3/car_project1/modules/Src/music.c \
   D:/car_3/car_project1/modules/Inc/music.h \
@@ -2064,6 +2066,8 @@ D:/car_3/car_project1/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 D:/stm32environment/arm/arm-none-eabi/include/sys/_intsup.h:
 
 D:/stm32environment/arm/arm-none-eabi/include/sys/_stdint.h:
+
+D:/stm32environment/arm/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h:
 
 D:/car_3/car_project1/Drivers/CMSIS/Include/cmsis_version.h:
 

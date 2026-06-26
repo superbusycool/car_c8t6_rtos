@@ -2,16 +2,16 @@
 
 #include "motor.h"
 #include "tim.h"
-
+#include "led.h"
 //左前,方向正确
 void Motor_SetLQSpeed(int speed)
 {
     int speed_real = -speed;
     if (speed_real < 0)
     {
-        if (speed_real < -999)
+        if (speed_real < -99)
         {
-            speed_real = -999;
+            speed_real = -99;
         }
         int pwm = -speed_real;
 
@@ -26,9 +26,9 @@ void Motor_SetLQSpeed(int speed)
     }
     else
     {
-        if(speed_real > 999)
+        if(speed_real > 99)
         {
-            speed_real = 999;
+            speed_real = 99;
         }
         int pwm = speed_real;
 
@@ -43,9 +43,9 @@ void Motor_SetLHSpeed(int speed)
     int speed_real = -speed;
     if (speed_real < 0)
     {
-        if (speed_real < -999)
+        if (speed_real < -99)
         {
-            speed_real = -999;
+            speed_real = -99;
         }
         int pwm = -speed_real;
 
@@ -60,9 +60,9 @@ void Motor_SetLHSpeed(int speed)
     }
     else
     {
-        if(speed_real > 999)
+        if(speed_real > 99)
         {
-            speed_real = 999;
+            speed_real = 99;
         }
         int pwm = speed_real;
 
@@ -78,9 +78,9 @@ void Motor_SetRQSpeed(int speed)
 
     if (speed_real < 0)
     {
-        if (speed_real < -999)
+        if (speed_real < -99)
         {
-            speed_real = -999;
+            speed_real = -99;
         }
         int pwm = -speed_real;
 
@@ -95,9 +95,9 @@ void Motor_SetRQSpeed(int speed)
     }
     else
     {
-        if(speed_real > 999)
+        if(speed_real > 99)
         {
-            speed_real = 999;
+            speed_real = 99;
         }
         int pwm = speed_real;
 
@@ -114,14 +114,14 @@ void Motor_SetRHSpeed(int speed)
 
     if (speed_real < 0)
     {
-        if (speed_real < -999)
+        if (speed_real < -99)
         {
-            speed_real = -999;
+            speed_real = -99;
         }
         int pwm = -speed_real;
 
-        __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_2, 0); //RH_F
-        __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, pwm);//RH_B
+        __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_2, pwm); //RH_F
+        __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 0);//RH_B
     }
     else if (speed_real == 0)
     {
@@ -131,14 +131,14 @@ void Motor_SetRHSpeed(int speed)
     }
     else
     {
-        if(speed_real > 999)
+        if(speed_real > 99)
         {
-            speed_real = 999;
+            speed_real = 99;
         }
         int pwm = speed_real;
 
-        __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_2, pwm);//RH_F
-        __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, 0);//RH_B
+        __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_2, 0);//RH_F
+        __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_1, pwm);//RH_B
 
     }
 }
@@ -156,7 +156,29 @@ void Motor_SetRightSpeed(int Motor2Speed)
 
 }
 
-void Car_direction_change(uint16_t basic_vel,uint16_t vel_delta){/*vel_delta由pid计算得出*/
-    Motor_SetLeftSpeed(basic_vel + vel_delta);
-    Motor_SetRightSpeed(basic_vel - vel_delta);
+void Car_direction_change(float basic_vel,float vel_delta){/*vel_delta由pid计算得出*/
+    if(vel_delta > 5){
+        HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(LED_L_GPIO_Port, LED_L_Pin, GPIO_PIN_RESET);
+
+    }
+    else if(vel_delta < -5){
+        HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(LED_L_GPIO_Port, LED_L_Pin, GPIO_PIN_SET);
+    }
+    else{
+        HAL_GPIO_WritePin(LED_L_GPIO_Port, LED_L_Pin, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, GPIO_PIN_RESET);
+    }
+    Motor_SetLQSpeed(basic_vel-vel_delta);
+    Motor_SetLHSpeed(basic_vel-vel_delta);
+    Motor_SetRQSpeed(basic_vel+vel_delta);
+    Motor_SetRHSpeed(basic_vel+vel_delta);
 }
+void Car_move(int16_t basic_vel){/*vel_delta由pid计算得出*/
+    Motor_SetLQSpeed(basic_vel);
+    Motor_SetLHSpeed(basic_vel);
+    Motor_SetRQSpeed(basic_vel);
+    Motor_SetRHSpeed(basic_vel);
+}
+
