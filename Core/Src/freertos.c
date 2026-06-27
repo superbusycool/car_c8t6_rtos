@@ -145,9 +145,9 @@ static float target_value;/*设置的目标值*/
 void Detection_val_calc(uint16_t* adc_value);/*计算寻迹权重*/
 
 /*权重从左到右 : -4 -1 0 1 4*/
-#define ADC_HRESHOLD_VALUE_MID 1620//1620  //判断是否寻到线的ADC阈值
-#define ADC_HRESHOLD_VALUE_OUT2 1620//1620  //判断是否寻到线的ADC阈值
-#define ADC_HRESHOLD_VALUE_OUT1 1620//1620  //判断是否寻到线的ADC阈值
+#define ADC_HRESHOLD_VALUE_MID 1600//1620  //判断是否寻到线的ADC阈值
+#define ADC_HRESHOLD_VALUE_OUT2 1600//1620  //判断是否寻到线的ADC阈值
+#define ADC_HRESHOLD_VALUE_OUT1 1600//1620  //判断是否寻到线的ADC阈值
 
 #define ADC_OUT2_VALUE  6.0f   //对称最外侧的两个光电管寻到黑线
 #define ADC_OUT1_VALUE  4.0f   //对称次外侧的两个光电管寻到黑线
@@ -155,6 +155,7 @@ void Detection_val_calc(uint16_t* adc_value);/*计算寻迹权重*/
 uint16_t ADC_NORMAL_VALUE = ADC_OUT2_VALUE+ADC_OUT1_VALUE;
 
 bool move_start_flag;/*开始循迹标志位*/
+static int move_stop_flag;/*开始循迹标志位*/
 /************************************/
 
 /**
@@ -196,7 +197,7 @@ __weak void Start_chassis(void const * argument)
   /* USER CODE BEGIN Start_chassis */
     CarTurn_pid = pid_register(&CarTurn_pid_config);
     target_value = 0.0f;
-    Basic_vel = 45;
+    Basic_vel = 55;
     Key_Init();
     __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 60);//开启循迹模块
   /* Infinite loop */
@@ -206,18 +207,21 @@ __weak void Start_chassis(void const * argument)
           move_start_flag = 1;
 
       }
-      if(move_start_flag == 1){
+      if(move_start_flag == 1 ){
           pid_calculate(CarTurn_pid,detect_value_current,target_value);
           Car_direction_change(Basic_vel,CarTurn_pid->Output);
       }
+
       if(move_start_flag == 1 && detect_detect_lost == 1){
 //          Motor_SetLQSpeed(-35);
 //          Motor_SetLHSpeed(-35);
 //          Motor_SetRQSpeed(-35);
 //          Motor_SetRQSpeed(-35);
-          Car_move(-40);
+          Car_move(-45);
       }
-
+      if(move_stop_flag > 2){
+          Car_move(0);
+      }
 
 
     osDelay(1);
@@ -254,6 +258,7 @@ __weak void Start_sensor(void const * argument)
       OLED_ShowSignedNum(3,11,ADC_Value[3],4);
       OLED_ShowSignedNum(4,1,ADC_Value[1],4);
       OLED_ShowSignedNum(4,6,ADC_Value[0],4);
+      OLED_ShowSignedNum(4,11,move_stop_flag,1);
 
     osDelay(1);
   }
@@ -290,7 +295,7 @@ void Detection_val_calc(uint16_t * adc_value){
     switch (detect_current)
     {
         case 0x01:  // 00001：仅XJ1检测到黑线（最左）
-            detect_value_current = -4;
+            detect_value_current = -30;
             track_status_worse /= 2;  // 状态正常，减少异常计数
             break;
         case 0x03:  // 00011：XJ1、XJ2检测到黑线
@@ -306,7 +311,7 @@ void Detection_val_calc(uint16_t * adc_value){
             track_status_worse /= 2;
             break;
         case 0x0F:  // 01111：XJ1、XJ2、XJ3、XJ4检测到黑线（左到中右）
-            detect_value_current = -6;  // 宽范围左偏，介于123和12之间
+            detect_value_current = -7;  // 宽范围左偏，介于123和12之间
             track_status_worse /= 2;
             break;
         case 0x06:  // 00110：XJ2、XJ3检测到黑线
@@ -326,7 +331,7 @@ void Detection_val_calc(uint16_t * adc_value){
             track_status_worse /= 2;
             break;
         case 0x1E:  // 11110：XJ2、XJ3、XJ4、XJ5检测到黑线（中左到右）
-            detect_value_current = 6;  // 宽范围右偏，介于345和45之间
+            detect_value_current = 7;  // 宽范围右偏，介于345和45之间
             track_status_worse /= 2;
             break;
         case 0x1C:  // 11100：XJ3、XJ4、XJ5检测到黑线（中到右）
@@ -338,11 +343,11 @@ void Detection_val_calc(uint16_t * adc_value){
             track_status_worse /= 2;
             break;
         case 0x10:  // 10000：仅XJ5检测到黑线（最右）
-            detect_value_current = 4;
+            detect_value_current = 10;
             track_status_worse /= 2;
             break;
         case 0x1F:  // 11111：XJ1-XJ5全检测到黑线（全范围）
-            detect_value_current = 10;  // 视为居中（如宽黑线）
+            detect_value_current = 30;  // 视为居中（如宽黑线）
             track_status_worse /= 2;
             break;
         case 0x00:  // 00000：无传感器检测到黑线（异常）
@@ -354,6 +359,11 @@ void Detection_val_calc(uint16_t * adc_value){
             detect_value_current = detect_value_current_last;  // 沿用历史值
             track_status_worse++;  // 增加异常计数
             break;
+    }
+    if(detect_current == 0x1F){
+        move_stop_flag++;
+    }else{
+//        move_stop_flag = 0;
     }
 
 //    detect_value_current = (detect_current[0]+detect_current[1]+detect_current[2]+detect_current[3]+detect_current[4]);

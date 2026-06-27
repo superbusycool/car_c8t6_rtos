@@ -157,12 +157,12 @@ void Motor_SetRightSpeed(int Motor2Speed)
 }
 
 void Car_direction_change(float basic_vel,float vel_delta){/*vel_delta由pid计算得出*/
-    if(vel_delta > 5){
+    if(vel_delta < -5){
         HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, GPIO_PIN_SET);
         HAL_GPIO_WritePin(LED_L_GPIO_Port, LED_L_Pin, GPIO_PIN_RESET);
 
     }
-    else if(vel_delta < -5){
+    else if(vel_delta > 5){
         HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, GPIO_PIN_RESET);
         HAL_GPIO_WritePin(LED_L_GPIO_Port, LED_L_Pin, GPIO_PIN_SET);
     }
