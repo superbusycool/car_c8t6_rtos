@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\car_3\car_project1
+CMAKE_SOURCE_DIR = D:\car_project2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\car_3\car_project1\cmake-build-debug
+CMAKE_BINARY_DIR = D:\car_project2\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\car_3\car_project1\cmake-build-debug\CMakeFiles D:\car_3\car_project1\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\car_project2\cmake-build-debug\CMakeFiles D:\car_project2\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\car_3\car_project1\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\car_project2\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -1312,6 +1312,30 @@ modules/Src/pid.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\car_project1.elf.dir\build.make CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.s
 .PHONY : modules/Src/pid.c.s
 
+modules/Src/track.obj: modules/Src/track.c.obj
+.PHONY : modules/Src/track.obj
+
+# target to build an object file
+modules/Src/track.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\car_project1.elf.dir\build.make CMakeFiles/car_project1.elf.dir/modules/Src/track.c.obj
+.PHONY : modules/Src/track.c.obj
+
+modules/Src/track.i: modules/Src/track.c.i
+.PHONY : modules/Src/track.i
+
+# target to preprocess a source file
+modules/Src/track.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\car_project1.elf.dir\build.make CMakeFiles/car_project1.elf.dir/modules/Src/track.c.i
+.PHONY : modules/Src/track.c.i
+
+modules/Src/track.s: modules/Src/track.c.s
+.PHONY : modules/Src/track.s
+
+# target to generate assembly for a file
+modules/Src/track.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\car_project1.elf.dir\build.make CMakeFiles/car_project1.elf.dir/modules/Src/track.c.s
+.PHONY : modules/Src/track.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -1469,6 +1493,9 @@ help:
 	@echo ... modules/Src/pid.obj
 	@echo ... modules/Src/pid.i
 	@echo ... modules/Src/pid.s
+	@echo ... modules/Src/track.obj
+	@echo ... modules/Src/track.i
+	@echo ... modules/Src/track.s
 .PHONY : help
 
 

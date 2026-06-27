@@ -20,11 +20,11 @@
 #define Motor1Speed_INTEGRAL_V   70
 #define Motor1Speed_MAX_V        100
 
-#define CarTurn_KP_V         30
+#define CarTurn_KP_V         20
 #define CarTurn_KI_V         0
 #define CarTurn_KD_V         0
 #define CarTurn_INTEGRAL_V   10
-#define CarTurn_MAX_V        40
+#define CarTurn_MAX_V        25
 
 #define CarSelfTurn_KP_A         0.5
 #define CarSelfTurn_KI_A         0

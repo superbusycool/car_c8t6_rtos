@@ -163,7 +163,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "d:/car_3/car_project1/cmake-build-debug"
+			"value" : "d:/car_project2/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -687,7 +687,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/car_3/car_project1/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "D:/car_project2/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -747,7 +747,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "D:/car_3/car_project1"
+			"value" : "D:/car_project2"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1383,7 +1383,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/car_3/car_project1/cmake-build-debug"
+			"value" : "D:/car_project2/cmake-build-debug"
 		},
 		{
 			"name" : "car_project1_IS_TOP_LEVEL",
@@ -1407,7 +1407,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/car_3/car_project1"
+			"value" : "D:/car_project2"
 		}
 	],
 	"kind" : "cache",

@@ -98,6 +98,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj.d"
   "CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj"
   "CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj.d"
+  "CMakeFiles/car_project1.elf.dir/modules/Src/track.c.obj"
+  "CMakeFiles/car_project1.elf.dir/modules/Src/track.c.obj.d"
   "car_project1.elf"
   "car_project1.elf.manifest"
   "car_project1.elf.pdb"
