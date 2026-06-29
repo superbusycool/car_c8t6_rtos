@@ -211,21 +211,28 @@ __weak void Start_chassis(void const * argument)
           move_start_flag = 1;
 
       }
-      if(move_start_flag == 1 ){
 
-          pid_calculate(&track_pid, detect_value_current);
-          left_speed = (int)(Basic_vel + track_pid.output);
-          right_speed = (int)(Basic_vel - track_pid.output);
-          Car_direction_change(Basic_vel,left_speed,right_speed,(int)track_pid.output);
-      }
+      OLED_ShowNum(1,1,move_stop_flag,1);
+      if(car_stop_flag == 0){
+          if(move_start_flag == 1 ){
 
-      if(move_start_flag == 1 && detect_detect_lost == 1){
-          Car_move(-45);
-      }
-      if(move_stop_flag > 2 || car_stop_flag == 1){
+              pid_calculate(&track_pid, detect_value_current);
+              left_speed = (int)(Basic_vel + track_pid.output);
+              right_speed = (int)(Basic_vel - track_pid.output);
+              Car_direction_change(Basic_vel,left_speed,right_speed,(int)track_pid.output);
+          }
+
+          if(move_start_flag == 1 && detect_detect_lost == 1){
+              Car_move(-45);
+          }
+          if(move_stop_flag > 4 ){
+              car_stop_flag = 1;
+          }
+      }else{
           Car_move(0);
-          car_stop_flag = 1;
       }
+
+
 
 
     osDelay(1);
