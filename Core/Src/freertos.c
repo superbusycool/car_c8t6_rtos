@@ -155,6 +155,7 @@ uint16_t ADC_NORMAL_VALUE = ADC_OUT2_VALUE+ADC_OUT1_VALUE;
 
 bool move_start_flag;/*开始循迹标志位*/
 static int move_stop_flag;/*开始循迹标志位*/
+bool car_stop_flag;
 
 volatile int left_speed = 0;
 volatile int right_speed = 0;
@@ -224,9 +225,10 @@ __weak void Start_chassis(void const * argument)
       if(move_start_flag == 1 && detect_detect_lost == 1){
           Car_move(-45);
       }
-//      if(move_stop_flag > 2){
-//          Car_move(0);
-//      }
+      if(move_stop_flag > 2 || car_stop_flag == 1){
+          Car_move(0);
+          car_stop_flag = 1;
+      }
 
 
     osDelay(1);
@@ -245,22 +247,22 @@ __weak void Start_chassis(void const * argument)
 __weak void Start_sensor(void const * argument)
 {
   /* USER CODE BEGIN Start_sensor */
+    static bool music_triggered = false;     /* 确保 Music_Play_Start 只调一次 */
     Key_Init();
-//    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 0);//开启循迹模块
   /* Infinite loop */
   for(;;)
   {
-//      /* ---- SR04 超声波测距 ---- */
-//      distance = SR04_Measure();
-//      /*************寻迹ADC采样****************/
-//      HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Value,5);
-//      Detection_val_calc(ADC_Value);
       Key_Update();
-//      OLED_ShowSignedNum(1,1,distance,2);
-      /* 开机播放一段旋律 (软件PWM, 阻塞播出后再进入主循环) */
-      if(move_start_flag == 1){
-          Music_Play(Spirited_Away, SPIRITED_AWAY_LEN, 1);
+
+      /* 首次 move_start_flag == 1 时启动非阻塞音乐 */
+      if(move_start_flag == 1 && !music_triggered){
+          music_triggered = true;
+          Music_Play_Start(Spirited_Away, SPIRITED_AWAY_LEN, 1);
       }
+
+      /* 非阻塞音乐更新（每 loop 调一次，不忙等，不阻塞其他任务） */
+      Music_Play_Update();
+
     osDelay(1);
   }
   /* USER CODE END Start_sensor */
@@ -280,7 +282,11 @@ void Detection_val_calc(uint16_t *adc_value)
                    | ((adc_value[0] > ADC_HRESHOLD_VALUE_OUT2) << 4);
 
     detect_detect_lost = (detect_current == 0x00);
-
+    if(detect_current == 0x1F){
+        move_stop_flag++;
+    }else{
+        move_stop_flag = 0;
+    }
     /* === 2. 偏差值查表 (O(1) 直接索引，替代 16 路 switch) ===
      * val_table[detect_current] 即得偏差值
      * 0 表示该传感器组合无效（查 result_table 对应标志位）
@@ -296,7 +302,7 @@ void Detection_val_calc(uint16_t *adc_value)
          3,    0,    0,    0,    5,    0,    6,   0,
     };
     /* 有效状态位图: bit i = 1 表示状态 i 有效 (0x04 值为 0 但有效) */
-    static const uint32_t valid_map = 0xD101917E;
+    static const uint32_t valid_map = 0xD10191FE;
 
     int8_t val = val_table[detect_current];
     if ((valid_map >> detect_current) & 1) {

@@ -61,4 +61,5 @@ CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj: \
  D:\car_project2\modules\Inc/dwt.h D:\car_project2\modules\Inc/key.h \
  D:\car_project2\modules\Inc/motor.h D:\car_project2\modules\Inc/oled.h \
  D:\car_project2\modules\Inc/SR04.h D:\car_project2\modules\Inc/music.h \
+ d:\stm32environment\arm\lib\gcc\arm-none-eabi\10.3.1\include\stdbool.h \
  D:\car_project2\modules\Inc/led.h

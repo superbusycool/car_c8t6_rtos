@@ -701,3 +701,99 @@ void Music_Play(const midiType *mid, uint16_t len, uint32_t tick_ms)
     /* 播完拉低 */
     HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
 }
+
+/* ───────────────────── 非阻塞音乐状态机 ───────────────────── */
+/**
+ * 原理：不用 dwt_delay_us 忙等，而是用 dwt_get_time_us() 查询时间戳，
+ *       加上 catch-up 算法补偿轮询间隔内的翻转次数，保证平均频率正确。
+ *       每次调用立即返回，不阻塞其他任务。
+ */
+static struct {
+    bool            active;
+    const midiType *mid;
+    uint16_t        len;
+    uint16_t        idx;
+    uint32_t        tick_ms;
+    uint32_t        note_start_tick;   /* HAL_GetTick 音符起始时间 */
+    uint32_t        half_us;           /* 半周期 μs, 0=静音 */
+    uint64_t        last_toggle_us;    /* DWT 上次翻转时间戳 */
+    uint8_t         pin_state;         /* 当前引脚电平 */
+} music_nb = {0};
+
+void Music_Play_Start(const midiType *mid, uint16_t len, uint32_t tick_ms)
+{
+    music_nb.active = true;
+    music_nb.mid = mid;
+    music_nb.len = len;
+    music_nb.tick_ms = tick_ms;
+    music_nb.idx = 0;
+    music_nb.half_us = 0;
+    music_nb.pin_state = 0;
+    music_nb.note_start_tick = HAL_GetTick();
+    music_nb.last_toggle_us = dwt_get_time_us();
+    HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+}
+
+bool Music_Play_Update(void)
+{
+    if (!music_nb.active)
+        return false;
+
+    const midiType *evt = &music_nb.mid[music_nb.idx];
+    uint32_t dur_ms = (uint32_t)evt->tick * music_nb.tick_ms;
+
+    /* 1. 检查当前音符是否播完 */
+    if ((HAL_GetTick() - music_nb.note_start_tick) >= dur_ms)
+    {
+        music_nb.idx++;
+        if (music_nb.idx >= music_nb.len)
+        {
+            music_nb.active = false;
+            HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+            return false;
+        }
+
+        evt = &music_nb.mid[music_nb.idx];
+        if (evt->onoff == 0x90)
+        {
+            uint16_t freq = midiFreq_table[evt->freq];
+            music_nb.half_us = (freq > 0) ? (500000u / freq) : 0;
+        }
+        /* 0x80: 保持当前频率不变 */
+
+        music_nb.note_start_tick = HAL_GetTick();
+        music_nb.last_toggle_us = dwt_get_time_us();
+    }
+
+    /* 2. 非阻塞方波：用 DWT 时间戳 catch-up 计算应翻转次数 */
+    if (music_nb.half_us > 0)
+    {
+        uint64_t now_us = dwt_get_time_us();
+        uint64_t elapsed = now_us - music_nb.last_toggle_us;
+
+        if (elapsed >= music_nb.half_us)
+        {
+            uint32_t toggles = (uint32_t)(elapsed / music_nb.half_us);
+            music_nb.last_toggle_us += (uint64_t)toggles * music_nb.half_us;
+
+            if (toggles & 1)                /* 奇数次翻转改变电平 */
+                music_nb.pin_state ^= 1;
+
+            HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin,
+                              music_nb.pin_state ? GPIO_PIN_SET : GPIO_PIN_RESET);
+        }
+    }
+
+    return true;
+}
+
+void Music_Play_Stop(void)
+{
+    music_nb.active = false;
+    HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+}
+
+bool Music_Play_IsPlaying(void)
+{
+    return music_nb.active;
+}

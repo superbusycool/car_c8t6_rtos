@@ -23,26 +23,29 @@
     <list default="true" id="8b6e57c6-704c-4822-aa95-17ef737364c1" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/freertos.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car_project1.ioc" beforeDir="false" afterPath="$PROJECT_DIR$/car_project1.ioc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-8fc4fe2e80be4241ecfd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2026-06-26T14-08-11-0459.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/compiler_depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/compiler_depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.elf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.hex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/Inc/config.h" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Inc/config.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/Inc/motor.h" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Inc/motor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/Inc/music.h" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Inc/music.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/Inc/pid.h" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Inc/pid.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/Src/motor.c" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Src/motor.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/Src/pid.c" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Src/pid.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/Src/music.c" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Src/music.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +96,11 @@
   }
 }</component>
   <component name="RunManager" selected="OpenOCD 下载并运行.car_project1.elf">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="car_project1.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="car_project1" TARGET_NAME="car_project1.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="car_project1" RUN_TARGET_NAME="car_project1.elf">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -132,7 +140,7 @@
       <workItem from="1782482831110" duration="854000" />
       <workItem from="1782553290583" duration="15680000" />
       <workItem from="1782654977252" duration="8725000" />
-      <workItem from="1782708682805" duration="4036000" />
+      <workItem from="1782708682805" duration="7433000" />
     </task>
     <servers />
   </component>

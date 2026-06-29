@@ -37,6 +37,7 @@ CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj: \
  D:\car_project2\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim.h \
  D:\car_project2\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_tim_ex.h \
  D:\car_project2\Drivers\STM32F1xx_HAL_Driver\Inc/stm32f1xx_hal_uart.h \
+ d:\stm32environment\arm\lib\gcc\arm-none-eabi\10.3.1\include\stdbool.h \
  D:\car_project2\Core\Inc/main.h D:\car_project2\modules\Inc/dwt.h \
  D:\car_project2\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS/cmsis_os.h \
  D:\car_project2\Middlewares\Third_Party\FreeRTOS\Source\include/FreeRTOS.h \
