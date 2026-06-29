@@ -1,152 +1,33 @@
 //
-// Created by SuperChen on 2026/6/20.
+// Created by zero on 26-1-8.
 //
 
-#ifndef CAR_PROJECT1_PID_H
-#define CAR_PROJECT1_PID_H
-/**
- ******************************************************************************
- * @file     controller.h
- * @author  Wang Hongxi
- * @version V1.1.3
- * @date    2021/7/3
- * @brief
- ******************************************************************************
- * @attention
- *
- ******************************************************************************
- */
+#ifndef RTTHREAD_PID_H
+#define RTTHREAD_PID_H
+// PID状态结构体（保存历史信息）
+typedef struct {
+    float error;          // 当前误差（输入：track_status[0]）
+    float last_error;     // 上一次误差（用于计算微分）
+    float integral;       // 积分项累积
+    float derivative;     // 微分项
+    float output;         // PID输出（转向控制量）
+} PID_HandleTypeDef;
+
+// PID参数宏定义（需根据实际调试调整）
+#define KP  7.0f    // 比例系数（主要控制响应速度）
+#define KI  0.001f    // 积分系数（消除静态误差，避免过大）
+#define KD  0.001f    // 微分系数（抑制超调，增强稳定性）
+
+// PID输出限制（对应转向幅度范围，与之前的-4~4等级对应）
+#define PID_OUTPUT_MIN  -60.0f
+#define PID_OUTPUT_MAX   60.0f
+
+// 积分项限制（防止积分饱和）
+#define INTEGRAL_MIN    -10.0f
+#define INTEGRAL_MAX     10.0f
 
 
-#include <math.h>
 
-#define PID_NUM_MAX 30      // 最大PID实例数
-
-#ifndef usr_abs
-#define usr_abs(x) ((x > 0) ? x : -x)
-#endif
-
-#define INIT_PID_CONFIG(Kp_val, Ki_val, Kd_val, IntegralLimit_val, MaxOut_val, Improve_val) \
-    {                                                                                \
-        .Kp = Kp_val,                                                                \
-        .Ki = Ki_val,                                                                \
-        .Kd = Kd_val,                                                                \
-        .IntegralLimit = IntegralLimit_val,                                          \
-        .MaxOut = MaxOut_val,                                                        \
-        .Improve = Improve_val,                                                      \
-    }
-
-/* PID 优化环节使能标志位,通过位与可以判断启用的优化环节 */
-typedef enum
-{
-    PID_IMPROVE_NONE = 0X00,                // 0000 0000
-    PID_Integral_Limit = 0x01,              // 0000 0001 积分限幅
-    PID_Derivative_On_Measurement = 0x02,   // 0000 0010 微分先行
-    PID_Trapezoid_Intergral = 0x04,         // 0000 0100 梯形积分
-    PID_Proportional_On_Measurement = 0x08, // 0000 1000
-    PID_OutputFilter = 0x10,                // 0001 0000 输出滤波
-    PID_ChangingIntegrationRate = 0x20,     // 0010 0000 变速积分
-    PID_DerivativeFilter = 0x40,            // 0100 0000 微分滤波器
-    PID_ErrorHandle = 0x80,                 // 1000 0000
-} pid_improvement_e;
-
-/* PID 报错类型枚举*/
-typedef enum error_type_e
-{
-    PID_ERROR_NONE = 0x00U,
-    PID_MOTOR_BLOCKED_ERROR = 0x01U
-} error_type_e;
-
-typedef struct
-{
-    __uint64_t error_count;
-    error_type_e error_type;
-} pid_ErrorHandler_t;
-
-/* PID结构体 */
-typedef struct
-{
-    //---------------------------------- init config block
-    // config parameter
-    float Kp;
-    float Ki;
-    float Kd;
-    float MaxOut;
-    float DeadBand;
-
-    // improve parameter
-    pid_improvement_e Improve;
-    float IntegralLimit;     // 积分限幅
-    float CoefA;             // 变速积分 For Changing Integral
-    float CoefB;             // 变速积分 ITerm = Err*((A-abs(err)+B)/A)  when B<|err|<A+B
-    float Output_LPF_RC;     // 输出滤波器 RC = 1/omegac
-    float Derivative_LPF_RC; // 微分滤波器系数
-
-    //-----------------------------------
-    // for calculating
-    float Measure;
-    float Last_Measure;
-    float Err;
-    float Last_Err;
-    float Last_ITerm;
-
-    float Pout;
-    float Iout;
-    float Dout;
-    float ITerm;
-
-    float Output;
-    float Last_Output;
-    float Last_Dout;
-
-    float Ref;
-
-    float dt; // 时间间隔，固定为 10ms
-
-    pid_ErrorHandler_t ERRORHandler;
-} pid_obj_t;
-
-/* 用于PID初始化的结构体*/
-typedef struct // config parameter
-{
-    // basic parameter
-    float Kp;
-    float Ki;
-    float Kd;
-    float MaxOut;   // 输出限幅
-    float DeadBand; // 死区
-
-    // improve parameter
-    pid_improvement_e Improve;
-    float IntegralLimit; // 积分限幅
-    float CoefA;         // AB为变速积分参数,变速积分实际上就引入了积分分离
-    float CoefB;         // ITerm = Err*((A-abs(err)+B)/A)  when B<|err|<A+B
-    float Output_LPF_RC; // RC = 1/omegac
-    float Derivative_LPF_RC;
-} pid_config_t;
-
-/**
- * @brief 初始化PID实例,并返回PID实例指针
- * @param config PID初始化配置
- */
-pid_obj_t *pid_register(pid_config_t *config);
-
-/**
- * @brief 计算PID输出
- *
- * @param pid     PID实例指针
- * @param measure 反馈值
- * @param ref     设定值
- * @return float  PID计算输出
- */
-float pid_calculate(pid_obj_t *pid, float measure, float ref);
-
-/**
- * @brief 清空一个pid的历史数据
- *
- * @param pid    PID实例
- */
-void pid_clear(pid_obj_t *pid);
-
-
-#endif //CAR_PROJECT1_PID_H
+void pid_init(PID_HandleTypeDef *pid);
+void pid_calculate(PID_HandleTypeDef *pid, float current_error);
+#endif //RTTHREAD_PID_H

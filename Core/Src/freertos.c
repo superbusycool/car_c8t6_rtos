@@ -109,11 +109,11 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of cmd_task */
-  osThreadDef(cmd_task, Start_cmd, osPriorityNormal, 0, 128);
-  cmd_taskHandle = osThreadCreate(osThread(cmd_task), NULL);
+//  osThreadDef(cmd_task, Start_cmd, osPriorityNormal, 0, 128);
+//  cmd_taskHandle = osThreadCreate(osThread(cmd_task), NULL);
 
   /* definition and creation of chassis_task */
-  osThreadDef(chassis_task, Start_chassis, osPriorityNormal, 0, 128);
+  osThreadDef(chassis_task, Start_chassis, osPriorityAboveNormal, 0, 128);
   chassis_taskHandle = osThreadCreate(osThread(chassis_task), NULL);
 
   /* definition and creation of sensor */
@@ -132,9 +132,8 @@ static uint16_t ADC_Value[5];/*循迹模块adc采样*/
 static uint16_t distance;/*测距距离*/
 static float Basic_vel;
 
-static  pid_obj_t *CarTurn_pid;  // 转向PID控制器
-static pid_config_t CarTurn_pid_config = INIT_PID_CONFIG(CarTurn_KP_V, CarTurn_KI_V, CarTurn_KD_V,CarTurn_INTEGRAL_V, CarTurn_MAX_V,
-                                                         (PID_Trapezoid_Intergral | PID_Integral_Limit | PID_Derivative_On_Measurement));
+// 全局PID句柄（用于循迹转向控制）
+PID_HandleTypeDef track_pid = {0};
 static uint8_t detect_current;/*每路是否识别到黑线*/
 bool detect_detect_lost;
 static float detect_value_current;/*由寻迹模块得到的权重*/
@@ -156,6 +155,9 @@ uint16_t ADC_NORMAL_VALUE = ADC_OUT2_VALUE+ADC_OUT1_VALUE;
 
 bool move_start_flag;/*开始循迹标志位*/
 static int move_stop_flag;/*开始循迹标志位*/
+
+volatile int left_speed = 0;
+volatile int right_speed = 0;
 /************************************/
 
 /**
@@ -172,13 +174,11 @@ __weak void Start_cmd(void const * argument)
   for(;;)
   {
 
-      /* 开机播放一段旋律 (软件PWM, 阻塞播出后再进入主循环) */
-      if(move_start_flag == 1){
+//      /* 开机播放一段旋律 (软件PWM, 阻塞播出后再进入主循环) */
+//      if(move_start_flag == 1){
 //          Music_Play(Spirited_Away, SPIRITED_AWAY_LEN, 1);
-      }
+//      }
 //      Battery_Alarming();
-//      LED_R();
-//      LED_L();
 
     osDelay(1);
   }
@@ -195,33 +195,38 @@ __weak void Start_cmd(void const * argument)
 __weak void Start_chassis(void const * argument)
 {
   /* USER CODE BEGIN Start_chassis */
-    CarTurn_pid = pid_register(&CarTurn_pid_config);
+    pid_init(&track_pid);
     target_value = 0.0f;
-    Basic_vel = 55;
+    Basic_vel = 50.0f;
     Key_Init();
     __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 60);//开启循迹模块
   /* Infinite loop */
   for(;;)
   {
+      /* ---- SR04 超声波测距 ---- */
+      distance = SR04_Measure();
+      /*************寻迹ADC采样****************/
+      HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Value,5);
+      Detection_val_calc(ADC_Value);
+
       if(Key1.state == KEY_PRESSED && move_start_flag == 0){/*开始循迹*/
           move_start_flag = 1;
 
       }
       if(move_start_flag == 1 ){
-          pid_calculate(CarTurn_pid,detect_value_current,target_value);
-          Car_direction_change(Basic_vel,CarTurn_pid->Output);
+
+          pid_calculate(&track_pid, detect_value_current);
+          left_speed = (int)(Basic_vel + track_pid.output);
+          right_speed = (int)(Basic_vel - track_pid.output);
+          Car_direction_change(Basic_vel,left_speed,right_speed,(int)track_pid.output);
       }
 
       if(move_start_flag == 1 && detect_detect_lost == 1){
-//          Motor_SetLQSpeed(-35);
-//          Motor_SetLHSpeed(-35);
-//          Motor_SetRQSpeed(-35);
-//          Motor_SetRQSpeed(-35);
           Car_move(-45);
       }
-      if(move_stop_flag > 2){
-          Car_move(0);
-      }
+//      if(move_stop_flag > 2){
+//          Car_move(0);
+//      }
 
 
     osDelay(1);
@@ -241,25 +246,21 @@ __weak void Start_sensor(void const * argument)
 {
   /* USER CODE BEGIN Start_sensor */
     Key_Init();
-    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 0);//开启循迹模块
+//    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 0);//开启循迹模块
   /* Infinite loop */
   for(;;)
   {
-      /* ---- SR04 超声波测距 ---- */
-      distance = SR04_Measure();
-      /*************寻迹ADC采样****************/
-      HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Value,5);
-      Detection_val_calc(ADC_Value);
+//      /* ---- SR04 超声波测距 ---- */
+//      distance = SR04_Measure();
+//      /*************寻迹ADC采样****************/
+//      HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Value,5);
+//      Detection_val_calc(ADC_Value);
       Key_Update();
-      OLED_ShowSignedNum(1,1,Key1.debounce_counter,1);
-      OLED_ShowSignedNum(2,1,distance,2);
-      OLED_ShowSignedNum(3,1,ADC_Value[2],4);
-      OLED_ShowSignedNum(3,6,ADC_Value[4],4);
-      OLED_ShowSignedNum(3,11,ADC_Value[3],4);
-      OLED_ShowSignedNum(4,1,ADC_Value[1],4);
-      OLED_ShowSignedNum(4,6,ADC_Value[0],4);
-      OLED_ShowSignedNum(4,11,move_stop_flag,1);
-
+//      OLED_ShowSignedNum(1,1,distance,2);
+      /* 开机播放一段旋律 (软件PWM, 阻塞播出后再进入主循环) */
+      if(move_start_flag == 1){
+          Music_Play(Spirited_Away, SPIRITED_AWAY_LEN, 1);
+      }
     osDelay(1);
   }
   /* USER CODE END Start_sensor */
@@ -267,106 +268,43 @@ __weak void Start_sensor(void const * argument)
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
-void Detection_val_calc(uint16_t * adc_value){
-    detect_current = 0;
-// 中间 bit2
-    if(adc_value[3] > ADC_HRESHOLD_VALUE_MID)
-        detect_current |= (1U << 2);
-// 次左 bit1
-    if(adc_value[4] > ADC_HRESHOLD_VALUE_OUT1)
-        detect_current |= (1U << 1);
-// 最左 bit0
-    if(adc_value[2] > ADC_HRESHOLD_VALUE_OUT2)
-        detect_current |= (1U << 0);
-// 次右 bit3
-    if(adc_value[1] > ADC_HRESHOLD_VALUE_OUT1)
-        detect_current |= (1U << 3);
-// 最右 bit4
-    if(adc_value[0] > ADC_HRESHOLD_VALUE_OUT2)
-        detect_current |= (1U << 4);
+void Detection_val_calc(uint16_t *adc_value)
+{
+    /* === 1. 比较结果直接是 0/1，移位拼成 detect_current (无分支) ===
+     * 原来 5 个 if + OR，每个都有分支跳转，改为一条表达式完成
+     */
+    detect_current = ((adc_value[2] > ADC_HRESHOLD_VALUE_OUT2) << 0)
+                   | ((adc_value[4] > ADC_HRESHOLD_VALUE_OUT1) << 1)
+                   | ((adc_value[3] > ADC_HRESHOLD_VALUE_MID)  << 2)
+                   | ((adc_value[1] > ADC_HRESHOLD_VALUE_OUT1) << 3)
+                   | ((adc_value[0] > ADC_HRESHOLD_VALUE_OUT2) << 4);
 
-//    if(detect_current == 0x00){
-//        detect_detect_lost = 1;
-//    }else{
-//        detect_detect_lost = 0;
-//    }
-    detect_detect_lost = 0;
-    // 根据传感器组合状态计算循迹偏差值
-    switch (detect_current)
-    {
-        case 0x01:  // 00001：仅XJ1检测到黑线（最左）
-            detect_value_current = -30;
-            track_status_worse /= 2;  // 状态正常，减少异常计数
-            break;
-        case 0x03:  // 00011：XJ1、XJ2检测到黑线
-            detect_value_current = -3;
-            track_status_worse /= 2;
-            break;
-        case 0x02:  // 00010：仅XJ2检测到黑线
-            detect_value_current = -2;
-            track_status_worse /= 2;
-            break;
-        case 0x07:  // 00111：XJ1、XJ2、XJ3检测到黑线（左到中）
-            detect_value_current = -5;  // 宽范围左偏，取中间偏左值
-            track_status_worse /= 2;
-            break;
-        case 0x0F:  // 01111：XJ1、XJ2、XJ3、XJ4检测到黑线（左到中右）
-            detect_value_current = -7;  // 宽范围左偏，介于123和12之间
-            track_status_worse /= 2;
-            break;
-        case 0x06:  // 00110：XJ2、XJ3检测到黑线
-            detect_value_current = -1;
-            track_status_worse /= 2;
-            break;
-        case 0x04:  // 00100：仅XJ3检测到黑线（中间）
-            detect_value_current = 0;
-            track_status_worse /= 2;
-            break;
-        case 0x0C:  // 01100：XJ3、XJ4检测到黑线
-            detect_value_current = 1;
-            track_status_worse /= 2;
-            break;
-        case 0x08:  // 01000：仅XJ4检测到黑线
-            detect_value_current = 2;
-            track_status_worse /= 2;
-            break;
-        case 0x1E:  // 11110：XJ2、XJ3、XJ4、XJ5检测到黑线（中左到右）
-            detect_value_current = 7;  // 宽范围右偏，介于345和45之间
-            track_status_worse /= 2;
-            break;
-        case 0x1C:  // 11100：XJ3、XJ4、XJ5检测到黑线（中到右）
-            detect_value_current = 5;  // 宽范围右偏，取中间偏右值
-            track_status_worse /= 2;
-            break;
-        case 0x18:  // 11000：XJ4、XJ5检测到黑线
-            detect_value_current = 3;
-            track_status_worse /= 2;
-            break;
-        case 0x10:  // 10000：仅XJ5检测到黑线（最右）
-            detect_value_current = 10;
-            track_status_worse /= 2;
-            break;
-        case 0x1F:  // 11111：XJ1-XJ5全检测到黑线（全范围）
-            detect_value_current = 30;  // 视为居中（如宽黑线）
-            track_status_worse /= 2;
-            break;
-        case 0x00:  // 00000：无传感器检测到黑线（异常）
-            detect_value_current = detect_value_current_last;  // 沿用历史值
-            track_status_worse++;  // 增加异常计数
-            detect_detect_lost = 1;
-            break;
-        default:    // 其他未定义状态（异常）
-            detect_value_current = detect_value_current_last;  // 沿用历史值
-            track_status_worse++;  // 增加异常计数
-            break;
-    }
-    if(detect_current == 0x1F){
-        move_stop_flag++;
-    }else{
-//        move_stop_flag = 0;
-    }
+    detect_detect_lost = (detect_current == 0x00);
 
-//    detect_value_current = (detect_current[0]+detect_current[1]+detect_current[2]+detect_current[3]+detect_current[4]);
+    /* === 2. 偏差值查表 (O(1) 直接索引，替代 16 路 switch) ===
+     * val_table[detect_current] 即得偏差值
+     * 0 表示该传感器组合无效（查 result_table 对应标志位）
+     */
+    static const int8_t val_table[32] = {
+    /* 0x00  0x01  0x02  0x03  0x04  0x05  0x06  0x07 */
+         0,   -4,   -2,   -3,    0,    0,   -1,   -5,
+    /* 0x08  0x09  0x0A  0x0B  0x0C  0x0D  0x0E  0x0F */
+         2,    0,    0,    0,    1,    0,    0,   -6,
+    /* 0x10  0x11  0x12  0x13  0x14  0x15  0x16  0x17 */
+         4,    0,    0,    0,    0,    0,    0,    0,
+    /* 0x18  0x19  0x1A  0x1B  0x1C  0x1D  0x1E  0x1F */
+         3,    0,    0,    0,    5,    0,    6,   0,
+    };
+    /* 有效状态位图: bit i = 1 表示状态 i 有效 (0x04 值为 0 但有效) */
+    static const uint32_t valid_map = 0xD101917E;
+
+    int8_t val = val_table[detect_current];
+    if ((valid_map >> detect_current) & 1) {
+        detect_value_current = val;
+    } else {
+        detect_value_current = detect_value_current_last;
+
+    }
 }
 /* USER CODE END Application */
 

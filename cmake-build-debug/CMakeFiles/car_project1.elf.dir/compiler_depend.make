@@ -140,17 +140,6 @@ CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj: D:/car_project2/Core/Sr
   D:/car_project2/modules/Inc/module.h \
   D:/car_project2/modules/Inc/config.h \
   D:/car_project2/modules/Inc/pid.h \
-  D:/stm32environment/arm/arm-none-eabi/include/math.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/reent.h \
-  D:/stm32environment/arm/arm-none-eabi/include/_ansi.h \
-  D:/stm32environment/arm/arm-none-eabi/include/newlib.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/config.h \
-  D:/stm32environment/arm/arm-none-eabi/include/machine/ieeefp.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/_types.h \
-  D:/stm32environment/arm/arm-none-eabi/include/machine/_types.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/lock.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/cdefs.h \
-  D:/stm32environment/arm/arm-none-eabi/include/_ansi.h \
   D:/car_project2/modules/Inc/dwt.h \
   D:/car_project2/modules/Inc/key.h \
   D:/car_project2/modules/Inc/motor.h \
@@ -267,17 +256,6 @@ CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj: D:/car_project2/Core/Src/ma
   D:/car_project2/modules/Inc/module.h \
   D:/car_project2/modules/Inc/config.h \
   D:/car_project2/modules/Inc/pid.h \
-  D:/stm32environment/arm/arm-none-eabi/include/math.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/reent.h \
-  D:/stm32environment/arm/arm-none-eabi/include/_ansi.h \
-  D:/stm32environment/arm/arm-none-eabi/include/newlib.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/config.h \
-  D:/stm32environment/arm/arm-none-eabi/include/machine/ieeefp.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/_types.h \
-  D:/stm32environment/arm/arm-none-eabi/include/machine/_types.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/lock.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/cdefs.h \
-  D:/stm32environment/arm/arm-none-eabi/include/_ansi.h \
   D:/car_project2/modules/Inc/dwt.h \
   D:/car_project2/modules/Inc/key.h \
   D:/car_project2/modules/Inc/motor.h \
@@ -1640,17 +1618,6 @@ CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj: D:/car_project2/modules/
   D:/car_project2/modules/Inc/module.h \
   D:/car_project2/modules/Inc/config.h \
   D:/car_project2/modules/Inc/pid.h \
-  D:/stm32environment/arm/arm-none-eabi/include/math.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/reent.h \
-  D:/stm32environment/arm/arm-none-eabi/include/_ansi.h \
-  D:/stm32environment/arm/arm-none-eabi/include/newlib.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/config.h \
-  D:/stm32environment/arm/arm-none-eabi/include/machine/ieeefp.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/_types.h \
-  D:/stm32environment/arm/arm-none-eabi/include/machine/_types.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/lock.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/cdefs.h \
-  D:/stm32environment/arm/arm-none-eabi/include/_ansi.h \
   D:/car_project2/modules/Inc/dwt.h \
   D:/car_project2/modules/Inc/key.h \
   D:/car_project2/Core/Inc/main.h \
@@ -1982,29 +1949,7 @@ CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj: D:/car_project2/modules/
   D:/car_project2/modules/Inc/oled_font.h
 
 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj: D:/car_project2/modules/Src/pid.c \
-  D:/car_project2/modules/Inc/pid.h \
-  D:/stm32environment/arm/arm-none-eabi/include/math.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/reent.h \
-  D:/stm32environment/arm/arm-none-eabi/include/_ansi.h \
-  D:/stm32environment/arm/arm-none-eabi/include/newlib.h \
-  D:/stm32environment/arm/arm-none-eabi/include/_newlib_version.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/config.h \
-  D:/stm32environment/arm/arm-none-eabi/include/machine/ieeefp.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/features.h \
-  D:/stm32environment/arm/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/_types.h \
-  D:/stm32environment/arm/arm-none-eabi/include/machine/_types.h \
-  D:/stm32environment/arm/arm-none-eabi/include/machine/_default_types.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/lock.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/cdefs.h \
-  D:/stm32environment/arm/arm-none-eabi/include/_ansi.h \
-  D:/stm32environment/arm/arm-none-eabi/include/stdlib.h \
-  D:/stm32environment/arm/arm-none-eabi/include/machine/stdlib.h \
-  D:/stm32environment/arm/arm-none-eabi/include/alloca.h \
-  D:/stm32environment/arm/arm-none-eabi/include/string.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/_locale.h \
-  D:/stm32environment/arm/arm-none-eabi/include/strings.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/string.h
+  D:/car_project2/modules/Inc/pid.h
 
 CMakeFiles/car_project1.elf.dir/modules/Src/track.c.obj: D:/car_project2/modules/Src/track.c \
   D:/car_project2/modules/Inc/track.h \
@@ -2059,6 +2004,8 @@ D:/car_project2/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h:
 
 D:/car_project2/Core/Inc/adc.h:
 
+D:/car_project2/modules/Inc/motor.h:
+
 D:/car_project2/Core/Src/freertos.c:
 
 D:/car_project2/Drivers/CMSIS/Include/cmsis_gcc.h:
@@ -2067,13 +2014,13 @@ D:/car_project2/Core/Inc/main.h:
 
 D:/car_project2/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 
+D:/car_project2/modules/Inc/dwt.h:
+
 D:/stm32environment/arm/arm-none-eabi/include/sys/_intsup.h:
 
 D:/car_project2/Core/Inc/stm32f1xx_hal_conf.h:
 
 D:/car_project2/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/newlib.h:
 
 D:/car_project2/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:
 
@@ -2117,6 +2064,8 @@ D:/stm32environment/arm/arm-none-eabi/include/stdio.h:
 
 D:/car_project2/Drivers/CMSIS/Include/cmsis_version.h:
 
+D:/car_project2/modules/Inc/key.h:
+
 D:/car_project2/Drivers/CMSIS/Include/cmsis_compiler.h:
 
 D:/car_project2/modules/Inc/SR04.h:
@@ -2140,8 +2089,6 @@ D:/car_project2/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h:
 D:/car_project2/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h:
 
 D:/car_project2/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/_ansi.h:
 
 D:/car_project2/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h:
 
@@ -2191,37 +2138,17 @@ D:/car_project2/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 
 D:/car_project2/modules/Inc/module.h:
 
-D:/stm32environment/arm/arm-none-eabi/include/math.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/sys/reent.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/signal.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/sys/config.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/machine/ieeefp.h:
-
-D:/car_project2/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c:
-
-D:/car_project2/modules/Inc/led.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/sys/_types.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/sys/lock.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/sys/cdefs.h:
-
-D:/car_project2/modules/Inc/dwt.h:
-
-D:/car_project2/modules/Inc/key.h:
-
-D:/car_project2/modules/Inc/motor.h:
-
 D:/car_project2/modules/Inc/oled.h:
 
 D:/car_project2/modules/Inc/music.h:
 
 D:/car_project2/Core/Inc/tim.h:
+
+D:/car_project2/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c:
+
+D:/stm32environment/arm/arm-none-eabi/include/sys/_types.h:
+
+D:/car_project2/modules/Inc/led.h:
 
 D:/car_project2/Core/Src/gpio.c:
 
@@ -2249,9 +2176,25 @@ D:/car_project2/Core/Src/syscalls.c:
 
 D:/stm32environment/arm/arm-none-eabi/include/sys/stat.h:
 
+D:/stm32environment/arm/arm-none-eabi/include/_ansi.h:
+
+D:/stm32environment/arm/arm-none-eabi/include/newlib.h:
+
+D:/stm32environment/arm/arm-none-eabi/include/signal.h:
+
+D:/stm32environment/arm/arm-none-eabi/include/sys/config.h:
+
+D:/stm32environment/arm/arm-none-eabi/include/machine/ieeefp.h:
+
 D:/car_project2/modules/Src/music.c:
 
 D:/stm32environment/arm/arm-none-eabi/include/time.h:
+
+D:/stm32environment/arm/arm-none-eabi/include/sys/cdefs.h:
+
+D:/stm32environment/arm/arm-none-eabi/include/sys/reent.h:
+
+D:/stm32environment/arm/arm-none-eabi/include/sys/lock.h:
 
 D:/car_project2/modules/Src/motor.c:
 

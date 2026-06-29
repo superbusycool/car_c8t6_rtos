@@ -19,7 +19,7 @@ void Motor_SetLeftSpeed(int Motor1Speed);
 
 void Motor_SetRightSpeed(int Motor2Speed);
 /*关于转向*/
-void Car_direction_change(float basic_vel,float vel_delta);
+void Car_direction_change(float basic_vel,int left_speed, int right_speed,int vel_delta);
 /*
  * @brief 前进&后退
  * @param: +:前进; -:后退

@@ -156,13 +156,13 @@ void Motor_SetRightSpeed(int Motor2Speed)
 
 }
 
-void Car_direction_change(float basic_vel,float vel_delta){/*vel_delta由pid计算得出*/
-    if(vel_delta < -5){
+void Car_direction_change(float basic_vel,int left_speed, int right_speed,int vel_delta){/*vel_delta由pid计算得出*/
+    if(vel_delta > 5){
         HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, GPIO_PIN_SET);
         HAL_GPIO_WritePin(LED_L_GPIO_Port, LED_L_Pin, GPIO_PIN_RESET);
 
     }
-    else if(vel_delta > 5){
+    else if(vel_delta < -5){
         HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, GPIO_PIN_RESET);
         HAL_GPIO_WritePin(LED_L_GPIO_Port, LED_L_Pin, GPIO_PIN_SET);
     }
@@ -170,10 +170,11 @@ void Car_direction_change(float basic_vel,float vel_delta){/*vel_delta由pid计�
         HAL_GPIO_WritePin(LED_L_GPIO_Port, LED_L_Pin, GPIO_PIN_RESET);
         HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, GPIO_PIN_RESET);
     }
-    Motor_SetLQSpeed(basic_vel-vel_delta);
-    Motor_SetLHSpeed(basic_vel-vel_delta);
-    Motor_SetRQSpeed(basic_vel+vel_delta);
-    Motor_SetRHSpeed(basic_vel+vel_delta);
+
+    Motor_SetLQSpeed(left_speed);
+    Motor_SetLHSpeed(left_speed);
+    Motor_SetRQSpeed(right_speed);
+    Motor_SetRHSpeed(right_speed);
 }
 void Car_move(int16_t basic_vel){/*vel_delta由pid计算得出*/
     Motor_SetLQSpeed(basic_vel);

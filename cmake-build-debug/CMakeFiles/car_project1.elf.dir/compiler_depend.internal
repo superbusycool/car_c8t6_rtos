@@ -143,17 +143,6 @@ CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
  D:/car_project2/modules/Inc/module.h
  D:/car_project2/modules/Inc/config.h
  D:/car_project2/modules/Inc/pid.h
- D:/stm32environment/arm/arm-none-eabi/include/math.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/reent.h
- D:/stm32environment/arm/arm-none-eabi/include/_ansi.h
- D:/stm32environment/arm/arm-none-eabi/include/newlib.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/config.h
- D:/stm32environment/arm/arm-none-eabi/include/machine/ieeefp.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/_types.h
- D:/stm32environment/arm/arm-none-eabi/include/machine/_types.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/lock.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/cdefs.h
- D:/stm32environment/arm/arm-none-eabi/include/_ansi.h
  D:/car_project2/modules/Inc/dwt.h
  D:/car_project2/modules/Inc/key.h
  D:/car_project2/modules/Inc/motor.h
@@ -272,17 +261,6 @@ CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
  D:/car_project2/modules/Inc/module.h
  D:/car_project2/modules/Inc/config.h
  D:/car_project2/modules/Inc/pid.h
- D:/stm32environment/arm/arm-none-eabi/include/math.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/reent.h
- D:/stm32environment/arm/arm-none-eabi/include/_ansi.h
- D:/stm32environment/arm/arm-none-eabi/include/newlib.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/config.h
- D:/stm32environment/arm/arm-none-eabi/include/machine/ieeefp.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/_types.h
- D:/stm32environment/arm/arm-none-eabi/include/machine/_types.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/lock.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/cdefs.h
- D:/stm32environment/arm/arm-none-eabi/include/_ansi.h
  D:/car_project2/modules/Inc/dwt.h
  D:/car_project2/modules/Inc/key.h
  D:/car_project2/modules/Inc/motor.h
@@ -1682,17 +1660,6 @@ CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
  D:/car_project2/modules/Inc/module.h
  D:/car_project2/modules/Inc/config.h
  D:/car_project2/modules/Inc/pid.h
- D:/stm32environment/arm/arm-none-eabi/include/math.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/reent.h
- D:/stm32environment/arm/arm-none-eabi/include/_ansi.h
- D:/stm32environment/arm/arm-none-eabi/include/newlib.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/config.h
- D:/stm32environment/arm/arm-none-eabi/include/machine/ieeefp.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/_types.h
- D:/stm32environment/arm/arm-none-eabi/include/machine/_types.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/lock.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/cdefs.h
- D:/stm32environment/arm/arm-none-eabi/include/_ansi.h
  D:/car_project2/modules/Inc/dwt.h
  D:/car_project2/modules/Inc/key.h
  D:/car_project2/Core/Inc/main.h
@@ -2032,28 +1999,6 @@ CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
  D:/car_project2/modules/Src/pid.c
  D:/car_project2/modules/Inc/pid.h
- D:/stm32environment/arm/arm-none-eabi/include/math.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/reent.h
- D:/stm32environment/arm/arm-none-eabi/include/_ansi.h
- D:/stm32environment/arm/arm-none-eabi/include/newlib.h
- D:/stm32environment/arm/arm-none-eabi/include/_newlib_version.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/config.h
- D:/stm32environment/arm/arm-none-eabi/include/machine/ieeefp.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/features.h
- D:/stm32environment/arm/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/_types.h
- D:/stm32environment/arm/arm-none-eabi/include/machine/_types.h
- D:/stm32environment/arm/arm-none-eabi/include/machine/_default_types.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/lock.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/cdefs.h
- D:/stm32environment/arm/arm-none-eabi/include/_ansi.h
- D:/stm32environment/arm/arm-none-eabi/include/stdlib.h
- D:/stm32environment/arm/arm-none-eabi/include/machine/stdlib.h
- D:/stm32environment/arm/arm-none-eabi/include/alloca.h
- D:/stm32environment/arm/arm-none-eabi/include/string.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/_locale.h
- D:/stm32environment/arm/arm-none-eabi/include/strings.h
- D:/stm32environment/arm/arm-none-eabi/include/sys/string.h
 
 CMakeFiles/car_project1.elf.dir/modules/Src/track.c.obj
  D:/car_project2/modules/Src/track.c

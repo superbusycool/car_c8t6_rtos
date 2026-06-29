@@ -20,11 +20,11 @@
 #define Motor1Speed_INTEGRAL_V   70
 #define Motor1Speed_MAX_V        100
 
-#define CarTurn_KP_V         25
-#define CarTurn_KI_V         0
-#define CarTurn_KD_V         0
+#define CarTurn_KP_V         4.5f
+#define CarTurn_KI_V         0.01f
+#define CarTurn_KD_V         0.0001f
 #define CarTurn_INTEGRAL_V   10
-#define CarTurn_MAX_V        20
+#define CarTurn_MAX_V        40
 
 #define CarSelfTurn_KP_A         0.5
 #define CarSelfTurn_KI_A         0
@@ -38,15 +38,7 @@
 #define eightline_search_INTEGRAL   0    //积分项
 #define eightline_search_MAX        2    //最大输出值
 
-typedef struct
-{
-    short EncodeCount;    //编码器1计数值
-    float Speed_real; //实际速度
-    float Speed_ref;  //目标速度
-    float Speed_out ;  //输出pwm占空比(-1000~1000)
-    pid_obj_t *MotorSpeed_pid;
 
-}motor_data_t;
 
 #define SR04_TIMEOUT_US   30000  /* 超时时间 (us), 对应 ~5m         */
 #define SR04_MAX_DIST_CM  400    /* 最大有效距离 (cm)               */
