@@ -1,11 +1,11 @@
 //
 // Created by SuperChen on 2026/6/20.
-// 软件PWM版本 — 使用 DWT 微秒延时 + GPIO 直接翻转, 无需 TIM
+// 软件PWM版本 — 使用 TIM1 微秒计时 + GPIO 直接翻转
 //
 
 #include "music.h"
 #include "main.h"          // BUZZER_Pin, BUZZER_GPIO_Port
-#include "dwt.h"           // dwt_delay_us (main.c 已调用 dwt_init)
+#include "tim1_delay.h"    // tim1_delay_us / tim1_get_us (替代 DWT)
 #include "cmsis_os.h"      // osDelay
 
 /* ───────────────────── 频率表 (MIDI索引 → Hz) ───────────────────── */
@@ -685,9 +685,9 @@ void Music_Play(const midiType *mid, uint16_t len, uint32_t tick_ms)
             while ((HAL_GetTick() - t_start) < dur_ms)
             {
                 HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
-                dwt_delay_us(cur_half_us);
+                tim1_delay_us(cur_half_us);
                 HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
-                dwt_delay_us(cur_half_us);
+                tim1_delay_us(cur_half_us);
             }
         }
         else
@@ -704,7 +704,7 @@ void Music_Play(const midiType *mid, uint16_t len, uint32_t tick_ms)
 
 /* ───────────────────── 非阻塞音乐状态机 ───────────────────── */
 /**
- * 原理：不用 dwt_delay_us 忙等，而是用 dwt_get_time_us() 查询时间戳，
+ * 原理：不用阻塞延时，而是用 tim1_get_us() 查询时间戳，
  *       加上 catch-up 算法补偿轮询间隔内的翻转次数，保证平均频率正确。
  *       每次调用立即返回，不阻塞其他任务。
  */
@@ -716,7 +716,7 @@ static struct {
     uint32_t        tick_ms;
     uint32_t        note_start_tick;   /* HAL_GetTick 音符起始时间 */
     uint32_t        half_us;           /* 半周期 μs, 0=静音 */
-    uint64_t        last_toggle_us;    /* DWT 上次翻转时间戳 */
+    uint32_t        last_toggle_us;    /* TIM1 上次翻转时间戳 */
     uint8_t         pin_state;         /* 当前引脚电平 */
 } music_nb = {0};
 
@@ -730,7 +730,7 @@ void Music_Play_Start(const midiType *mid, uint16_t len, uint32_t tick_ms)
     music_nb.half_us = 0;
     music_nb.pin_state = 0;
     music_nb.note_start_tick = HAL_GetTick();
-    music_nb.last_toggle_us = dwt_get_time_us();
+    music_nb.last_toggle_us = tim1_get_us();
     HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
 }
 
@@ -762,19 +762,19 @@ bool Music_Play_Update(void)
         /* 0x80: 保持当前频率不变 */
 
         music_nb.note_start_tick = HAL_GetTick();
-        music_nb.last_toggle_us = dwt_get_time_us();
+        music_nb.last_toggle_us = tim1_get_us();
     }
 
-    /* 2. 非阻塞方波：用 DWT 时间戳 catch-up 计算应翻转次数 */
+    /* 2. 非阻塞方波：用 TIM1 时间戳 catch-up 计算应翻转次数 */
     if (music_nb.half_us > 0)
     {
-        uint64_t now_us = dwt_get_time_us();
-        uint64_t elapsed = now_us - music_nb.last_toggle_us;
+        uint32_t now_us = tim1_get_us();
+        uint32_t elapsed = now_us - music_nb.last_toggle_us;
 
         if (elapsed >= music_nb.half_us)
         {
-            uint32_t toggles = (uint32_t)(elapsed / music_nb.half_us);
-            music_nb.last_toggle_us += (uint64_t)toggles * music_nb.half_us;
+            uint32_t toggles = elapsed / music_nb.half_us;
+            music_nb.last_toggle_us += toggles * music_nb.half_us;
 
             if (toggles & 1)                /* 奇数次翻转改变电平 */
                 music_nb.pin_state ^= 1;

@@ -18,7 +18,6 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include <stdbool.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "main.h"
@@ -50,18 +49,16 @@
 /* USER CODE BEGIN Variables */
 
 /* USER CODE END Variables */
-osThreadId cmd_taskHandle;
-osThreadId chassis_taskHandle;
 osThreadId sensorHandle;
+osThreadId chassis_taskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 
 /* USER CODE END FunctionPrototypes */
 
-void Start_cmd(void const * argument);
-void Start_chassis(void const * argument);
 void Start_sensor(void const * argument);
+void Start_chassis(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -108,17 +105,13 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* definition and creation of cmd_task */
-//  osThreadDef(cmd_task, Start_cmd, osPriorityNormal, 0, 128);
-//  cmd_taskHandle = osThreadCreate(osThread(cmd_task), NULL);
-
-  /* definition and creation of chassis_task */
-  osThreadDef(chassis_task, Start_chassis, osPriorityAboveNormal, 0, 128);
-  chassis_taskHandle = osThreadCreate(osThread(chassis_task), NULL);
-
   /* definition and creation of sensor */
   osThreadDef(sensor, Start_sensor, osPriorityNormal, 0, 128);
   sensorHandle = osThreadCreate(osThread(sensor), NULL);
+
+  /* definition and creation of chassis_task */
+  osThreadDef(chassis_task, Start_chassis, osPriorityNormal, 0, 128);
+  chassis_taskHandle = osThreadCreate(osThread(chassis_task), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -126,7 +119,7 @@ void MX_FREERTOS_Init(void) {
 
 }
 
-/* USER CODE BEGIN Header_Start_cmd */
+/* USER CODE BEGIN Header_Start_sensor */
 /***********value define*************************/
 static uint16_t ADC_Value[5];/*循迹模块adc采样*/
 static uint16_t distance;/*测距距离*/
@@ -160,30 +153,34 @@ bool car_stop_flag;
 volatile int left_speed = 0;
 volatile int right_speed = 0;
 /************************************/
-
 /**
-  * @brief  Function implementing the cmd_task thread.
-  * @param  argument: Not used
-  * @retval None
-  */
-/* USER CODE END Header_Start_cmd */
-__weak void Start_cmd(void const * argument)
+* @brief Function implementing the sensor thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Start_sensor */
+__weak void Start_sensor(void const * argument)
 {
-  /* USER CODE BEGIN Start_cmd */
-
+  /* USER CODE BEGIN Start_sensor */
+    static bool music_triggered = false;     /* 确保 Music_Play_Start 只调一次 */
+    Key_Init();
   /* Infinite loop */
   for(;;)
   {
+      Key_Update();
 
-//      /* 开机播放一段旋律 (软件PWM, 阻塞播出后再进入主循环) */
-//      if(move_start_flag == 1){
-//          Music_Play(Spirited_Away, SPIRITED_AWAY_LEN, 1);
-//      }
-//      Battery_Alarming();
+      /* 首次 move_start_flag == 1 时启动非阻塞音乐 */
+      if(move_start_flag == 1 && !music_triggered){
+          music_triggered = true;
+          Music_Play_Start(Spirited_Away, SPIRITED_AWAY_LEN, 1);
+      }
+
+      /* 非阻塞音乐更新（每 loop 调一次，不忙等，不阻塞其他任务） */
+      Music_Play_Update();
 
     osDelay(1);
   }
-  /* USER CODE END Start_cmd */
+  /* USER CODE END Start_sensor */
 }
 
 /* USER CODE BEGIN Header_Start_chassis */
@@ -234,38 +231,6 @@ __weak void Start_chassis(void const * argument)
     osDelay(1);
   }
   /* USER CODE END Start_chassis */
-}
-
-/* USER CODE BEGIN Header_Start_sensor */
-
-/**
-* @brief Function implementing the sensor thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_Start_sensor */
-__weak void Start_sensor(void const * argument)
-{
-  /* USER CODE BEGIN Start_sensor */
-    static bool music_triggered = false;     /* 确保 Music_Play_Start 只调一次 */
-    Key_Init();
-  /* Infinite loop */
-  for(;;)
-  {
-      Key_Update();
-
-      /* 首次 move_start_flag == 1 时启动非阻塞音乐 */
-      if(move_start_flag == 1 && !music_triggered){
-          music_triggered = true;
-          Music_Play_Start(Spirited_Away, SPIRITED_AWAY_LEN, 1);
-      }
-
-      /* 非阻塞音乐更新（每 loop 调一次，不忙等，不阻塞其他任务） */
-      Music_Play_Update();
-
-    osDelay(1);
-  }
-  /* USER CODE END Start_sensor */
 }
 
 /* Private application code --------------------------------------------------*/

@@ -1207,8 +1207,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "D:/car_project2/cmake-build-debug",
-		"source" : "D:/car_project2"
+		"build" : "D:/car_project_3/car_c8t6_rtos/cmake-build-debug",
+		"source" : "D:/car_project_3/car_c8t6_rtos"
 	},
 	"version" : 
 	{

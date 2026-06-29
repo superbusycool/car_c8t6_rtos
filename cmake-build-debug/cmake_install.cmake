@@ -1,4 +1,4 @@
-# Install script for directory: D:/car_project2
+# Install script for directory: D:/car_project_3/car_c8t6_rtos
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/car_project2/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/car_project_3/car_c8t6_rtos/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

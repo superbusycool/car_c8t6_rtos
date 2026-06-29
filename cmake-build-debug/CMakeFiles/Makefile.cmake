@@ -102,7 +102,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/FeatureTesting.cmake"
   "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Generic.cmake"
   "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/ProcessorCount.cmake"
-  "D:/car_project2/CMakeLists.txt"
+  "D:/car_project_3/car_c8t6_rtos/CMakeLists.txt"
   "CMakeFiles/3.26.4/CMakeASMCompiler.cmake"
   "CMakeFiles/3.26.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.26.4/CMakeCXXCompiler.cmake"

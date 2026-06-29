@@ -5,13 +5,13 @@
 # compile C with D:/stm32environment/arm/bin/arm-none-eabi-gcc.exe
 ASM_DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
 
-ASM_INCLUDES = -ID:\car_project2\Core\Inc -ID:\car_project2\modules\Inc -ID:\car_project2\modules\Src -ID:\car_project2\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy -ID:\car_project2\Drivers\STM32F1xx_HAL_Driver\Inc -ID:\car_project2\Drivers\CMSIS\Device\ST\STM32F1xx\Include -ID:\car_project2\Drivers\CMSIS\Include -ID:\car_project2\Middlewares\Third_Party\FreeRTOS\Source\include -ID:\car_project2\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS -ID:\car_project2\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3
+ASM_INCLUDES = -ID:\car_project_3\car_c8t6_rtos\Core\Inc -ID:\car_project_3\car_c8t6_rtos\modules\Inc -ID:\car_project_3\car_c8t6_rtos\modules\Src -ID:\car_project_3\car_c8t6_rtos\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy -ID:\car_project_3\car_c8t6_rtos\Drivers\STM32F1xx_HAL_Driver\Inc -ID:\car_project_3\car_c8t6_rtos\Drivers\CMSIS\Device\ST\STM32F1xx\Include -ID:\car_project_3\car_c8t6_rtos\Drivers\CMSIS\Include -ID:\car_project_3\car_c8t6_rtos\Middlewares\Third_Party\FreeRTOS\Source\include -ID:\car_project_3\car_c8t6_rtos\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS -ID:\car_project_3\car_c8t6_rtos\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3
 
 ASM_FLAGS = -g -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -x assembler-with-cpp -Og -g
 
 C_DEFINES = -DDEBUG -DSTM32F103xB -DUSE_HAL_DRIVER
 
-C_INCLUDES = -ID:\car_project2\Core\Inc -ID:\car_project2\modules\Inc -ID:\car_project2\modules\Src -ID:\car_project2\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy -ID:\car_project2\Drivers\STM32F1xx_HAL_Driver\Inc -ID:\car_project2\Drivers\CMSIS\Device\ST\STM32F1xx\Include -ID:\car_project2\Drivers\CMSIS\Include -ID:\car_project2\Middlewares\Third_Party\FreeRTOS\Source\include -ID:\car_project2\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS -ID:\car_project2\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3
+C_INCLUDES = -ID:\car_project_3\car_c8t6_rtos\Core\Inc -ID:\car_project_3\car_c8t6_rtos\modules\Inc -ID:\car_project_3\car_c8t6_rtos\modules\Src -ID:\car_project_3\car_c8t6_rtos\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy -ID:\car_project_3\car_c8t6_rtos\Drivers\STM32F1xx_HAL_Driver\Inc -ID:\car_project_3\car_c8t6_rtos\Drivers\CMSIS\Device\ST\STM32F1xx\Include -ID:\car_project_3\car_c8t6_rtos\Drivers\CMSIS\Include -ID:\car_project_3\car_c8t6_rtos\Middlewares\Third_Party\FreeRTOS\Source\include -ID:\car_project_3\car_c8t6_rtos\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS -ID:\car_project_3\car_c8t6_rtos\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3
 
 C_FLAGS = -g -std=gnu11 -fdiagnostics-color=always -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Og -g
 

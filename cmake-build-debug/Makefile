@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\car_project2
+CMAKE_SOURCE_DIR = D:\car_project_3\car_c8t6_rtos
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\car_project2\cmake-build-debug
+CMAKE_BINARY_DIR = D:\car_project_3\car_c8t6_rtos\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\car_project2\cmake-build-debug\CMakeFiles D:\car_project2\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\car_project_3\car_c8t6_rtos\cmake-build-debug\CMakeFiles D:\car_project_3\car_c8t6_rtos\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\car_project2\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\car_project_3\car_c8t6_rtos\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target

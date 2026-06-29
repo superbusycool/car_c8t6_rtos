@@ -151,43 +151,43 @@
 			[
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Core/Inc"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Core/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/modules/Inc"
+					"path" : "D:/car_project_3/car_c8t6_rtos/modules/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/modules/Src"
+					"path" : "D:/car_project_3/car_c8t6_rtos/modules/Src"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Drivers/STM32F1xx_HAL_Driver/Inc"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Drivers/CMSIS/Include"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Drivers/CMSIS/Include"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Middlewares/Third_Party/FreeRTOS/Source/include"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3"
 				}
 			],
 			"language" : "C",
@@ -323,43 +323,43 @@
 			[
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Core/Inc"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Core/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/modules/Inc"
+					"path" : "D:/car_project_3/car_c8t6_rtos/modules/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/modules/Src"
+					"path" : "D:/car_project_3/car_c8t6_rtos/modules/Src"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Drivers/STM32F1xx_HAL_Driver/Inc"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Drivers/CMSIS/Include"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Drivers/CMSIS/Include"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Middlewares/Third_Party/FreeRTOS/Source/include"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "D:/car_project2/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3"
+					"path" : "D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3"
 				}
 			],
 			"language" : "ASM",
@@ -384,7 +384,7 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-Wl,-gc-sections,--print-memory-usage,-Map=D:/car_project2/cmake-build-debug/car_project1.map",
+				"fragment" : "-Wl,-gc-sections,--print-memory-usage,-Map=D:/car_project_3/car_c8t6_rtos/cmake-build-debug/car_project1.map",
 				"role" : "flags"
 			},
 			{
@@ -409,7 +409,7 @@
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "D:/car_project2/STM32F103C8TX_FLASH.ld",
+				"fragment" : "D:/car_project_3/car_c8t6_rtos/STM32F103C8TX_FLASH.ld",
 				"role" : "flags"
 			}
 		],
