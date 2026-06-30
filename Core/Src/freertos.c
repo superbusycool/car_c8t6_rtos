@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
+#include <stdlib.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "main.h"
@@ -129,6 +130,8 @@ static float Basic_vel;
 PID_HandleTypeDef track_pid = {0};
 static uint8_t detect_current;/*每路是否识别到黑线*/
 bool detect_detect_lost;
+
+
 static float detect_value_current;/*由寻迹模块得到的权重*/
 static float detect_value_current_last;
 static uint8_t track_status_worse;
@@ -137,13 +140,40 @@ static float target_value;/*设置的目标值*/
 void Detection_val_calc(uint16_t* adc_value);/*计算寻迹权重*/
 
 /*权重从左到右 : -4 -1 0 1 4*/
-#define ADC_HRESHOLD_VALUE_MID 1600//1620  //判断是否寻到线的ADC阈值
-#define ADC_HRESHOLD_VALUE_OUT2 1600//1620  //判断是否寻到线的ADC阈值
-#define ADC_HRESHOLD_VALUE_OUT1 1600//1620  //判断是否寻到线的ADC阈值
+#define ADC_HRESHOLD_VALUE_MID 1550//1620  //判断是否寻到线的ADC阈值
+#define ADC_HRESHOLD_VALUE_OUT2 1550//1620  //判断是否寻到线的ADC阈值
+#define ADC_HRESHOLD_VALUE_OUT1 1550//1620  //判断是否寻到线的ADC阈值
 
 #define ADC_OUT2_VALUE  6.0f   //对称最外侧的两个光电管寻到黑线
 #define ADC_OUT1_VALUE  4.0f   //对称次外侧的两个光电管寻到黑线
 #define ADC_MID_VALUE  0.0f     //中间寻到黑
+
+#define DISTANCE_TARGET  15 //避震距离
+static int distance_cnt;
+
+static float obstacle_start_ms;/*避障开始时间*/
+bool obstacle_turn1_flag;
+bool obstacle_turn2_flag;
+bool obstacle_turn3_flag;
+static float obstacle_turn1_delta_ms;
+#define OBSTACLE_TURN1_DELTA 400.0f   //0.5S
+
+static float obstacle_turn2_start_ms;
+static float obstacle_turn2_delta_ms;
+#define OBSTACLE_TURN2_DELTA 600.0f  //0.5S
+
+static float obstacle_turn3_start_ms;
+static float obstacle_turn3_delta_ms;
+#define OBSTACLE_TURN3_DELTA 800.0f   //0.5S
+
+static float obstacle_turn4_start_ms;
+static float obstacle_turn4_delta_ms;
+#define OBSTACLE_TURN4_DELTA 600.0f   //0.5S
+
+bool obstacle_flag;
+
+void obstacle_avoid(void);
+
 uint16_t ADC_NORMAL_VALUE = ADC_OUT2_VALUE+ADC_OUT1_VALUE;
 
 bool move_start_flag;/*开始循迹标志位*/
@@ -209,31 +239,44 @@ __weak void Start_chassis(void const * argument)
 
       if(Key1.state == KEY_PRESSED && move_start_flag == 0){/*开始循迹*/
           move_start_flag = 1;
-
       }
 
-      OLED_ShowNum(1,1,move_stop_flag,1);
-      if(car_stop_flag == 0){
-          if(move_start_flag == 1 ){
-
-              pid_calculate(&track_pid, detect_value_current);
-              left_speed = (int)(Basic_vel + track_pid.output);
-              right_speed = (int)(Basic_vel - track_pid.output);
-              Car_direction_change(Basic_vel,left_speed,right_speed,(int)track_pid.output);
-          }
-
-          if(move_start_flag == 1 && detect_detect_lost == 1){
-              Car_move(-45);
-          }
-          if(move_stop_flag > 4 ){
-              car_stop_flag = 1;
+      if(abs(distance - DISTANCE_TARGET) < 4){
+          distance_cnt++;
+          if(distance_cnt > 4){
+              obstacle_flag = 1;//开始避障
+              obstacle_start_ms = dwt_get_time_ms() ;/*记录开始避障的时间戳*/
+              pid_clear(&track_pid);
           }
       }else{
-          Car_move(0);
+          distance_cnt = 0;
       }
 
 
+      OLED_ShowNum(1,1,obstacle_flag,1);
+      if(obstacle_flag == 0){
+          if(car_stop_flag == 0){
+              if(move_start_flag == 1 ){
 
+                  pid_calculate(&track_pid, detect_value_current);
+                  left_speed = (int)(Basic_vel + track_pid.output);
+                  right_speed = (int)(Basic_vel - track_pid.output);
+                  Car_direction_change(Basic_vel,left_speed,right_speed,(int)track_pid.output);
+              }
+
+              if(move_start_flag == 1 && detect_detect_lost == 1){
+                  Car_move(-45);
+              }
+//              if(move_stop_flag > 5 ){
+//                  car_stop_flag = 1;
+//              }
+          }else{
+              Car_move(0);
+          }
+      }else{
+
+          obstacle_avoid();
+      }
 
     osDelay(1);
   }
@@ -254,6 +297,7 @@ void Detection_val_calc(uint16_t *adc_value)
                    | ((adc_value[0] > ADC_HRESHOLD_VALUE_OUT2) << 4);
 
     detect_detect_lost = (detect_current == 0x00);
+
     if(detect_current == 0x1F){
         move_stop_flag++;
     }else{
@@ -282,6 +326,47 @@ void Detection_val_calc(uint16_t *adc_value)
     } else {
         detect_value_current = detect_value_current_last;
 
+    }
+}
+void obstacle_avoid(void){
+    pid_calculate(&track_pid, 0);
+    obstacle_turn1_delta_ms = dwt_get_time_ms() - obstacle_start_ms;/*记录转向1时间*/
+    if((obstacle_turn1_delta_ms < OBSTACLE_TURN1_DELTA) && obstacle_turn1_flag==0){
+        pid_calculate(&track_pid, 10);
+        obstacle_turn2_start_ms = dwt_get_time_ms();
+    }
+    else{
+        obstacle_turn1_flag = 1;
+        obstacle_turn2_delta_ms = dwt_get_time_ms() - obstacle_turn2_start_ms;
+        if((obstacle_turn2_delta_ms < OBSTACLE_TURN2_DELTA) && obstacle_turn2_flag == 0){
+            pid_calculate(&track_pid, -10);
+            obstacle_turn3_start_ms = dwt_get_time_ms();
+        }
+        else{
+            obstacle_turn2_flag = 1;
+            obstacle_turn3_delta_ms = dwt_get_time_ms() - obstacle_turn3_start_ms;
+            if((obstacle_turn3_delta_ms < OBSTACLE_TURN3_DELTA) && obstacle_turn3_flag == 0){
+                pid_calculate(&track_pid, -10);
+                obstacle_turn4_start_ms = dwt_get_time_ms();
+            }else
+            {
+                obstacle_turn3_flag = 1;
+                obstacle_turn4_delta_ms = dwt_get_time_ms() - obstacle_turn4_start_ms;
+                if(obstacle_turn4_delta_ms < OBSTACLE_TURN4_DELTA){
+                    pid_calculate(&track_pid, 25);
+                }
+            }
+        }
+    }
+    left_speed = (int)(Basic_vel + track_pid.output);
+    right_speed = (int)(Basic_vel - track_pid.output);
+    Car_direction_change(Basic_vel,left_speed,right_speed,(int)track_pid.output);
+
+    if((detect_current > 0)&&(obstacle_turn1_flag == 1 &&obstacle_turn2_flag == 1 && obstacle_turn3_flag == 1)){/*避障完成后寻到线,继续进行巡线*/
+        obstacle_flag = 0;
+        obstacle_turn1_flag = 0;
+        obstacle_turn2_flag = 0;
+        obstacle_turn3_flag = 0;
     }
 }
 /* USER CODE END Application */

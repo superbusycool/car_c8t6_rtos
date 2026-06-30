@@ -535,6 +535,9 @@
 		<Unit filename="D:/car_project_3/car_c8t6_rtos/modules/Inc/pid.h">
 			<Option target="car_project1.elf"/>
 		</Unit>
+		<Unit filename="D:/car_project_3/car_c8t6_rtos/modules/Inc/tim1_delay.h">
+			<Option target="car_project1.elf"/>
+		</Unit>
 		<Unit filename="D:/car_project_3/car_c8t6_rtos/modules/Inc/track.h">
 			<Option target="car_project1.elf"/>
 		</Unit>

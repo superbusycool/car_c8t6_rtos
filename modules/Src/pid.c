@@ -41,3 +41,9 @@ void pid_calculate(PID_HandleTypeDef *pid, float current_error) {
     // 6. 保存当前误差，用于下一次计算微分
     pid->last_error = pid->error;
 }
+void pid_clear(PID_HandleTypeDef *pid){
+    pid->error = 0;
+    pid->integral = 0;
+    pid->output = 0;
+    pid->last_error = 0;
+}

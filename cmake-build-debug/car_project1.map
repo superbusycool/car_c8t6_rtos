@@ -11,7 +11,7 @@ d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libg
 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivsf3.o)
                               CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj (__aeabi_fdiv)
 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_cmpsf2.o)
-                              CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj (__aeabi_fcmplt)
+                              CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj (__aeabi_fcmplt)
 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixsfsi.o)
                               CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj (__aeabi_f2iz)
 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
@@ -1486,16 +1486,14 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
  .data          0x00000000        0x0 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
  .bss           0x00000000        0x0 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
- .text.dwt_get_time_ms
-                0x00000000       0x18 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
  .text.dwt_get_time_s
                 0x00000000       0x18 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
  .text.dwt_get_delta
-                0x00000000       0x40 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+                0x00000000       0x44 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
  .text.dwt_get_delta_64
-                0x00000000       0x54 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+                0x00000000       0x58 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
  .text.dwt_delay_s
-                0x00000000       0x5c CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+                0x00000000       0x3c CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
  .text.dwt_delay_ms
                 0x00000000       0x10 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
  .text          0x00000000        0x0 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
@@ -1778,7 +1776,7 @@ LOAD d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp
                 0x08000000                g_pfnVectors
                 0x0800010c                . = ALIGN (0x4)
 
-.text           0x08000110     0x4acc
+.text           0x08000110     0x4cc4
                 0x08000110                . = ALIGN (0x4)
  *(.text)
  .text          0x08000110       0x40 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
@@ -1847,642 +1845,650 @@ LOAD d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp
                 0x08000c40       0x5c CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
                 0x08000c40                MX_FREERTOS_Init
  .text.Detection_val_calc
-                0x08000c9c       0xac CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x08000c9c       0xb0 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
                 0x08000c9c                Detection_val_calc
+ .text.obstacle_avoid
+                0x08000d4c      0x19c CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x08000d4c                obstacle_avoid
  .text.Start_chassis
-                0x08000d48      0x130 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
-                0x08000d48                Start_chassis
+                0x08000ee8      0x168 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x08000ee8                Start_chassis
  .text.MX_GPIO_Init
-                0x08000e78      0x11c CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
-                0x08000e78                MX_GPIO_Init
+                0x08001050      0x11c CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
+                0x08001050                MX_GPIO_Init
  .text.HAL_TIM_PeriodElapsedCallback
-                0x08000f94       0x18 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
-                0x08000f94                HAL_TIM_PeriodElapsedCallback
+                0x0800116c       0x18 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
+                0x0800116c                HAL_TIM_PeriodElapsedCallback
  .text.Error_Handler
-                0x08000fac        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
-                0x08000fac                Error_Handler
+                0x08001184        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
+                0x08001184                Error_Handler
  .text.SystemClock_Config
-                0x08000fb0       0x84 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
-                0x08000fb0                SystemClock_Config
- .text.main     0x08001034       0xb4 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
-                0x08001034                main
+                0x08001188       0x84 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
+                0x08001188                SystemClock_Config
+ .text.main     0x0800120c       0xb4 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
+                0x0800120c                main
  .text.MX_SPI1_Init
-                0x080010e8       0x44 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
-                0x080010e8                MX_SPI1_Init
+                0x080012c0       0x44 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
+                0x080012c0                MX_SPI1_Init
  .text.HAL_SPI_MspInit
-                0x0800112c       0x74 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
-                0x0800112c                HAL_SPI_MspInit
+                0x08001304       0x74 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
+                0x08001304                HAL_SPI_MspInit
  .text.HAL_MspInit
-                0x080011a0       0x54 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
-                0x080011a0                HAL_MspInit
+                0x08001378       0x54 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+                0x08001378                HAL_MspInit
  .text.HAL_InitTick
-                0x080011f4       0x94 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
-                0x080011f4                HAL_InitTick
+                0x080013cc       0x94 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
+                0x080013cc                HAL_InitTick
  .text.NMI_Handler
-                0x08001288        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x08001288                NMI_Handler
+                0x08001460        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08001460                NMI_Handler
  .text.HardFault_Handler
-                0x0800128a        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x0800128a                HardFault_Handler
+                0x08001462        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08001462                HardFault_Handler
  .text.MemManage_Handler
-                0x0800128c        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x0800128c                MemManage_Handler
+                0x08001464        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08001464                MemManage_Handler
  .text.BusFault_Handler
-                0x0800128e        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x0800128e                BusFault_Handler
+                0x08001466        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08001466                BusFault_Handler
  .text.UsageFault_Handler
-                0x08001290        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x08001290                UsageFault_Handler
+                0x08001468        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08001468                UsageFault_Handler
  .text.DebugMon_Handler
-                0x08001292        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x08001292                DebugMon_Handler
+                0x0800146a        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x0800146a                DebugMon_Handler
  .text.DMA1_Channel1_IRQHandler
-                0x08001294       0x10 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x08001294                DMA1_Channel1_IRQHandler
+                0x0800146c       0x10 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x0800146c                DMA1_Channel1_IRQHandler
  .text.TIM1_UP_IRQHandler
-                0x080012a4       0x10 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080012a4                TIM1_UP_IRQHandler
+                0x0800147c       0x10 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x0800147c                TIM1_UP_IRQHandler
  .text.TIM2_IRQHandler
-                0x080012b4       0x10 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080012b4                TIM2_IRQHandler
+                0x0800148c       0x10 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x0800148c                TIM2_IRQHandler
  .text.SystemInit
-                0x080012c4        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
-                0x080012c4                SystemInit
- *fill*         0x080012c6        0x2 
+                0x0800149c        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
+                0x0800149c                SystemInit
+ *fill*         0x0800149e        0x2 
  .text.HAL_TIM_PWM_MspInit
-                0x080012c8       0x80 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
-                0x080012c8                HAL_TIM_PWM_MspInit
+                0x080014a0       0x80 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+                0x080014a0                HAL_TIM_PWM_MspInit
  .text.HAL_TIM_MspPostInit
-                0x08001348       0xdc CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
-                0x08001348                HAL_TIM_MspPostInit
+                0x08001520       0xdc CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+                0x08001520                HAL_TIM_MspPostInit
  .text.MX_TIM2_Init
-                0x08001424       0x80 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
-                0x08001424                MX_TIM2_Init
+                0x080015fc       0x80 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+                0x080015fc                MX_TIM2_Init
  .text.MX_TIM3_Init
-                0x080014a4       0xb8 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
-                0x080014a4                MX_TIM3_Init
+                0x0800167c       0xb8 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+                0x0800167c                MX_TIM3_Init
  .text.MX_TIM4_Init
-                0x0800155c       0xb8 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
-                0x0800155c                MX_TIM4_Init
+                0x08001734       0xb8 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+                0x08001734                MX_TIM4_Init
  .text.MX_USART1_UART_Init
-                0x08001614       0x34 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
-                0x08001614                MX_USART1_UART_Init
+                0x080017ec       0x34 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
+                0x080017ec                MX_USART1_UART_Init
  .text.HAL_UART_MspInit
-                0x08001648       0x78 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
-                0x08001648                HAL_UART_MspInit
+                0x08001820       0x78 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
+                0x08001820                HAL_UART_MspInit
  .text.Reset_Handler
-                0x080016c0       0x48 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
-                0x080016c0                Reset_Handler
+                0x08001898       0x48 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
+                0x08001898                Reset_Handler
  .text.Default_Handler
-                0x08001708        0x2 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
-                0x08001708                RTC_Alarm_IRQHandler
-                0x08001708                EXTI2_IRQHandler
-                0x08001708                TIM1_CC_IRQHandler
-                0x08001708                PVD_IRQHandler
-                0x08001708                EXTI3_IRQHandler
-                0x08001708                EXTI0_IRQHandler
-                0x08001708                I2C2_EV_IRQHandler
-                0x08001708                ADC1_2_IRQHandler
-                0x08001708                SPI1_IRQHandler
-                0x08001708                TAMPER_IRQHandler
-                0x08001708                DMA1_Channel4_IRQHandler
-                0x08001708                USART3_IRQHandler
-                0x08001708                RTC_IRQHandler
-                0x08001708                DMA1_Channel7_IRQHandler
-                0x08001708                CAN1_RX1_IRQHandler
-                0x08001708                TIM4_IRQHandler
-                0x08001708                I2C1_EV_IRQHandler
-                0x08001708                DMA1_Channel6_IRQHandler
-                0x08001708                TIM3_IRQHandler
-                0x08001708                RCC_IRQHandler
-                0x08001708                TIM1_TRG_COM_IRQHandler
-                0x08001708                Default_Handler
-                0x08001708                EXTI15_10_IRQHandler
-                0x08001708                EXTI9_5_IRQHandler
-                0x08001708                SPI2_IRQHandler
-                0x08001708                DMA1_Channel5_IRQHandler
-                0x08001708                EXTI4_IRQHandler
-                0x08001708                USB_LP_CAN1_RX0_IRQHandler
-                0x08001708                USB_HP_CAN1_TX_IRQHandler
-                0x08001708                DMA1_Channel3_IRQHandler
-                0x08001708                WWDG_IRQHandler
-                0x08001708                TIM1_BRK_IRQHandler
-                0x08001708                EXTI1_IRQHandler
-                0x08001708                USART2_IRQHandler
-                0x08001708                I2C2_ER_IRQHandler
-                0x08001708                DMA1_Channel2_IRQHandler
-                0x08001708                CAN1_SCE_IRQHandler
-                0x08001708                FLASH_IRQHandler
-                0x08001708                USART1_IRQHandler
-                0x08001708                I2C1_ER_IRQHandler
-                0x08001708                USBWakeUp_IRQHandler
- *fill*         0x0800170a        0x2 
+                0x080018e0        0x2 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
+                0x080018e0                RTC_Alarm_IRQHandler
+                0x080018e0                EXTI2_IRQHandler
+                0x080018e0                TIM1_CC_IRQHandler
+                0x080018e0                PVD_IRQHandler
+                0x080018e0                EXTI3_IRQHandler
+                0x080018e0                EXTI0_IRQHandler
+                0x080018e0                I2C2_EV_IRQHandler
+                0x080018e0                ADC1_2_IRQHandler
+                0x080018e0                SPI1_IRQHandler
+                0x080018e0                TAMPER_IRQHandler
+                0x080018e0                DMA1_Channel4_IRQHandler
+                0x080018e0                USART3_IRQHandler
+                0x080018e0                RTC_IRQHandler
+                0x080018e0                DMA1_Channel7_IRQHandler
+                0x080018e0                CAN1_RX1_IRQHandler
+                0x080018e0                TIM4_IRQHandler
+                0x080018e0                I2C1_EV_IRQHandler
+                0x080018e0                DMA1_Channel6_IRQHandler
+                0x080018e0                TIM3_IRQHandler
+                0x080018e0                RCC_IRQHandler
+                0x080018e0                TIM1_TRG_COM_IRQHandler
+                0x080018e0                Default_Handler
+                0x080018e0                EXTI15_10_IRQHandler
+                0x080018e0                EXTI9_5_IRQHandler
+                0x080018e0                SPI2_IRQHandler
+                0x080018e0                DMA1_Channel5_IRQHandler
+                0x080018e0                EXTI4_IRQHandler
+                0x080018e0                USB_LP_CAN1_RX0_IRQHandler
+                0x080018e0                USB_HP_CAN1_TX_IRQHandler
+                0x080018e0                DMA1_Channel3_IRQHandler
+                0x080018e0                WWDG_IRQHandler
+                0x080018e0                TIM1_BRK_IRQHandler
+                0x080018e0                EXTI1_IRQHandler
+                0x080018e0                USART2_IRQHandler
+                0x080018e0                I2C2_ER_IRQHandler
+                0x080018e0                DMA1_Channel2_IRQHandler
+                0x080018e0                CAN1_SCE_IRQHandler
+                0x080018e0                FLASH_IRQHandler
+                0x080018e0                USART1_IRQHandler
+                0x080018e0                I2C1_ER_IRQHandler
+                0x080018e0                USBWakeUp_IRQHandler
+ *fill*         0x080018e2        0x2 
  .text.HAL_Init
-                0x0800170c       0x24 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
-                0x0800170c                HAL_Init
+                0x080018e4       0x24 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x080018e4                HAL_Init
  .text.HAL_IncTick
-                0x08001730       0x18 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
-                0x08001730                HAL_IncTick
+                0x08001908       0x18 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x08001908                HAL_IncTick
  .text.HAL_GetTick
-                0x08001748        0xc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
-                0x08001748                HAL_GetTick
+                0x08001920        0xc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x08001920                HAL_GetTick
  .text.HAL_ADC_ConvCpltCallback
-                0x08001754        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
-                0x08001754                HAL_ADC_ConvCpltCallback
+                0x0800192c        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+                0x0800192c                HAL_ADC_ConvCpltCallback
  .text.ADC_DMAConvCplt
-                0x08001756       0x52 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
-                0x08001756                ADC_DMAConvCplt
+                0x0800192e       0x52 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+                0x0800192e                ADC_DMAConvCplt
  .text.HAL_ADC_ConvHalfCpltCallback
-                0x080017a8        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
-                0x080017a8                HAL_ADC_ConvHalfCpltCallback
+                0x08001980        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+                0x08001980                HAL_ADC_ConvHalfCpltCallback
  .text.ADC_DMAHalfConvCplt
-                0x080017aa        0xa CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
-                0x080017aa                ADC_DMAHalfConvCplt
+                0x08001982        0xa CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+                0x08001982                ADC_DMAHalfConvCplt
  .text.HAL_ADC_ErrorCallback
-                0x080017b4        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
-                0x080017b4                HAL_ADC_ErrorCallback
+                0x0800198c        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+                0x0800198c                HAL_ADC_ErrorCallback
  .text.ADC_DMAError
-                0x080017b6       0x1a CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
-                0x080017b6                ADC_DMAError
+                0x0800198e       0x1a CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+                0x0800198e                ADC_DMAError
  .text.HAL_ADC_ConfigChannel
-                0x080017d0      0x144 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
-                0x080017d0                HAL_ADC_ConfigChannel
+                0x080019a8      0x144 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+                0x080019a8                HAL_ADC_ConfigChannel
  .text.ADC_Enable
-                0x08001914       0x88 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
-                0x08001914                ADC_Enable
+                0x08001aec       0x88 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+                0x08001aec                ADC_Enable
  .text.HAL_ADC_Start_DMA
-                0x0800199c      0x130 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
-                0x0800199c                HAL_ADC_Start_DMA
+                0x08001b74      0x130 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+                0x08001b74                HAL_ADC_Start_DMA
  .text.ADC_ConversionStop_Disable
-                0x08001acc       0x56 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
-                0x08001acc                ADC_ConversionStop_Disable
- *fill*         0x08001b22        0x2 
+                0x08001ca4       0x56 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+                0x08001ca4                ADC_ConversionStop_Disable
+ *fill*         0x08001cfa        0x2 
  .text.HAL_ADC_Init
-                0x08001b24      0x108 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
-                0x08001b24                HAL_ADC_Init
+                0x08001cfc      0x108 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+                0x08001cfc                HAL_ADC_Init
  .text.HAL_ADCEx_Calibration_Start
-                0x08001c2c      0x100 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
-                0x08001c2c                HAL_ADCEx_Calibration_Start
+                0x08001e04      0x100 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
+                0x08001e04                HAL_ADCEx_Calibration_Start
  .text.HAL_NVIC_SetPriorityGrouping
-                0x08001d2c       0x24 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
-                0x08001d2c                HAL_NVIC_SetPriorityGrouping
+                0x08001f04       0x24 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+                0x08001f04                HAL_NVIC_SetPriorityGrouping
  .text.HAL_NVIC_SetPriority
-                0x08001d50       0x70 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
-                0x08001d50                HAL_NVIC_SetPriority
+                0x08001f28       0x70 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+                0x08001f28                HAL_NVIC_SetPriority
  .text.HAL_NVIC_EnableIRQ
-                0x08001dc0       0x1c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
-                0x08001dc0                HAL_NVIC_EnableIRQ
+                0x08001f98       0x1c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+                0x08001f98                HAL_NVIC_EnableIRQ
  .text.DMA_SetConfig
-                0x08001ddc       0x2c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+                0x08001fb4       0x2c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
  .text.HAL_DMA_Init
-                0x08001e08       0x6c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
-                0x08001e08                HAL_DMA_Init
+                0x08001fe0       0x6c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+                0x08001fe0                HAL_DMA_Init
  .text.HAL_DMA_Start_IT
-                0x08001e74       0x76 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
-                0x08001e74                HAL_DMA_Start_IT
- *fill*         0x08001eea        0x2 
+                0x0800204c       0x76 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+                0x0800204c                HAL_DMA_Start_IT
+ *fill*         0x080020c2        0x2 
  .text.HAL_DMA_IRQHandler
-                0x08001eec      0x144 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
-                0x08001eec                HAL_DMA_IRQHandler
+                0x080020c4      0x144 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+                0x080020c4                HAL_DMA_IRQHandler
  .text.HAL_GPIO_Init
-                0x08002030      0x224 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
-                0x08002030                HAL_GPIO_Init
+                0x08002208      0x224 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+                0x08002208                HAL_GPIO_Init
  .text.HAL_GPIO_ReadPin
-                0x08002254        0xe CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
-                0x08002254                HAL_GPIO_ReadPin
+                0x0800242c        0xe CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+                0x0800242c                HAL_GPIO_ReadPin
  .text.HAL_GPIO_WritePin
-                0x08002262        0xc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
-                0x08002262                HAL_GPIO_WritePin
- *fill*         0x0800226e        0x2 
+                0x0800243a        0xc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+                0x0800243a                HAL_GPIO_WritePin
+ *fill*         0x08002446        0x2 
  .text.RCC_Delay
-                0x08002270       0x2c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x08002448       0x2c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
  .text.HAL_RCC_OscConfig
-                0x0800229c      0x410 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
-                0x0800229c                HAL_RCC_OscConfig
+                0x08002474      0x410 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x08002474                HAL_RCC_OscConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x080026ac       0x54 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
-                0x080026ac                HAL_RCC_GetSysClockFreq
+                0x08002884       0x54 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x08002884                HAL_RCC_GetSysClockFreq
  .text.HAL_RCC_ClockConfig
-                0x08002700      0x16c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
-                0x08002700                HAL_RCC_ClockConfig
+                0x080028d8      0x16c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x080028d8                HAL_RCC_ClockConfig
  .text.HAL_RCC_GetHCLKFreq
-                0x0800286c        0xc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
-                0x0800286c                HAL_RCC_GetHCLKFreq
+                0x08002a44        0xc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x08002a44                HAL_RCC_GetHCLKFreq
  .text.HAL_RCC_GetPCLK1Freq
-                0x08002878       0x20 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
-                0x08002878                HAL_RCC_GetPCLK1Freq
+                0x08002a50       0x20 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x08002a50                HAL_RCC_GetPCLK1Freq
  .text.HAL_RCC_GetPCLK2Freq
-                0x08002898       0x20 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
-                0x08002898                HAL_RCC_GetPCLK2Freq
+                0x08002a70       0x20 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x08002a70                HAL_RCC_GetPCLK2Freq
  .text.HAL_RCC_GetClockConfig
-                0x080028b8       0x3c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
-                0x080028b8                HAL_RCC_GetClockConfig
+                0x08002a90       0x3c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x08002a90                HAL_RCC_GetClockConfig
  .text.HAL_RCCEx_PeriphCLKConfig
-                0x080028f4      0x118 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
-                0x080028f4                HAL_RCCEx_PeriphCLKConfig
+                0x08002acc      0x118 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
+                0x08002acc                HAL_RCCEx_PeriphCLKConfig
  .text.HAL_RCCEx_GetPeriphCLKFreq
-                0x08002a0c       0xd8 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
-                0x08002a0c                HAL_RCCEx_GetPeriphCLKFreq
+                0x08002be4       0xd8 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
+                0x08002be4                HAL_RCCEx_GetPeriphCLKFreq
  .text.HAL_SPI_Init
-                0x08002ae4       0xb6 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
-                0x08002ae4                HAL_SPI_Init
- *fill*         0x08002b9a        0x2 
+                0x08002cbc       0xb6 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+                0x08002cbc                HAL_SPI_Init
+ *fill*         0x08002d72        0x2 
  .text.TIM_OC1_SetConfig
-                0x08002b9c       0x5c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08002d74       0x5c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
  .text.TIM_OC3_SetConfig
-                0x08002bf8       0x64 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08002dd0       0x64 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
  .text.TIM_OC4_SetConfig
-                0x08002c5c       0x48 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08002e34       0x48 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
  .text.HAL_TIM_Base_MspInit
-                0x08002ca4        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08002ca4                HAL_TIM_Base_MspInit
- *fill*         0x08002ca6        0x2 
+                0x08002e7c        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08002e7c                HAL_TIM_Base_MspInit
+ *fill*         0x08002e7e        0x2 
  .text.HAL_TIM_Base_Start_IT
-                0x08002ca8       0x68 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08002ca8                HAL_TIM_Base_Start_IT
+                0x08002e80       0x68 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08002e80                HAL_TIM_Base_Start_IT
  .text.HAL_TIM_OC_DelayElapsedCallback
-                0x08002d10        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08002d10                HAL_TIM_OC_DelayElapsedCallback
+                0x08002ee8        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08002ee8                HAL_TIM_OC_DelayElapsedCallback
  .text.HAL_TIM_IC_CaptureCallback
-                0x08002d12        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08002d12                HAL_TIM_IC_CaptureCallback
+                0x08002eea        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08002eea                HAL_TIM_IC_CaptureCallback
  .text.HAL_TIM_PWM_PulseFinishedCallback
-                0x08002d14        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08002d14                HAL_TIM_PWM_PulseFinishedCallback
+                0x08002eec        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08002eec                HAL_TIM_PWM_PulseFinishedCallback
  .text.HAL_TIM_TriggerCallback
-                0x08002d16        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08002d16                HAL_TIM_TriggerCallback
+                0x08002eee        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08002eee                HAL_TIM_TriggerCallback
  .text.HAL_TIM_IRQHandler
-                0x08002d18      0x15e CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08002d18                HAL_TIM_IRQHandler
- *fill*         0x08002e76        0x2 
+                0x08002ef0      0x15e CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08002ef0                HAL_TIM_IRQHandler
+ *fill*         0x0800304e        0x2 
  .text.TIM_Base_SetConfig
-                0x08002e78       0x84 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08002e78                TIM_Base_SetConfig
+                0x08003050       0x84 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08003050                TIM_Base_SetConfig
  .text.HAL_TIM_Base_Init
-                0x08002efc       0x58 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08002efc                HAL_TIM_Base_Init
+                0x080030d4       0x58 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x080030d4                HAL_TIM_Base_Init
  .text.HAL_TIM_PWM_Init
-                0x08002f54       0x58 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08002f54                HAL_TIM_PWM_Init
+                0x0800312c       0x58 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x0800312c                HAL_TIM_PWM_Init
  .text.TIM_OC2_SetConfig
-                0x08002fac       0x64 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08002fac                TIM_OC2_SetConfig
+                0x08003184       0x64 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08003184                TIM_OC2_SetConfig
  .text.HAL_TIM_PWM_ConfigChannel
-                0x08003010       0xdc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08003010                HAL_TIM_PWM_ConfigChannel
+                0x080031e8       0xdc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x080031e8                HAL_TIM_PWM_ConfigChannel
  .text.TIM_CCxChannelCmd
-                0x080030ec       0x1e CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x080030ec                TIM_CCxChannelCmd
- *fill*         0x0800310a        0x2 
+                0x080032c4       0x1e CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x080032c4                TIM_CCxChannelCmd
+ *fill*         0x080032e2        0x2 
  .text.HAL_TIM_PWM_Start
-                0x0800310c       0xdc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x0800310c                HAL_TIM_PWM_Start
+                0x080032e4       0xdc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x080032e4                HAL_TIM_PWM_Start
  .text.HAL_TIMEx_MasterConfigSynchronization
-                0x080031e8       0x6c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
-                0x080031e8                HAL_TIMEx_MasterConfigSynchronization
+                0x080033c0       0x6c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+                0x080033c0                HAL_TIMEx_MasterConfigSynchronization
  .text.HAL_TIMEx_CommutCallback
-                0x08003254        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
-                0x08003254                HAL_TIMEx_CommutCallback
+                0x0800342c        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+                0x0800342c                HAL_TIMEx_CommutCallback
  .text.HAL_TIMEx_BreakCallback
-                0x08003256        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
-                0x08003256                HAL_TIMEx_BreakCallback
+                0x0800342e        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+                0x0800342e                HAL_TIMEx_BreakCallback
  .text.UART_SetConfig
-                0x08003258       0x94 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+                0x08003430       0x94 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
  .text.HAL_UART_Init
-                0x080032ec       0x60 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
-                0x080032ec                HAL_UART_Init
+                0x080034c4       0x60 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+                0x080034c4                HAL_UART_Init
  .text.makeFreeRtosPriority
-                0x0800334c        0xc CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+                0x08003524        0xc CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
  .text.osKernelStart
-                0x08003358        0xa CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
-                0x08003358                osKernelStart
+                0x08003530        0xa CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+                0x08003530                osKernelStart
  .text.osThreadCreate
-                0x08003362       0x6a CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
-                0x08003362                osThreadCreate
- .text.osDelay  0x080033cc        0xe CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
-                0x080033cc                osDelay
+                0x0800353a       0x6a CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+                0x0800353a                osThreadCreate
+ .text.osDelay  0x080035a4        0xe CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+                0x080035a4                osDelay
  .text.vListInitialise
-                0x080033da       0x16 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
-                0x080033da                vListInitialise
+                0x080035b2       0x16 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x080035b2                vListInitialise
  .text.vListInitialiseItem
-                0x080033f0        0x6 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
-                0x080033f0                vListInitialiseItem
+                0x080035c8        0x6 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x080035c8                vListInitialiseItem
  .text.vListInsertEnd
-                0x080033f6       0x16 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
-                0x080033f6                vListInsertEnd
+                0x080035ce       0x16 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x080035ce                vListInsertEnd
  .text.vListInsert
-                0x0800340c       0x32 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
-                0x0800340c                vListInsert
+                0x080035e4       0x32 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x080035e4                vListInsert
  .text.uxListRemove
-                0x0800343e       0x26 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
-                0x0800343e                uxListRemove
+                0x08003616       0x26 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x08003616                uxListRemove
  .text.prvTaskExitError
-                0x08003464       0x40 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+                0x0800363c       0x40 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
  .text.prvPortStartFirstTask
-                0x080034a4       0x20 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+                0x0800367c       0x20 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
  .text.pxPortInitialiseStack
-                0x080034c4       0x24 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
-                0x080034c4                pxPortInitialiseStack
- *fill*         0x080034e8        0x8 
+                0x0800369c       0x24 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+                0x0800369c                pxPortInitialiseStack
  .text.SVC_Handler
-                0x080034f0       0x24 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
-                0x080034f0                SVC_Handler
+                0x080036c0       0x24 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+                0x080036c0                SVC_Handler
  .text.vPortEnterCritical
-                0x08003514       0x44 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
-                0x08003514                vPortEnterCritical
+                0x080036e4       0x44 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+                0x080036e4                vPortEnterCritical
  .text.vPortExitCritical
-                0x08003558       0x2c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
-                0x08003558                vPortExitCritical
- *fill*         0x08003584        0xc 
+                0x08003728       0x2c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+                0x08003728                vPortExitCritical
+ *fill*         0x08003754        0xc 
  .text.PendSV_Handler
-                0x08003590       0x44 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
-                0x08003590                PendSV_Handler
+                0x08003760       0x44 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+                0x08003760                PendSV_Handler
  .text.SysTick_Handler
-                0x080035d4       0x2c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
-                0x080035d4                SysTick_Handler
+                0x080037a4       0x2c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+                0x080037a4                SysTick_Handler
  .text.vPortSetupTimerInterrupt
-                0x08003600       0x28 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
-                0x08003600                vPortSetupTimerInterrupt
+                0x080037d0       0x28 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+                0x080037d0                vPortSetupTimerInterrupt
  .text.xPortStartScheduler
-                0x08003628       0xc0 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
-                0x08003628                xPortStartScheduler
+                0x080037f8       0xc0 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+                0x080037f8                xPortStartScheduler
  .text.prvHeapInit
-                0x080036e8       0x64 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x080038b8       0x64 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .text.prvInsertBlockIntoFreeList
-                0x0800374c       0x60 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x0800391c       0x60 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .text.pvPortMalloc
-                0x080037ac       0xfc CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
-                0x080037ac                pvPortMalloc
+                0x0800397c       0xfc CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x0800397c                pvPortMalloc
  .text.vPortFree
-                0x080038a8       0x7c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
-                0x080038a8                vPortFree
+                0x08003a78       0x7c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x08003a78                vPortFree
  .text.prvResetNextTaskUnblockTime
-                0x08003924       0x2c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08003af4       0x2c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.prvInitialiseNewTask
-                0x08003950       0xa2 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- *fill*         0x080039f2        0x2 
+                0x08003b20       0xa2 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ *fill*         0x08003bc2        0x2 
  .text.prvInitialiseTaskLists
-                0x080039f4       0x68 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08003bc4       0x68 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.prvAddNewTaskToReadyList
-                0x08003a5c       0xa8 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08003c2c       0xa8 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.prvDeleteTCB
-                0x08003b04       0x38 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08003cd4       0x38 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.prvCheckTasksWaitingTermination
-                0x08003b3c       0x4c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08003d0c       0x4c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.prvIdleTask
-                0x08003b88       0x28 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08003d58       0x28 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.prvAddCurrentTaskToDelayedList
-                0x08003bb0       0x98 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08003d80       0x98 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .text.xTaskCreateStatic
-                0x08003c48       0x76 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08003c48                xTaskCreateStatic
+                0x08003e18       0x76 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08003e18                xTaskCreateStatic
  .text.xTaskCreate
-                0x08003cbe       0x68 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08003cbe                xTaskCreate
- *fill*         0x08003d26        0x2 
+                0x08003e8e       0x68 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08003e8e                xTaskCreate
+ *fill*         0x08003ef6        0x2 
  .text.vTaskStartScheduler
-                0x08003d28       0x74 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08003d28                vTaskStartScheduler
+                0x08003ef8       0x74 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08003ef8                vTaskStartScheduler
  .text.vTaskSuspendAll
-                0x08003d9c       0x10 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08003d9c                vTaskSuspendAll
+                0x08003f6c       0x10 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08003f6c                vTaskSuspendAll
  .text.xTaskIncrementTick
-                0x08003dac      0x118 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08003dac                xTaskIncrementTick
+                0x08003f7c      0x118 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08003f7c                xTaskIncrementTick
  .text.xTaskResumeAll
-                0x08003ec4       0xf8 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08003ec4                xTaskResumeAll
+                0x08004094       0xf8 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x08004094                xTaskResumeAll
  .text.vTaskDelay
-                0x08003fbc       0x4c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08003fbc                vTaskDelay
+                0x0800418c       0x4c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x0800418c                vTaskDelay
  .text.vTaskSwitchContext
-                0x08004008       0x98 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x08004008                vTaskSwitchContext
+                0x080041d8       0x98 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x080041d8                vTaskSwitchContext
  .text.SR04_Measure
-                0x080040a0      0x11c CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
-                0x080040a0                SR04_Measure
+                0x08004270      0x11c CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
+                0x08004270                SR04_Measure
  .text.dwt_init
-                0x080041bc       0x40 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
-                0x080041bc                dwt_init
+                0x0800438c       0x40 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+                0x0800438c                dwt_init
  .text.dwt_systime_update
-                0x080041fc       0x28 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
-                0x080041fc                dwt_systime_update
+                0x080043cc       0x28 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+                0x080043cc                dwt_systime_update
  .text.dwt_get_time_us
-                0x08004224       0x28 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
-                0x08004224                dwt_get_time_us
+                0x080043f4       0x28 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+                0x080043f4                dwt_get_time_us
+ .text.dwt_get_time_ms
+                0x0800441c       0x18 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+                0x0800441c                dwt_get_time_ms
  .text.dwt_delay_us
-                0x0800424c       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
-                0x0800424c                dwt_delay_us
+                0x08004434       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+                0x08004434                dwt_delay_us
  .text.Key_Init
-                0x0800426c        0xc CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
-                0x0800426c                Key_Init
+                0x08004454        0xc CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
+                0x08004454                Key_Init
  .text.Key_Update
-                0x08004278       0x90 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
-                0x08004278                Key_Update
+                0x08004460       0x90 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
+                0x08004460                Key_Update
  .text.Motor_SetLQSpeed
-                0x08004308       0x44 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
-                0x08004308                Motor_SetLQSpeed
+                0x080044f0       0x44 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+                0x080044f0                Motor_SetLQSpeed
  .text.Motor_SetLHSpeed
-                0x0800434c       0x54 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
-                0x0800434c                Motor_SetLHSpeed
+                0x08004534       0x54 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+                0x08004534                Motor_SetLHSpeed
  .text.Motor_SetRQSpeed
-                0x080043a0       0x44 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
-                0x080043a0                Motor_SetRQSpeed
+                0x08004588       0x44 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+                0x08004588                Motor_SetRQSpeed
  .text.Motor_SetRHSpeed
-                0x080043e4       0x44 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
-                0x080043e4                Motor_SetRHSpeed
+                0x080045cc       0x44 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+                0x080045cc                Motor_SetRHSpeed
  .text.Car_direction_change
-                0x08004428       0x80 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
-                0x08004428                Car_direction_change
+                0x08004610       0x80 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+                0x08004610                Car_direction_change
  .text.Car_move
-                0x080044a8       0x1c CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
-                0x080044a8                Car_move
+                0x08004690       0x1c CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+                0x08004690                Car_move
  .text.Music_Play_Start
-                0x080044c4       0x48 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
-                0x080044c4                Music_Play_Start
+                0x080046ac       0x48 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+                0x080046ac                Music_Play_Start
  .text.Music_Play_Update
-                0x0800450c       0xf8 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
-                0x0800450c                Music_Play_Update
+                0x080046f4       0xf8 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+                0x080046f4                Music_Play_Update
  .text.OLED_I2C_Init
-                0x08004604       0x34 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
-                0x08004604                OLED_I2C_Init
+                0x080047ec       0x34 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x080047ec                OLED_I2C_Init
  .text.OLED_I2C_Start
-                0x08004638       0x54 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
-                0x08004638                OLED_I2C_Start
+                0x08004820       0x54 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x08004820                OLED_I2C_Start
  .text.OLED_I2C_Stop
-                0x0800468c       0x40 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
-                0x0800468c                OLED_I2C_Stop
+                0x08004874       0x40 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x08004874                OLED_I2C_Stop
  .text.OLED_I2C_SendByte
-                0x080046cc       0x78 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
-                0x080046cc                OLED_I2C_SendByte
+                0x080048b4       0x78 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x080048b4                OLED_I2C_SendByte
  .text.OLED_WriteCommand
-                0x08004744       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
-                0x08004744                OLED_WriteCommand
+                0x0800492c       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x0800492c                OLED_WriteCommand
  .text.OLED_WriteData
-                0x08004764       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
-                0x08004764                OLED_WriteData
+                0x0800494c       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x0800494c                OLED_WriteData
  .text.OLED_SetCursor
-                0x08004784       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
-                0x08004784                OLED_SetCursor
+                0x0800496c       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x0800496c                OLED_SetCursor
  .text.OLED_Clear
-                0x080047a4       0x2c CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
-                0x080047a4                OLED_Clear
+                0x0800498c       0x2c CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x0800498c                OLED_Clear
  .text.OLED_ShowChar
-                0x080047d0       0x64 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
-                0x080047d0                OLED_ShowChar
+                0x080049b8       0x64 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x080049b8                OLED_ShowChar
  .text.OLED_Pow
-                0x08004834       0x14 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
-                0x08004834                OLED_Pow
+                0x08004a1c       0x14 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x08004a1c                OLED_Pow
  .text.OLED_ShowNum
-                0x08004848       0x50 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
-                0x08004848                OLED_ShowNum
+                0x08004a30       0x50 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x08004a30                OLED_ShowNum
  .text.OLED_Init
-                0x08004898       0xae CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
-                0x08004898                OLED_Init
+                0x08004a80       0xae CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x08004a80                OLED_Init
  .text.pid_init
-                0x08004946        0xe CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
-                0x08004946                pid_init
+                0x08004b2e        0xe CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
+                0x08004b2e                pid_init
  .text.pid_calculate
-                0x08004954       0xa4 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
-                0x08004954                pid_calculate
+                0x08004b3c       0xa8 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
+                0x08004b3c                pid_calculate
+ .text.pid_clear
+                0x08004be4        0xc CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
+                0x08004be4                pid_clear
  .text.__libc_init_array
-                0x080049f8       0x48 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-init.o)
-                0x080049f8                __libc_init_array
- .text.memset   0x08004a40       0xa4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-memset.o)
-                0x08004a40                memset
+                0x08004bf0       0x48 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-init.o)
+                0x08004bf0                __libc_init_array
+ .text.memset   0x08004c38       0xa4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-memset.o)
+                0x08004c38                memset
  .text.startup.register_fini
-                0x08004ae4       0x14 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
- .text.atexit   0x08004af8        0xc d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-atexit.o)
-                0x08004af8                atexit
+                0x08004cdc       0x14 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
+ .text.atexit   0x08004cf0        0xc d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-atexit.o)
+                0x08004cf0                atexit
  .text.__libc_fini_array
-                0x08004b04       0x2c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-fini.o)
-                0x08004b04                __libc_fini_array
+                0x08004cfc       0x2c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-fini.o)
+                0x08004cfc                __libc_fini_array
  .text.__retarget_lock_acquire_recursive
-                0x08004b30        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
-                0x08004b30                __retarget_lock_acquire_recursive
+                0x08004d28        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+                0x08004d28                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x08004b34        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
-                0x08004b34                __retarget_lock_release_recursive
+                0x08004d2c        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+                0x08004d2c                __retarget_lock_release_recursive
  .text.__register_exitproc
-                0x08004b38       0x8c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__atexit.o)
-                0x08004b38                __register_exitproc
+                0x08004d30       0x8c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__atexit.o)
+                0x08004d30                __register_exitproc
  *(.glue_7)
- .glue_7        0x08004bc4        0x0 linker stubs
+ .glue_7        0x08004dbc        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08004bc4        0x0 linker stubs
+ .glue_7t       0x08004dbc        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x08004bc4        0x0 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+ .eh_frame      0x08004dbc        0x0 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
  *(.init)
- .init          0x08004bc4        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
-                0x08004bc4                _init
- .init          0x08004bc8        0x8 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
+ .init          0x08004dbc        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
+                0x08004dbc                _init
+ .init          0x08004dc0        0x8 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
  *(.fini)
- .fini          0x08004bd0        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
-                0x08004bd0                _fini
- .fini          0x08004bd4        0x8 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
-                0x08004bdc                . = ALIGN (0x4)
-                0x08004bdc                _etext = .
+ .fini          0x08004dc8        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crti.o
+                0x08004dc8                _fini
+ .fini          0x08004dcc        0x8 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtn.o
+                0x08004dd4                . = ALIGN (0x4)
+                0x08004dd4                _etext = .
 
-.vfp11_veneer   0x08004bdc        0x0
- .vfp11_veneer  0x08004bdc        0x0 linker stubs
+.vfp11_veneer   0x08004dd4        0x0
+ .vfp11_veneer  0x08004dd4        0x0 linker stubs
 
-.v4_bx          0x08004bdc        0x0
- .v4_bx         0x08004bdc        0x0 linker stubs
+.v4_bx          0x08004dd4        0x0
+ .v4_bx         0x08004dd4        0x0 linker stubs
 
-.iplt           0x08004bdc        0x0
- .iplt          0x08004bdc        0x0 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+.iplt           0x08004dd4        0x0
+ .iplt          0x08004dd4        0x0 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
 
-.rodata         0x08004bdc      0xf74
-                0x08004bdc                . = ALIGN (0x4)
+.rodata         0x08004dd4      0xf74
+                0x08004dd4                . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x08004bdc       0x38 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .rodata        0x08004dd4       0x38 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
  *(.rodata*)
  .rodata.str1.4
-                0x08004c14       0x15 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
- *fill*         0x08004c29        0x3 
+                0x08004e0c       0x15 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ *fill*         0x08004e21        0x3 
  .rodata.val_table.0
-                0x08004c2c       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x08004e24       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
  .rodata.AHBPrescTable
-                0x08004c4c       0x10 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
-                0x08004c4c                AHBPrescTable
+                0x08004e44       0x10 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
+                0x08004e44                AHBPrescTable
  .rodata.APBPrescTable
-                0x08004c5c        0x8 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
-                0x08004c5c                APBPrescTable
+                0x08004e54        0x8 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
+                0x08004e54                APBPrescTable
  .rodata.aPLLMULFactorTable.1
-                0x08004c64       0x10 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x08004e5c       0x10 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
  .rodata.aPredivFactorTable.0
-                0x08004c74        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- *fill*         0x08004c76        0x2 
+                0x08004e6c        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ *fill*         0x08004e6e        0x2 
  .rodata.aPLLMULFactorTable.1
-                0x08004c78       0x10 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
+                0x08004e70       0x10 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
  .rodata.aPredivFactorTable.0
-                0x08004c88        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
- *fill*         0x08004c8a        0x2 
+                0x08004e80        0x2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
+ *fill*         0x08004e82        0x2 
  .rodata.vTaskStartScheduler.str1.4
-                0x08004c8c        0x5 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- *fill*         0x08004c91        0x1 
+                0x08004e84        0x5 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ *fill*         0x08004e89        0x1 
  .rodata.SPIRITED_AWAY_LEN
-                0x08004c92        0x2 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
-                0x08004c92                SPIRITED_AWAY_LEN
+                0x08004e8a        0x2 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+                0x08004e8a                SPIRITED_AWAY_LEN
  .rodata.Spirited_Away
-                0x08004c94      0x7c8 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
-                0x08004c94                Spirited_Away
+                0x08004e8c      0x7c8 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+                0x08004e8c                Spirited_Away
  .rodata.midiFreq_table
-                0x0800545c      0x100 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+                0x08005654      0x100 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
  .rodata.OLED_F8x16
-                0x0800555c      0x5f0 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
-                0x0800555c                OLED_F8x16
+                0x08005754      0x5f0 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x08005754                OLED_F8x16
  .rodata._global_impure_ptr
-                0x08005b4c        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-impure.o)
-                0x08005b4c                _global_impure_ptr
-                0x08005b50                . = ALIGN (0x4)
+                0x08005d44        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-impure.o)
+                0x08005d44                _global_impure_ptr
+                0x08005d48                . = ALIGN (0x4)
 
-.ARM.extab      0x08005b50        0x0
-                0x08005b50                . = ALIGN (0x4)
+.ARM.extab      0x08005d48        0x0
+                0x08005d48                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08005b50                . = ALIGN (0x4)
+                0x08005d48                . = ALIGN (0x4)
 
-.ARM            0x08005b50        0x8
-                0x08005b50                . = ALIGN (0x4)
-                0x08005b50                __exidx_start = .
+.ARM            0x08005d48        0x8
+                0x08005d48                . = ALIGN (0x4)
+                0x08005d48                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x08005b50        0x8 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
-                0x08005b58                __exidx_end = .
-                0x08005b58                . = ALIGN (0x4)
+ .ARM.exidx     0x08005d48        0x8 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+                0x08005d50                __exidx_end = .
+                0x08005d50                . = ALIGN (0x4)
 
-.rel.dyn        0x08005b58        0x0
- .rel.iplt      0x08005b58        0x0 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+.rel.dyn        0x08005d50        0x0
+ .rel.iplt      0x08005d50        0x0 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
 
-.preinit_array  0x08005b58        0x0
-                0x08005b58                . = ALIGN (0x4)
-                0x08005b58                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08005d50        0x0
+                0x08005d50                . = ALIGN (0x4)
+                0x08005d50                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08005b58                PROVIDE (__preinit_array_end = .)
-                0x08005b58                . = ALIGN (0x4)
+                0x08005d50                PROVIDE (__preinit_array_end = .)
+                0x08005d50                . = ALIGN (0x4)
 
-.init_array     0x08005b58        0x8
-                0x08005b58                . = ALIGN (0x4)
-                0x08005b58                PROVIDE (__init_array_start = .)
+.init_array     0x08005d50        0x8
+                0x08005d50                . = ALIGN (0x4)
+                0x08005d50                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00000
-                0x08005b58        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
+                0x08005d50        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x08005b5c        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
-                0x08005b60                PROVIDE (__init_array_end = .)
-                0x08005b60                . = ALIGN (0x4)
+ .init_array    0x08005d54        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+                0x08005d58                PROVIDE (__init_array_end = .)
+                0x08005d58                . = ALIGN (0x4)
 
-.fini_array     0x08005b60        0x4
-                0x08005b60                . = ALIGN (0x4)
-                0x08005b60                PROVIDE (__fini_array_start = .)
+.fini_array     0x08005d58        0x4
+                0x08005d58                . = ALIGN (0x4)
+                0x08005d58                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08005b60        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
-                0x08005b64                PROVIDE (__fini_array_end = .)
-                0x08005b64                . = ALIGN (0x4)
-                0x08005b64                _sidata = LOADADDR (.data)
+ .fini_array    0x08005d58        0x4 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
+                0x08005d5c                PROVIDE (__fini_array_end = .)
+                0x08005d5c                . = ALIGN (0x4)
+                0x08005d5c                _sidata = LOADADDR (.data)
 
-.data           0x20000000      0x454 load address 0x08005b64
+.data           0x20000000      0x454 load address 0x08005d5c
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -2514,11 +2520,11 @@ LOAD d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp
                 0x20000454                . = ALIGN (0x4)
                 0x20000454                _edata = .
 
-.igot.plt       0x20000454        0x0 load address 0x08005fb8
+.igot.plt       0x20000454        0x0 load address 0x080061b0
  .igot.plt      0x20000454        0x0 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp/crtbegin.o
                 0x20000454                . = ALIGN (0x4)
 
-.bss            0x20000454     0x127c load address 0x08005fb8
+.bss            0x20000454     0x12ac load address 0x080061b0
                 0x20000454                _sbss = .
                 0x20000454                __bss_start__ = _sbss
  *(.bss)
@@ -2551,132 +2557,165 @@ LOAD d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp
                 0x20000500        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
  .bss.distance  0x20000504        0x2 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
  *fill*         0x20000506        0x2 
- .bss.left_speed
+ .bss.distance_cnt
                 0x20000508        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
-                0x20000508                left_speed
+ .bss.left_speed
+                0x2000050c        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x2000050c                left_speed
  .bss.move_start_flag
-                0x2000050c        0x1 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
-                0x2000050c                move_start_flag
- *fill*         0x2000050d        0x3 
+                0x20000510        0x1 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x20000510                move_start_flag
+ *fill*         0x20000511        0x3 
  .bss.move_stop_flag
-                0x20000510        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x20000514        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
  .bss.music_triggered.1
-                0x20000514        0x1 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
- *fill*         0x20000515        0x3 
- .bss.right_speed
-                0x20000518        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
-                0x20000518                right_speed
- .bss.sensorHandle
+                0x20000518        0x1 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .bss.obstacle_flag
+                0x20000519        0x1 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x20000519                obstacle_flag
+ *fill*         0x2000051a        0x2 
+ .bss.obstacle_start_ms
                 0x2000051c        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
-                0x2000051c                sensorHandle
- .bss.target_value
+ .bss.obstacle_turn1_delta_ms
                 0x20000520        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .bss.obstacle_turn1_flag
+                0x20000524        0x1 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x20000524                obstacle_turn1_flag
+ *fill*         0x20000525        0x3 
+ .bss.obstacle_turn2_delta_ms
+                0x20000528        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .bss.obstacle_turn2_flag
+                0x2000052c        0x1 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x2000052c                obstacle_turn2_flag
+ *fill*         0x2000052d        0x3 
+ .bss.obstacle_turn2_start_ms
+                0x20000530        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .bss.obstacle_turn3_delta_ms
+                0x20000534        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .bss.obstacle_turn3_flag
+                0x20000538        0x1 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x20000538                obstacle_turn3_flag
+ *fill*         0x20000539        0x3 
+ .bss.obstacle_turn3_start_ms
+                0x2000053c        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .bss.obstacle_turn4_delta_ms
+                0x20000540        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .bss.obstacle_turn4_start_ms
+                0x20000544        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .bss.right_speed
+                0x20000548        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x20000548                right_speed
+ .bss.sensorHandle
+                0x2000054c        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x2000054c                sensorHandle
+ .bss.target_value
+                0x20000550        0x4 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
  .bss.track_pid
-                0x20000524       0x14 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
-                0x20000524                track_pid
+                0x20000554       0x14 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x20000554                track_pid
  .bss.xIdleStack
-                0x20000538      0x200 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x20000568      0x200 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
  .bss.xIdleTaskTCBBuffer
-                0x20000738       0x54 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
- .bss.hspi1     0x2000078c       0x58 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
-                0x2000078c                hspi1
- .bss.htim1     0x200007e4       0x48 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
-                0x200007e4                htim1
- .bss.htim2     0x2000082c       0x48 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
-                0x2000082c                htim2
- .bss.htim3     0x20000874       0x48 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
-                0x20000874                htim3
- .bss.htim4     0x200008bc       0x48 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
-                0x200008bc                htim4
- .bss.huart1    0x20000904       0x48 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
-                0x20000904                huart1
- .bss.uwTick    0x2000094c        0x4 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
-                0x2000094c                uwTick
+                0x20000768       0x54 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .bss.hspi1     0x200007bc       0x58 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
+                0x200007bc                hspi1
+ .bss.htim1     0x20000814       0x48 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
+                0x20000814                htim1
+ .bss.htim2     0x2000085c       0x48 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+                0x2000085c                htim2
+ .bss.htim3     0x200008a4       0x48 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+                0x200008a4                htim3
+ .bss.htim4     0x200008ec       0x48 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+                0x200008ec                htim4
+ .bss.huart1    0x20000934       0x48 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
+                0x20000934                huart1
+ .bss.uwTick    0x2000097c        0x4 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x2000097c                uwTick
  .bss.ucMaxSysCallPriority
-                0x20000950        0x1 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
- *fill*         0x20000951        0x3 
+                0x20000980        0x1 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+ *fill*         0x20000981        0x3 
  .bss.ulMaxPRIGROUPValue
-                0x20000954        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
- .bss.pxEnd     0x20000958        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .bss.ucHeap    0x2000095c      0xc00 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x20000984        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+ .bss.pxEnd     0x20000988        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .bss.ucHeap    0x2000098c      0xc00 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .bss.xBlockAllocatedBit
-                0x2000155c        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x2000158c        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .bss.xFreeBytesRemaining
-                0x20001560        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x20001590        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .bss.xMinimumEverFreeBytesRemaining
-                0x20001564        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x20001594        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .bss.xNumberOfSuccessfulAllocations
-                0x20001568        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x20001598        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .bss.xNumberOfSuccessfulFrees
-                0x2000156c        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .bss.xStart    0x20001570        0x8 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x2000159c        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .bss.xStart    0x200015a0        0x8 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .bss.pxCurrentTCB
-                0x20001578        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
-                0x20001578                pxCurrentTCB
+                0x200015a8        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x200015a8                pxCurrentTCB
  .bss.pxDelayedTaskList
-                0x2000157c        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x200015ac        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.pxOverflowDelayedTaskList
-                0x20001580        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x200015b0        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.pxReadyTasksLists
-                0x20001584       0x8c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x200015b4       0x8c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.uxCurrentNumberOfTasks
-                0x20001610        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x20001640        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.uxDeletedTasksWaitingCleanUp
-                0x20001614        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x20001644        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.uxSchedulerSuspended
-                0x20001618        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x20001648        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.uxTaskNumber
-                0x2000161c        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .bss.uxTopReadyPriority
-                0x20001620        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .bss.xDelayedTaskList1
-                0x20001624       0x14 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .bss.xDelayedTaskList2
-                0x20001638       0x14 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .bss.xIdleTaskHandle
                 0x2000164c        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .bss.xNextTaskUnblockTime
+ .bss.uxTopReadyPriority
                 0x20001650        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .bss.xDelayedTaskList1
+                0x20001654       0x14 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .bss.xDelayedTaskList2
+                0x20001668       0x14 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .bss.xIdleTaskHandle
+                0x2000167c        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .bss.xNextTaskUnblockTime
+                0x20001680        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xNumOfOverflows
-                0x20001654        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x20001684        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xPendedTicks
-                0x20001658        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x20001688        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xPendingReadyList
-                0x2000165c       0x14 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x2000168c       0x14 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .bss.xSchedulerRunning
-                0x20001670        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .bss.xSuspendedTaskList
-                0x20001674       0x14 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .bss.xTasksWaitingTermination
-                0x20001688       0x14 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .bss.xTickCount
-                0x2000169c        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .bss.xYieldPending
                 0x200016a0        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .bss.xSuspendedTaskList
+                0x200016a4       0x14 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .bss.xTasksWaitingTermination
+                0x200016b8       0x14 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .bss.xTickCount
+                0x200016cc        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .bss.xYieldPending
+                0x200016d0        0x4 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .bss.cyccnt_high
+                0x200016d4        0x4 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
  .bss.cyccnt_last
-                0x200016a4        0x4 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
- .bss.cyccnt_over_flow
-                0x200016a8        0x4 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
- .bss.music_nb  0x200016ac       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+                0x200016d8        0x4 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+ .bss.music_nb  0x200016dc       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
  .bss.__lock___atexit_recursive_mutex
-                0x200016cc        0x1 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
-                0x200016cc                __lock___atexit_recursive_mutex
+                0x200016fc        0x1 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+                0x200016fc                __lock___atexit_recursive_mutex
  *(COMMON)
-                0x200016d0                . = ALIGN (0x4)
- *fill*         0x200016cd        0x3 
-                0x200016d0                _ebss = .
-                0x200016d0                __bss_end__ = _ebss
+                0x20001700                . = ALIGN (0x4)
+ *fill*         0x200016fd        0x3 
+                0x20001700                _ebss = .
+                0x20001700                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x200016d0      0x600 load address 0x08005fb8
-                0x200016d0                . = ALIGN (0x8)
+                0x20001700      0x600 load address 0x080061b0
+                0x20001700                . = ALIGN (0x8)
                 [!provide]                PROVIDE (end = .)
-                0x200016d0                PROVIDE (_end = .)
-                0x200018d0                . = (. + _Min_Heap_Size)
- *fill*         0x200016d0      0x200 
-                0x20001cd0                . = (. + _Min_Stack_Size)
- *fill*         0x200018d0      0x400 
-                0x20001cd0                . = ALIGN (0x8)
+                0x20001700                PROVIDE (_end = .)
+                0x20001900                . = (. + _Min_Heap_Size)
+ *fill*         0x20001700      0x200 
+                0x20001d00                . = (. + _Min_Stack_Size)
+ *fill*         0x20001900      0x400 
+                0x20001d00                . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -2802,85 +2841,85 @@ LOAD d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm
 LOAD d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libm.a
 LOAD d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a
 
-.debug_info     0x00000000    0x1f7c4
+.debug_info     0x00000000    0x1fa5a
  .debug_info    0x00000000      0x955 CMakeFiles/car_project1.elf.dir/Core/Src/adc.c.obj
  .debug_info    0x00000955      0x2f4 CMakeFiles/car_project1.elf.dir/Core/Src/dma.c.obj
- .debug_info    0x00000c49     0x1225 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
- .debug_info    0x00001e6e      0x3d7 CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
- .debug_info    0x00002245      0xde9 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
- .debug_info    0x0000302e      0x87e CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
- .debug_info    0x000038ac      0x387 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
- .debug_info    0x00003c33      0xa31 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
- .debug_info    0x00004664      0x713 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
- .debug_info    0x00004d77      0x248 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
- .debug_info    0x00004fbf     0x1011 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
- .debug_info    0x00005fd0      0x855 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
- .debug_info    0x00006825       0x22 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
- .debug_info    0x00006847      0x7a8 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
- .debug_info    0x00006fef      0xf3f CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
- .debug_info    0x00007f2e      0xc40 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
- .debug_info    0x00008b6e      0xd8a CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- .debug_info    0x000098f8      0x84b CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
- .debug_info    0x0000a143      0x66f CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
- .debug_info    0x0000a7b2      0xa3b CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .debug_info    0x0000b1ed      0x449 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
- .debug_info    0x0000b636     0x1c88 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
- .debug_info    0x0000d2be     0x3d7c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
- .debug_info    0x0001103a     0x1abb CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
- .debug_info    0x00012af5     0x4115 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
- .debug_info    0x00016c0a     0x222b CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_info    0x00018e35      0x2e0 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_info    0x00019115      0x52b CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
- .debug_info    0x00019640      0x5d9 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_info    0x00019c19     0x2971 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_info    0x0001c58a      0x585 CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
- .debug_info    0x0001cb0f      0x636 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
- .debug_info    0x0001d145      0x2b3 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
- .debug_info    0x0001d3f8      0xb78 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
- .debug_info    0x0001df70      0x926 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
- .debug_info    0x0001e896      0xdb0 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
- .debug_info    0x0001f646      0x17e CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
+ .debug_info    0x00000c49     0x14b7 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .debug_info    0x00002100      0x3d7 CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
+ .debug_info    0x000024d7      0xde9 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
+ .debug_info    0x000032c0      0x87e CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
+ .debug_info    0x00003b3e      0x387 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_info    0x00003ec5      0xa31 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
+ .debug_info    0x000048f6      0x713 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_info    0x00005009      0x248 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_info    0x00005251     0x1011 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+ .debug_info    0x00006262      0x855 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
+ .debug_info    0x00006ab7       0x22 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
+ .debug_info    0x00006ad9      0x7a8 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_info    0x00007281      0xf3f CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+ .debug_info    0x000081c0      0xc40 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
+ .debug_info    0x00008e00      0xd8a CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_info    0x00009b8a      0x84b CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+ .debug_info    0x0000a3d5      0x66f CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_info    0x0000aa44      0xa3b CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_info    0x0000b47f      0x449 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
+ .debug_info    0x0000b8c8     0x1c88 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+ .debug_info    0x0000d550     0x3d7c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_info    0x000112cc     0x1abb CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_info    0x00012d87     0x4115 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_info    0x00016e9c     0x222b CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_info    0x000190c7      0x2e0 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_info    0x000193a7      0x52b CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+ .debug_info    0x000198d2      0x5d9 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_info    0x00019eab     0x2971 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_info    0x0001c81c      0x585 CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
+ .debug_info    0x0001cda1      0x615 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+ .debug_info    0x0001d3b6      0x2b3 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
+ .debug_info    0x0001d669      0xb78 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+ .debug_info    0x0001e1e1      0x926 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+ .debug_info    0x0001eb07      0xdb0 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+ .debug_info    0x0001f8b7      0x1a3 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
 
-.debug_abbrev   0x00000000     0x486e
+.debug_abbrev   0x00000000     0x4895
  .debug_abbrev  0x00000000      0x1c9 CMakeFiles/car_project1.elf.dir/Core/Src/adc.c.obj
  .debug_abbrev  0x000001c9      0x114 CMakeFiles/car_project1.elf.dir/Core/Src/dma.c.obj
- .debug_abbrev  0x000002dd      0x276 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
- .debug_abbrev  0x00000553      0x13c CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
- .debug_abbrev  0x0000068f      0x217 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
- .debug_abbrev  0x000008a6      0x1c8 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
- .debug_abbrev  0x00000a6e      0x12d CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
- .debug_abbrev  0x00000b9b      0x1ff CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
- .debug_abbrev  0x00000d9a      0x179 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
- .debug_abbrev  0x00000f13      0x13e CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
- .debug_abbrev  0x00001051      0x258 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
- .debug_abbrev  0x000012a9      0x1c8 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
- .debug_abbrev  0x00001471       0x12 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
- .debug_abbrev  0x00001483      0x1f4 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
- .debug_abbrev  0x00001677      0x1fc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
- .debug_abbrev  0x00001873      0x248 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
- .debug_abbrev  0x00001abb      0x341 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- .debug_abbrev  0x00001dfc      0x223 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
- .debug_abbrev  0x0000201f      0x1e6 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
- .debug_abbrev  0x00002205      0x27a CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .debug_abbrev  0x0000247f      0x1d2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
- .debug_abbrev  0x00002651      0x233 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
- .debug_abbrev  0x00002884      0x245 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
- .debug_abbrev  0x00002ac9      0x248 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
- .debug_abbrev  0x00002d11      0x2dd CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
- .debug_abbrev  0x00002fee      0x35b CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_abbrev  0x00003349      0x106 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_abbrev  0x0000344f      0x27e CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
- .debug_abbrev  0x000036cd      0x24b CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_abbrev  0x00003918      0x313 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_abbrev  0x00003c2b      0x1ad CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
- .debug_abbrev  0x00003dd8      0x175 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
- .debug_abbrev  0x00003f4d      0x180 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
- .debug_abbrev  0x000040cd      0x1d9 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
- .debug_abbrev  0x000042a6      0x30f CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
- .debug_abbrev  0x000045b5      0x1f5 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
- .debug_abbrev  0x000047aa       0xc4 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
+ .debug_abbrev  0x000002dd      0x2a6 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .debug_abbrev  0x00000583      0x13c CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
+ .debug_abbrev  0x000006bf      0x217 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
+ .debug_abbrev  0x000008d6      0x1c8 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
+ .debug_abbrev  0x00000a9e      0x12d CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_abbrev  0x00000bcb      0x1ff CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
+ .debug_abbrev  0x00000dca      0x179 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_abbrev  0x00000f43      0x13e CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_abbrev  0x00001081      0x258 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+ .debug_abbrev  0x000012d9      0x1c8 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
+ .debug_abbrev  0x000014a1       0x12 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
+ .debug_abbrev  0x000014b3      0x1f4 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_abbrev  0x000016a7      0x1fc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+ .debug_abbrev  0x000018a3      0x248 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
+ .debug_abbrev  0x00001aeb      0x341 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_abbrev  0x00001e2c      0x223 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+ .debug_abbrev  0x0000204f      0x1e6 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_abbrev  0x00002235      0x27a CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_abbrev  0x000024af      0x1d2 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
+ .debug_abbrev  0x00002681      0x233 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+ .debug_abbrev  0x000028b4      0x245 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_abbrev  0x00002af9      0x248 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_abbrev  0x00002d41      0x2dd CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_abbrev  0x0000301e      0x35b CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_abbrev  0x00003379      0x106 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_abbrev  0x0000347f      0x27e CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+ .debug_abbrev  0x000036fd      0x24b CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_abbrev  0x00003948      0x313 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_abbrev  0x00003c5b      0x1ad CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
+ .debug_abbrev  0x00003e08      0x16c CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+ .debug_abbrev  0x00003f74      0x180 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
+ .debug_abbrev  0x000040f4      0x1d9 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+ .debug_abbrev  0x000042cd      0x30f CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+ .debug_abbrev  0x000045dc      0x1f5 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+ .debug_abbrev  0x000047d1       0xc4 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
 
-.debug_loc      0x00000000    0x150ff
+.debug_loc      0x00000000    0x150c5
  .debug_loc     0x00000000       0x71 CMakeFiles/car_project1.elf.dir/Core/Src/adc.c.obj
  .debug_loc     0x00000071       0xae CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
  .debug_loc     0x0000011f       0x42 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
@@ -2908,242 +2947,242 @@ LOAD d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp
  .debug_loc     0x00011c2e      0x434 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .debug_loc     0x00012062     0x1e83 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .debug_loc     0x00013ee5       0xc8 CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
- .debug_loc     0x00013fad      0x28a CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
- .debug_loc     0x00014237       0x50 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
- .debug_loc     0x00014287      0x435 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
- .debug_loc     0x000146bc      0x304 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
- .debug_loc     0x000149c0      0x6fb CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
- .debug_loc     0x000150bb       0x44 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
+ .debug_loc     0x00013fad      0x250 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+ .debug_loc     0x000141fd       0x50 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
+ .debug_loc     0x0001424d      0x435 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+ .debug_loc     0x00014682      0x304 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+ .debug_loc     0x00014986      0x6fb CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+ .debug_loc     0x00015081       0x44 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
 
-.debug_aranges  0x00000000     0x16c8
+.debug_aranges  0x00000000     0x16d8
  .debug_aranges
                 0x00000000       0x30 CMakeFiles/car_project1.elf.dir/Core/Src/adc.c.obj
  .debug_aranges
                 0x00000030       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/dma.c.obj
  .debug_aranges
-                0x00000050       0x40 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                0x00000050       0x48 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
  .debug_aranges
-                0x00000090       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
+                0x00000098       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
  .debug_aranges
-                0x000000b0       0x38 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
+                0x000000b8       0x38 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
  .debug_aranges
-                0x000000e8       0x30 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
+                0x000000f0       0x30 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
  .debug_aranges
-                0x00000118       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+                0x00000120       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
  .debug_aranges
-                0x00000138       0x30 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
+                0x00000140       0x30 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
  .debug_aranges
-                0x00000168       0x60 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x00000170       0x60 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
  .debug_aranges
-                0x000001c8       0x28 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
+                0x000001d0       0x28 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
  .debug_aranges
-                0x000001f0       0x48 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+                0x000001f8       0x48 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
  .debug_aranges
-                0x00000238       0x30 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
+                0x00000240       0x30 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
  .debug_aranges
-                0x00000268       0x28 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
+                0x00000270       0x28 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
  .debug_aranges
-                0x00000290       0xe0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x00000298       0xe0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
  .debug_aranges
-                0x00000370       0xf0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+                0x00000378       0xf0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
  .debug_aranges
-                0x00000460       0x80 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
+                0x00000468       0x80 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
  .debug_aranges
-                0x000004e0       0x90 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+                0x000004e8       0x90 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
  .debug_aranges
-                0x00000570       0x80 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+                0x00000578       0x80 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
  .debug_aranges
-                0x000005f0       0x58 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+                0x000005f8       0x58 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
  .debug_aranges
-                0x00000648       0x90 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x00000650       0x90 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
  .debug_aranges
-                0x000006d8       0x30 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
+                0x000006e0       0x30 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
  .debug_aranges
-                0x00000708      0x1d0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+                0x00000710      0x1d0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
  .debug_aranges
-                0x000008d8      0x3d0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x000008e0      0x3d0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
  .debug_aranges
-                0x00000ca8      0x168 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+                0x00000cb0      0x168 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
  .debug_aranges
-                0x00000e10      0x208 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+                0x00000e18      0x208 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
  .debug_aranges
-                0x00001018      0x1d8 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+                0x00001020      0x1d8 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
  .debug_aranges
-                0x000011f0       0x40 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+                0x000011f8       0x40 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
  .debug_aranges
-                0x00001230       0x78 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+                0x00001238       0x78 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
  .debug_aranges
-                0x000012a8       0x58 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+                0x000012b0       0x58 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .debug_aranges
-                0x00001300      0x1b8 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+                0x00001308      0x1b8 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
  .debug_aranges
-                0x000014b8       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
+                0x000014c0       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
  .debug_aranges
-                0x000014d8       0x68 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+                0x000014e0       0x68 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
  .debug_aranges
-                0x00001540       0x30 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
+                0x00001548       0x30 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
  .debug_aranges
-                0x00001570       0x58 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+                0x00001578       0x58 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
  .debug_aranges
-                0x000015c8       0x40 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+                0x000015d0       0x40 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
  .debug_aranges
-                0x00001608       0x98 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+                0x00001610       0x98 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
  .debug_aranges
-                0x000016a0       0x28 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
+                0x000016a8       0x30 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
 
-.debug_ranges   0x00000000     0x1668
+.debug_ranges   0x00000000     0x1660
  .debug_ranges  0x00000000       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/adc.c.obj
  .debug_ranges  0x00000020       0x10 CMakeFiles/car_project1.elf.dir/Core/Src/dma.c.obj
- .debug_ranges  0x00000030       0x30 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
- .debug_ranges  0x00000060       0x10 CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
- .debug_ranges  0x00000070       0x28 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
- .debug_ranges  0x00000098       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
- .debug_ranges  0x000000b8       0x10 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
- .debug_ranges  0x000000c8       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
- .debug_ranges  0x000000e8       0x50 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
- .debug_ranges  0x00000138       0x18 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
- .debug_ranges  0x00000150       0x38 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
- .debug_ranges  0x00000188       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
- .debug_ranges  0x000001a8       0x20 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
- .debug_ranges  0x000001c8       0xd0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
- .debug_ranges  0x00000298       0xe0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
- .debug_ranges  0x00000378       0x70 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
- .debug_ranges  0x000003e8       0xe0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- .debug_ranges  0x000004c8       0x70 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
- .debug_ranges  0x00000538       0x48 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
- .debug_ranges  0x00000580       0xa0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .debug_ranges  0x00000620       0x38 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
- .debug_ranges  0x00000658      0x1c0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
- .debug_ranges  0x00000818      0x3c0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
- .debug_ranges  0x00000bd8      0x158 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
- .debug_ranges  0x00000d30      0x210 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
- .debug_ranges  0x00000f40      0x1c8 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_ranges  0x00001108       0x30 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_ranges  0x00001138       0x68 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
- .debug_ranges  0x000011a0       0x48 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_ranges  0x000011e8      0x280 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_ranges  0x00001468       0x10 CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
- .debug_ranges  0x00001478       0x70 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
- .debug_ranges  0x000014e8       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
- .debug_ranges  0x00001508       0x48 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
- .debug_ranges  0x00001550       0x78 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
- .debug_ranges  0x000015c8       0x88 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
- .debug_ranges  0x00001650       0x18 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
+ .debug_ranges  0x00000030       0x38 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .debug_ranges  0x00000068       0x10 CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
+ .debug_ranges  0x00000078       0x28 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
+ .debug_ranges  0x000000a0       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
+ .debug_ranges  0x000000c0       0x10 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_ranges  0x000000d0       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
+ .debug_ranges  0x000000f0       0x50 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_ranges  0x00000140       0x18 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_ranges  0x00000158       0x38 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+ .debug_ranges  0x00000190       0x20 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
+ .debug_ranges  0x000001b0       0x20 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
+ .debug_ranges  0x000001d0       0xd0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_ranges  0x000002a0       0xe0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+ .debug_ranges  0x00000380       0x70 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
+ .debug_ranges  0x000003f0       0xe0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_ranges  0x000004d0       0x70 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+ .debug_ranges  0x00000540       0x48 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_ranges  0x00000588       0xa0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_ranges  0x00000628       0x38 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
+ .debug_ranges  0x00000660      0x1c0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+ .debug_ranges  0x00000820      0x3c0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_ranges  0x00000be0      0x158 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_ranges  0x00000d38      0x210 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_ranges  0x00000f48      0x1c8 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_ranges  0x00001110       0x30 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_ranges  0x00001140       0x68 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+ .debug_ranges  0x000011a8       0x48 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_ranges  0x000011f0      0x280 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_ranges  0x00001470       0x10 CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
+ .debug_ranges  0x00001480       0x58 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+ .debug_ranges  0x000014d8       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
+ .debug_ranges  0x000014f8       0x48 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+ .debug_ranges  0x00001540       0x78 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+ .debug_ranges  0x000015b8       0x88 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+ .debug_ranges  0x00001640       0x20 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
 
-.debug_line     0x00000000    0x1a393
+.debug_line     0x00000000    0x1a543
  .debug_line    0x00000000      0x3f8 CMakeFiles/car_project1.elf.dir/Core/Src/adc.c.obj
  .debug_line    0x000003f8      0x1aa CMakeFiles/car_project1.elf.dir/Core/Src/dma.c.obj
- .debug_line    0x000005a2      0x611 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
- .debug_line    0x00000bb3      0x272 CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
- .debug_line    0x00000e25      0x4ff CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
- .debug_line    0x00001324      0x338 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
- .debug_line    0x0000165c      0x1c3 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
- .debug_line    0x0000181f      0x2f4 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
- .debug_line    0x00001b13      0x2d8 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
- .debug_line    0x00001deb      0x232 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
- .debug_line    0x0000201d      0x607 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
- .debug_line    0x00002624      0x31d CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
- .debug_line    0x00002941       0xa2 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
- .debug_line    0x000029e3      0x558 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
- .debug_line    0x00002f3b      0xef8 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
- .debug_line    0x00003e33      0xbe0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
- .debug_line    0x00004a13      0x644 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- .debug_line    0x00005057      0xa65 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
- .debug_line    0x00005abc      0x5ec CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
- .debug_line    0x000060a8      0xc29 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .debug_line    0x00006cd1      0x49e CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
- .debug_line    0x0000716f     0x2623 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
- .debug_line    0x00009792     0x4977 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
- .debug_line    0x0000e109     0x1bd6 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
- .debug_line    0x0000fcdf     0x42c1 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
- .debug_line    0x00013fa0     0x11cf CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_line    0x0001516f      0x37f CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_line    0x000154ee      0x630 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
- .debug_line    0x00015b1e      0x73d CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_line    0x0001625b     0x24e5 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_line    0x00018740      0x364 CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
- .debug_line    0x00018aa4      0x381 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
- .debug_line    0x00018e25      0x2fd CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
- .debug_line    0x00019122      0x417 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
- .debug_line    0x00019539      0x5ad CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
- .debug_line    0x00019ae6      0x759 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
- .debug_line    0x0001a23f      0x154 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
+ .debug_line    0x000005a2      0x79e CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .debug_line    0x00000d40      0x272 CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
+ .debug_line    0x00000fb2      0x4ff CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
+ .debug_line    0x000014b1      0x338 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
+ .debug_line    0x000017e9      0x1c3 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_line    0x000019ac      0x2f4 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
+ .debug_line    0x00001ca0      0x2d8 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_line    0x00001f78      0x232 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_line    0x000021aa      0x607 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+ .debug_line    0x000027b1      0x31d CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
+ .debug_line    0x00002ace       0xa2 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
+ .debug_line    0x00002b70      0x558 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_line    0x000030c8      0xef8 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+ .debug_line    0x00003fc0      0xbe0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
+ .debug_line    0x00004ba0      0x644 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_line    0x000051e4      0xa65 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+ .debug_line    0x00005c49      0x5ec CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_line    0x00006235      0xc29 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_line    0x00006e5e      0x49e CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
+ .debug_line    0x000072fc     0x2623 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+ .debug_line    0x0000991f     0x4977 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_line    0x0000e296     0x1bd6 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_line    0x0000fe6c     0x42c1 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_line    0x0001412d     0x11cf CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_line    0x000152fc      0x37f CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_line    0x0001567b      0x630 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+ .debug_line    0x00015cab      0x73d CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_line    0x000163e8     0x24e5 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_line    0x000188cd      0x364 CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
+ .debug_line    0x00018c31      0x371 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+ .debug_line    0x00018fa2      0x2fd CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
+ .debug_line    0x0001929f      0x417 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+ .debug_line    0x000196b6      0x5ad CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+ .debug_line    0x00019c63      0x759 CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+ .debug_line    0x0001a3bc      0x187 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
 
-.debug_str      0x00000000     0x7083
+.debug_str      0x00000000     0x71a3
  .debug_str     0x00000000      0x5ad CMakeFiles/car_project1.elf.dir/Core/Src/adc.c.obj
                                 0x67b (size before relaxing)
  .debug_str     0x000005ad      0x337 CMakeFiles/car_project1.elf.dir/Core/Src/dma.c.obj
                                 0x516 (size before relaxing)
- .debug_str     0x000008e4      0x8c7 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
-                                0xe28 (size before relaxing)
- .debug_str     0x000011ab       0x6a CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
+ .debug_str     0x000008e4      0xa10 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+                                0xf71 (size before relaxing)
+ .debug_str     0x000012f4       0x6a CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
                                 0x2b3 (size before relaxing)
- .debug_str     0x00001215      0x30e CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
+ .debug_str     0x0000135e      0x30e CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
                                 0xb1a (size before relaxing)
- .debug_str     0x00001523      0x225 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
+ .debug_str     0x0000166c      0x225 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
                                 0x6c1 (size before relaxing)
- .debug_str     0x00001748       0x76 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_str     0x00001891       0x76 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
                                 0x53f (size before relaxing)
- .debug_str     0x000017be      0x125 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
+ .debug_str     0x00001907      0x125 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
                                 0xb38 (size before relaxing)
- .debug_str     0x000018e3       0xfe CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_str     0x00001a2c       0xfe CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
                                 0x761 (size before relaxing)
- .debug_str     0x000019e1       0x9a CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_str     0x00001b2a       0x9a CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
                                 0x28a (size before relaxing)
- .debug_str     0x00001a7b      0x198 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+ .debug_str     0x00001bc4      0x198 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
                                 0xc28 (size before relaxing)
- .debug_str     0x00001c13      0x200 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
+ .debug_str     0x00001d5c      0x200 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
                                 0x6f6 (size before relaxing)
- .debug_str     0x00001e13       0x52 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
+ .debug_str     0x00001f5c       0x52 CMakeFiles/car_project1.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
                                  0x83 (size before relaxing)
- .debug_str     0x00001e65      0x2ca CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_str     0x00001fae      0x2ca CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
                                 0x85a (size before relaxing)
- .debug_str     0x0000212f      0x33f CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+ .debug_str     0x00002278      0x33f CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
                                 0x910 (size before relaxing)
- .debug_str     0x0000246e      0x291 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
+ .debug_str     0x000025b7      0x291 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
                                 0x8c2 (size before relaxing)
- .debug_str     0x000026ff      0x3b1 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_str     0x00002848      0x3b1 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
                                 0x909 (size before relaxing)
- .debug_str     0x00002ab0      0x20d CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+ .debug_str     0x00002bf9      0x20d CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
                                 0x633 (size before relaxing)
- .debug_str     0x00002cbd      0x128 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_str     0x00002e06      0x128 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
                                 0x436 (size before relaxing)
- .debug_str     0x00002de5      0x1cb CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_str     0x00002f2e      0x1cb CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
                                 0x661 (size before relaxing)
- .debug_str     0x00002fb0       0xa0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
+ .debug_str     0x000030f9       0xa0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
                                 0x409 (size before relaxing)
- .debug_str     0x00003050      0x538 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+ .debug_str     0x00003199      0x538 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
                                 0xb97 (size before relaxing)
- .debug_str     0x00003588      0xdf3 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_str     0x000036d1      0xdf3 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
                                0x1685 (size before relaxing)
- .debug_str     0x0000437b      0x540 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_str     0x000044c4      0x540 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
                                 0xe76 (size before relaxing)
- .debug_str     0x000048bb      0x62a CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_str     0x00004a04      0x62a CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
                                 0xd2a (size before relaxing)
- .debug_str     0x00004ee5      0xbce CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_str     0x0000502e      0xbce CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
                                0x1072 (size before relaxing)
- .debug_str     0x00005ab3      0x155 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_str     0x00005bfc      0x155 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
                                 0x32b (size before relaxing)
- .debug_str     0x00005c08      0x239 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+ .debug_str     0x00005d51      0x239 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
                                 0x497 (size before relaxing)
- .debug_str     0x00005e41      0x2ee CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_str     0x00005f8a      0x2ee CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
                                 0x539 (size before relaxing)
- .debug_str     0x0000612f      0x922 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_str     0x00006278      0x922 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
                                0x1044 (size before relaxing)
- .debug_str     0x00006a51       0x5d CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
+ .debug_str     0x00006b9a       0x5d CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
                                 0x2d7 (size before relaxing)
- .debug_str     0x00006aae      0x245 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
-                                0x441 (size before relaxing)
- .debug_str     0x00006cf3       0x43 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
+ .debug_str     0x00006bf7      0x22b CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+                                0x430 (size before relaxing)
+ .debug_str     0x00006e22       0x43 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
                                 0x302 (size before relaxing)
- .debug_str     0x00006d36       0xdf CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+ .debug_str     0x00006e65       0xdf CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
                                 0x7e5 (size before relaxing)
- .debug_str     0x00006e15       0xe5 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+ .debug_str     0x00006f44       0xe5 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
                                 0x3d1 (size before relaxing)
- .debug_str     0x00006efa      0x12c CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+ .debug_str     0x00007029      0x12c CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
                                 0x3bd (size before relaxing)
- .debug_str     0x00007026       0x5d CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
-                                0x1d4 (size before relaxing)
+ .debug_str     0x00007155       0x4e CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
+                                0x1de (size before relaxing)
 
 .comment        0x00000000       0x49
  .comment       0x00000000       0x49 CMakeFiles/car_project1.elf.dir/Core/Src/adc.c.obj
@@ -3184,53 +3223,53 @@ LOAD d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp
  .comment       0x00000049       0x4a CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
  .comment       0x00000049       0x4a CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
 
-.debug_frame    0x00000000     0x40b8
+.debug_frame    0x00000000     0x40f0
  .debug_frame   0x00000000       0x68 CMakeFiles/car_project1.elf.dir/Core/Src/adc.c.obj
  .debug_frame   0x00000068       0x2c CMakeFiles/car_project1.elf.dir/Core/Src/dma.c.obj
- .debug_frame   0x00000094       0x90 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
- .debug_frame   0x00000124       0x3c CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
- .debug_frame   0x00000160       0x70 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
- .debug_frame   0x000001d0       0x60 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
- .debug_frame   0x00000230       0x2c CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
- .debug_frame   0x0000025c       0x54 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
- .debug_frame   0x000002b0       0xb8 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
- .debug_frame   0x00000368       0x30 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
- .debug_frame   0x00000398       0xc8 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
- .debug_frame   0x00000460       0x60 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
- .debug_frame   0x000004c0      0x1cc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
- .debug_frame   0x0000068c      0x2c8 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
- .debug_frame   0x00000954      0x19c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
- .debug_frame   0x00000af0      0x118 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- .debug_frame   0x00000c08      0x144 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
- .debug_frame   0x00000d4c       0xe4 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
- .debug_frame   0x00000e30      0x184 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .debug_frame   0x00000fb4       0x5c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
- .debug_frame   0x00001010      0x5c8 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
- .debug_frame   0x000015d8      0xb1c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
- .debug_frame   0x000020f4      0x40c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
- .debug_frame   0x00002500      0x5e0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
- .debug_frame   0x00002ae0      0x58c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_frame   0x0000306c       0x70 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_frame   0x000030dc       0xf0 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
- .debug_frame   0x000031cc       0xd0 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_frame   0x0000329c      0x59c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
- .debug_frame   0x00003838       0x2c CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
- .debug_frame   0x00003864       0xf8 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
- .debug_frame   0x0000395c       0x48 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
- .debug_frame   0x000039a4       0xb4 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
- .debug_frame   0x00003a58       0x98 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
- .debug_frame   0x00003af0      0x1cc CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
- .debug_frame   0x00003cbc       0x40 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
- .debug_frame   0x00003cfc       0x4c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
- .debug_frame   0x00003d48       0x38 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivsf3.o)
- .debug_frame   0x00003d80       0xc8 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_cmpsf2.o)
- .debug_frame   0x00003e48       0x24 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixsfsi.o)
- .debug_frame   0x00003e6c       0x2c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00003e98       0x34 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
- .debug_frame   0x00003ecc       0x2c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-init.o)
- .debug_frame   0x00003ef8       0x2c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-memset.o)
- .debug_frame   0x00003f24       0x5c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
- .debug_frame   0x00003f80       0x20 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-atexit.o)
- .debug_frame   0x00003fa0       0x34 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-fini.o)
- .debug_frame   0x00003fd4       0xb0 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
- .debug_frame   0x00004084       0x34 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__atexit.o)
+ .debug_frame   0x00000094       0xb0 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj
+ .debug_frame   0x00000144       0x3c CMakeFiles/car_project1.elf.dir/Core/Src/gpio.c.obj
+ .debug_frame   0x00000180       0x70 CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj
+ .debug_frame   0x000001f0       0x60 CMakeFiles/car_project1.elf.dir/Core/Src/spi.c.obj
+ .debug_frame   0x00000250       0x2c CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_frame   0x0000027c       0x54 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
+ .debug_frame   0x000002d0       0xb8 CMakeFiles/car_project1.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_frame   0x00000388       0x30 CMakeFiles/car_project1.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_frame   0x000003b8       0xc8 CMakeFiles/car_project1.elf.dir/Core/Src/tim.c.obj
+ .debug_frame   0x00000480       0x60 CMakeFiles/car_project1.elf.dir/Core/Src/usart.c.obj
+ .debug_frame   0x000004e0      0x1cc CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_frame   0x000006ac      0x2c8 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+ .debug_frame   0x00000974      0x19c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c.obj
+ .debug_frame   0x00000b10      0x118 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_frame   0x00000c28      0x144 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj
+ .debug_frame   0x00000d6c       0xe4 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_frame   0x00000e50      0x184 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_frame   0x00000fd4       0x5c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
+ .debug_frame   0x00001030      0x5c8 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+ .debug_frame   0x000015f8      0xb1c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_frame   0x00002114      0x40c CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_frame   0x00002520      0x5e0 CMakeFiles/car_project1.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_frame   0x00002b00      0x58c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_frame   0x0000308c       0x70 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_frame   0x000030fc       0xf0 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+ .debug_frame   0x000031ec       0xd0 CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_frame   0x000032bc      0x59c CMakeFiles/car_project1.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_frame   0x00003858       0x2c CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj
+ .debug_frame   0x00003884      0x100 CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj
+ .debug_frame   0x00003984       0x48 CMakeFiles/car_project1.elf.dir/modules/Src/key.c.obj
+ .debug_frame   0x000039cc       0xb4 CMakeFiles/car_project1.elf.dir/modules/Src/motor.c.obj
+ .debug_frame   0x00003a80       0x98 CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj
+ .debug_frame   0x00003b18      0x1cc CMakeFiles/car_project1.elf.dir/modules/Src/oled.c.obj
+ .debug_frame   0x00003ce4       0x50 CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj
+ .debug_frame   0x00003d34       0x4c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .debug_frame   0x00003d80       0x38 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivsf3.o)
+ .debug_frame   0x00003db8       0xc8 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_cmpsf2.o)
+ .debug_frame   0x00003e80       0x24 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_arm_fixsfsi.o)
+ .debug_frame   0x00003ea4       0x2c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00003ed0       0x34 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00003f04       0x2c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-init.o)
+ .debug_frame   0x00003f30       0x2c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-memset.o)
+ .debug_frame   0x00003f5c       0x5c d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00003fb8       0x20 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-atexit.o)
+ .debug_frame   0x00003fd8       0x34 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-fini.o)
+ .debug_frame   0x0000400c       0xb0 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-lock.o)
+ .debug_frame   0x000040bc       0x34 d:/stm32environment/arm/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libg.a(lib_a-__atexit.o)

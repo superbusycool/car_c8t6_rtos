@@ -23,29 +23,24 @@
     <list default="true" id="8b6e57c6-704c-4822-aa95-17ef737364c1" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/freertos.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car_project1.ioc" beforeDir="false" afterPath="$PROJECT_DIR$/car_project1.ioc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-8fc4fe2e80be4241ecfd.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2026-06-26T14-08-11-0459.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/compiler_depend.internal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/compiler_depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/SR04.c.obj.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/music.c.obj.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.elf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.hex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/Inc/music.h" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Inc/music.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/Inc/pid.h" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Inc/pid.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/Src/music.c" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Src/music.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/Src/dwt.c" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Src/dwt.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/Src/pid.c" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Src/pid.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +80,7 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/car_project2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/car_project_3/car_c8t6_rtos&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -141,6 +136,8 @@
       <workItem from="1782553290583" duration="15680000" />
       <workItem from="1782654977252" duration="8725000" />
       <workItem from="1782708682805" duration="7433000" />
+      <workItem from="1782739565219" duration="10262000" />
+      <workItem from="1782817167132" duration="11244000" />
     </task>
     <servers />
   </component>
@@ -152,5 +149,26 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticFoundErrors value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Core/Src/freertos.c</url>
+          <line>330</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Core/Src/freertos.c</url>
+          <line>340</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Core/Src/freertos.c</url>
+          <line>344</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

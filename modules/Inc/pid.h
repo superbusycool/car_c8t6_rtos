@@ -14,7 +14,7 @@ typedef struct {
 } PID_HandleTypeDef;
 
 // PID参数宏定义（需根据实际调试调整）
-#define KP  10.0f    // 比例系数（主要控制响应速度）
+#define KP  9.0f    // 比例系数（主要控制响应速度）
 #define KI  0.001f    // 积分系数（消除静态误差，避免过大）
 #define KD  0.001f    // 微分系数（抑制超调，增强稳定性）
 
@@ -30,4 +30,5 @@ typedef struct {
 
 void pid_init(PID_HandleTypeDef *pid);
 void pid_calculate(PID_HandleTypeDef *pid, float current_error);
+void pid_clear(PID_HandleTypeDef *pid);
 #endif //RTTHREAD_PID_H

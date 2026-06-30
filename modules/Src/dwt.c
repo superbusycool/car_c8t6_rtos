@@ -5,8 +5,8 @@
 #include "dwt.h"
 
 static uint32_t cpu_freq_mhz = 72;
-static uint32_t cyccnt_over_flow = 0;
-static uint32_t cyccnt_last = 0;
+static volatile uint32_t cyccnt_high = 0;   // CYCCNT 溢出次数（高位），32-bit 读写天然原子
+static uint32_t cyccnt_last = 0;            // 上次读取的 DWT->CYCCNT
 
 void dwt_init(uint32_t freq_mhz)
 {
@@ -16,7 +16,7 @@ void dwt_init(uint32_t freq_mhz)
     DWT->CYCCNT = 0;
     DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 
-    cyccnt_over_flow = 0;
+    cyccnt_high = 0;
     cyccnt_last = DWT->CYCCNT;
 }
 
@@ -24,9 +24,10 @@ void dwt_systime_update(void)
 {
     uint32_t now = DWT->CYCCNT;
 
+    /* CYCCNT 从 0xFFFFFFFF 回绕到 0 时进位 */
     if (now < cyccnt_last)
     {
-        cyccnt_over_flow++;
+        cyccnt_high++;          // 单次 32-bit 写入，对 Cortex-M3 是原子的
     }
     cyccnt_last = now;
 }
@@ -35,7 +36,8 @@ uint64_t dwt_get_time_us(void)
 {
     dwt_systime_update();
 
-    uint64_t total = (uint64_t)cyccnt_over_flow * 0x100000000ULL + DWT->CYCCNT;
+    /* 高位左移 32 位 + 当前 CYCCNT，构成完整 64-bit 周期计数 */
+    uint64_t total = ((uint64_t)cyccnt_high << 32) | DWT->CYCCNT;
     return total / cpu_freq_mhz;
 }
 
@@ -51,6 +53,8 @@ float dwt_get_time_s(void)
 
 float dwt_get_delta(uint32_t *cnt_last)
 {
+    dwt_systime_update();       // 保持高位累加器同步
+
     uint32_t now = DWT->CYCCNT;
     uint32_t delta;
 
@@ -65,6 +69,8 @@ float dwt_get_delta(uint32_t *cnt_last)
 
 double dwt_get_delta_64(uint32_t *cnt_last)
 {
+    dwt_systime_update();       // 保持高位累加器同步
+
     uint32_t now = DWT->CYCCNT;
     uint64_t delta;
 
@@ -81,21 +87,11 @@ void dwt_delay_s(float delay)
 {
     if (delay <= 0) return;
 
-    uint64_t cycles = (uint64_t)(delay * cpu_freq_mhz * 1000000);
-    uint32_t start = DWT->CYCCNT;
-    uint64_t diff = 0;
-
-    do
-    {
-        uint32_t now = DWT->CYCCNT;
-
-        if (now >= start)
-            diff = now - start;
-        else
-            diff = (0xFFFFFFFFULL - start) + now + 1;
-
-    } while (diff < cycles);
+    uint64_t start = dwt_get_time_us();
+    uint64_t us = (uint64_t)(delay * 1000000.0f);
+    while (dwt_get_time_us() - start < us);
 }
+
 // 微秒级延时
 void dwt_delay_us(uint32_t us)
 {

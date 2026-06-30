@@ -82,13 +82,26 @@ CMakeFiles/car_project1.elf.dir/Core/Src/dma.c.obj: D:/car_project_3/car_c8t6_rt
   D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 
 CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj: D:/car_project_3/car_c8t6_rtos/Core/Src/freertos.c \
-  D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+  D:/stm32environment/arm/arm-none-eabi/include/stdlib.h \
+  D:/stm32environment/arm/arm-none-eabi/include/machine/ieeefp.h \
+  D:/stm32environment/arm/arm-none-eabi/include/_ansi.h \
+  D:/stm32environment/arm/arm-none-eabi/include/newlib.h \
+  D:/stm32environment/arm/arm-none-eabi/include/_newlib_version.h \
+  D:/stm32environment/arm/arm-none-eabi/include/sys/config.h \
+  D:/stm32environment/arm/arm-none-eabi/include/sys/features.h \
   D:/stm32environment/arm/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h \
+  D:/stm32environment/arm/arm-none-eabi/include/sys/reent.h \
+  D:/stm32environment/arm/arm-none-eabi/include/_ansi.h \
+  D:/stm32environment/arm/arm-none-eabi/include/sys/_types.h \
+  D:/stm32environment/arm/arm-none-eabi/include/machine/_types.h \
+  D:/stm32environment/arm/arm-none-eabi/include/machine/_default_types.h \
+  D:/stm32environment/arm/arm-none-eabi/include/sys/lock.h \
+  D:/stm32environment/arm/arm-none-eabi/include/sys/cdefs.h \
+  D:/stm32environment/arm/arm-none-eabi/include/machine/stdlib.h \
+  D:/stm32environment/arm/arm-none-eabi/include/alloca.h \
+  D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
   D:/stm32environment/arm/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
   D:/stm32environment/arm/arm-none-eabi/include/stdint.h \
-  D:/stm32environment/arm/arm-none-eabi/include/machine/_default_types.h \
-  D:/stm32environment/arm/arm-none-eabi/include/sys/features.h \
-  D:/stm32environment/arm/arm-none-eabi/include/_newlib_version.h \
   D:/stm32environment/arm/arm-none-eabi/include/sys/_intsup.h \
   D:/stm32environment/arm/arm-none-eabi/include/sys/_stdint.h \
   D:/car_project_3/car_c8t6_rtos/Core/Inc/FreeRTOSConfig.h \
@@ -1998,11 +2011,11 @@ CMakeFiles/car_project1.elf.dir/modules/Src/track.c.obj: D:/car_project_3/car_c8
   D:/car_project_3/car_c8t6_rtos/modules/Inc/led.h
 
 
-D:/car_project_3/car_c8t6_rtos/Core/Src/dma.c:
+D:/car_project_3/car_c8t6_rtos/Core/Src/adc.c:
 
 D:/stm32environment/arm/arm-none-eabi/include/_ansi.h:
 
-D:/car_project_3/car_c8t6_rtos/Core/Src/adc.c:
+D:/car_project_3/car_c8t6_rtos/Core/Src/dma.c:
 
 D:/car_project_3/car_c8t6_rtos/Core/Src/main.c:
 
@@ -2014,17 +2027,19 @@ D:/car_project_3/car_c8t6_rtos/Core/Inc/main.h:
 
 D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 
+D:/stm32environment/arm/arm-none-eabi/include/sys/reent.h:
+
 D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:
 
-D:/car_project_3/car_c8t6_rtos/Core/Inc/stm32f1xx_hal_conf.h:
-
-D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
-
-D:/car_project_3/car_c8t6_rtos/modules/Inc/key.h:
+D:/car_project_3/car_c8t6_rtos/Drivers/CMSIS/Include/cmsis_compiler.h:
 
 D:/stm32environment/arm/arm-none-eabi/include/machine/stdlib.h:
 
-D:/car_project_3/car_c8t6_rtos/Drivers/CMSIS/Include/cmsis_compiler.h:
+D:/car_project_3/car_c8t6_rtos/modules/Inc/key.h:
+
+D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+
+D:/car_project_3/car_c8t6_rtos/Core/Inc/stm32f1xx_hal_conf.h:
 
 D:/car_project_3/car_c8t6_rtos/Core/Inc/FreeRTOSConfig.h:
 
@@ -2040,23 +2055,27 @@ D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_ad
 
 D:/car_project_3/car_c8t6_rtos/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:
 
-D:/stm32environment/arm/arm-none-eabi/include/machine/ieeefp.h:
+D:/stm32environment/arm/arm-none-eabi/include/alloca.h:
+
+D:/stm32environment/arm/arm-none-eabi/include/sys/_types.h:
 
 D:/car_project_3/car_c8t6_rtos/Core/Src/stm32f1xx_it.c:
 
 D:/car_project_3/car_c8t6_rtos/Drivers/CMSIS/Include/core_cm3.h:
 
-D:/car_project_3/car_c8t6_rtos/modules/Inc/dwt.h:
+D:/stm32environment/arm/arm-none-eabi/include/machine/ieeefp.h:
 
 D:/stm32environment/arm/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h:
 
 D:/stm32environment/arm/arm-none-eabi/include/stdint.h:
 
-D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
-
 D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h:
 
 D:/stm32environment/arm/arm-none-eabi/include/machine/_default_types.h:
+
+D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c:
+
+D:/stm32environment/arm/arm-none-eabi/include/sys/cdefs.h:
 
 D:/stm32environment/arm/arm-none-eabi/include/sys/features.h:
 
@@ -2082,17 +2101,11 @@ D:/stm32environment/arm/lib/gcc/arm-none-eabi/10.3.1/include/stddef.h:
 
 D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h:
 
-D:/car_project_3/car_c8t6_rtos/modules/Inc/config.h:
-
 D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h:
 
 D:/stm32environment/arm/arm-none-eabi/include/sys/_locale.h:
 
 D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h:
-
-D:/car_project_3/car_c8t6_rtos/Core/Src/tim.c:
-
-D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 
 D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
 
@@ -2102,8 +2115,6 @@ D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dm
 
 D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/portmacro.h:
 
-D:/car_project_3/car_c8t6_rtos/modules/Inc/module.h:
-
 D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:
 
 D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h:
@@ -2111,6 +2122,8 @@ D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_co
 D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h:
 
 D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+
+D:/stm32environment/arm/arm-none-eabi/include/machine/_types.h:
 
 D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h:
 
@@ -2120,17 +2133,27 @@ D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_fl
 
 D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
 
-D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h:
+D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
 
 D:/car_project_3/car_c8t6_rtos/modules/Inc/motor.h:
 
-D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
+D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h:
 
 D:/car_project_3/car_c8t6_rtos/Core/Inc/tim.h:
 
 D:/car_project_3/car_c8t6_rtos/Core/Inc/dma.h:
 
+D:/stm32environment/arm/arm-none-eabi/include/stdlib.h:
+
 D:/car_project_3/car_c8t6_rtos/Core/Src/freertos.c:
+
+D:/stm32environment/arm/arm-none-eabi/include/newlib.h:
+
+D:/stm32environment/arm/arm-none-eabi/include/signal.h:
+
+D:/stm32environment/arm/arm-none-eabi/include/sys/config.h:
+
+D:/stm32environment/arm/arm-none-eabi/include/sys/lock.h:
 
 D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 
@@ -2142,7 +2165,19 @@ D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/l
 
 D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
 
+D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
+
+D:/car_project_3/car_c8t6_rtos/Core/Src/tim.c:
+
+D:/car_project_3/car_c8t6_rtos/Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
+
+D:/car_project_3/car_c8t6_rtos/modules/Inc/module.h:
+
+D:/car_project_3/car_c8t6_rtos/modules/Inc/config.h:
+
 D:/car_project_3/car_c8t6_rtos/modules/Inc/pid.h:
+
+D:/car_project_3/car_c8t6_rtos/modules/Inc/dwt.h:
 
 D:/car_project_3/car_c8t6_rtos/modules/Inc/oled.h:
 
@@ -2184,25 +2219,7 @@ D:/car_project_3/car_c8t6_rtos/Core/Src/syscalls.c:
 
 D:/stm32environment/arm/arm-none-eabi/include/sys/stat.h:
 
-D:/stm32environment/arm/arm-none-eabi/include/newlib.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/signal.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/sys/config.h:
-
 D:/stm32environment/arm/arm-none-eabi/include/time.h:
-
-D:/car_project_3/car_c8t6_rtos/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c:
-
-D:/stm32environment/arm/arm-none-eabi/include/sys/cdefs.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/sys/reent.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/sys/_types.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/machine/_types.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/sys/lock.h:
 
 D:/stm32environment/arm/arm-none-eabi/include/machine/time.h:
 
@@ -2227,10 +2244,6 @@ D:/stm32environment/arm/arm-none-eabi/include/sys/_pthreadtypes.h:
 D:/stm32environment/arm/arm-none-eabi/include/sys/sched.h:
 
 D:/stm32environment/arm/arm-none-eabi/include/machine/types.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/stdlib.h:
-
-D:/stm32environment/arm/arm-none-eabi/include/alloca.h:
 
 D:/stm32environment/arm/arm-none-eabi/include/errno.h:
 
