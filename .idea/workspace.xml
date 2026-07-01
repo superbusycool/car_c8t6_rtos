@@ -23,24 +23,14 @@
     <list default="true" id="8b6e57c6-704c-4822-aa95-17ef737364c1" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/freertos.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/freertos.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/freertos.c.obj.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/compiler_depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/compiler_depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/dwt.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/modules/Src/pid.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/car_project1.elf.dir/Core/Src/main.c.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.elf" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.elf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.hex" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.hex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/car_project1.map" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/car_project1.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/Inc/pid.h" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Inc/pid.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/Src/dwt.c" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Src/dwt.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/Src/pid.c" beforeDir="false" afterPath="$PROJECT_DIR$/modules/Src/pid.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,9 +81,9 @@
   }
 }</component>
   <component name="RunManager" selected="OpenOCD 下载并运行.car_project1.elf">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="car_project1.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="car_project1" TARGET_NAME="car_project1.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="car_project1" RUN_TARGET_NAME="car_project1.elf">
@@ -137,7 +127,8 @@
       <workItem from="1782654977252" duration="8725000" />
       <workItem from="1782708682805" duration="7433000" />
       <workItem from="1782739565219" duration="10262000" />
-      <workItem from="1782817167132" duration="11244000" />
+      <workItem from="1782817167132" duration="14106000" />
+      <workItem from="1782909854883" duration="6415000" />
     </task>
     <servers />
   </component>
@@ -149,26 +140,5 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticFoundErrors value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Core/Src/freertos.c</url>
-          <line>330</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Core/Src/freertos.c</url>
-          <line>340</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Core/Src/freertos.c</url>
-          <line>344</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

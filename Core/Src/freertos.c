@@ -107,7 +107,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of sensor */
-  osThreadDef(sensor, Start_sensor, osPriorityNormal, 0, 128);
+  osThreadDef(sensor, Start_sensor, osPriorityAboveNormal, 0, 128);
   sensorHandle = osThreadCreate(osThread(sensor), NULL);
 
   /* definition and creation of chassis_task */
@@ -140,9 +140,9 @@ static float target_value;/*设置的目标值*/
 void Detection_val_calc(uint16_t* adc_value);/*计算寻迹权重*/
 
 /*权重从左到右 : -4 -1 0 1 4*/
-#define ADC_HRESHOLD_VALUE_MID 1550//1620  //判断是否寻到线的ADC阈值
-#define ADC_HRESHOLD_VALUE_OUT2 1550//1620  //判断是否寻到线的ADC阈值
-#define ADC_HRESHOLD_VALUE_OUT1 1550//1620  //判断是否寻到线的ADC阈值
+#define ADC_HRESHOLD_VALUE_MID 1600//1620  //判断是否寻到线的ADC阈值
+#define ADC_HRESHOLD_VALUE_OUT2 1600//1620  //判断是否寻到线的ADC阈值
+#define ADC_HRESHOLD_VALUE_OUT1 1600//1620  //判断是否寻到线的ADC阈值
 
 #define ADC_OUT2_VALUE  6.0f   //对称最外侧的两个光电管寻到黑线
 #define ADC_OUT1_VALUE  4.0f   //对称次外侧的两个光电管寻到黑线
@@ -160,17 +160,21 @@ static float obstacle_turn1_delta_ms;
 
 static float obstacle_turn2_start_ms;
 static float obstacle_turn2_delta_ms;
-#define OBSTACLE_TURN2_DELTA 600.0f  //0.5S
+#define OBSTACLE_TURN2_DELTA 1200.0f  //0.5S
 
 static float obstacle_turn3_start_ms;
 static float obstacle_turn3_delta_ms;
-#define OBSTACLE_TURN3_DELTA 800.0f   //0.5S
+#define OBSTACLE_TURN3_DELTA 1600.0f   //0.5S
 
 static float obstacle_turn4_start_ms;
 static float obstacle_turn4_delta_ms;
-#define OBSTACLE_TURN4_DELTA 600.0f   //0.5S
+#define OBSTACLE_TURN4_DELTA 0.0f   //0.5S
+
+static float obstacle_finish_start_ms;
+static float obstacle_finish_delta_ms;
 
 bool obstacle_flag;
+bool obstacle_finish_flag;/*完成避障标志位,给后退用*/
 
 void obstacle_avoid(void);
 
@@ -178,6 +182,8 @@ uint16_t ADC_NORMAL_VALUE = ADC_OUT2_VALUE+ADC_OUT1_VALUE;
 
 bool move_start_flag;/*开始循迹标志位*/
 static int move_stop_flag;/*开始循迹标志位*/
+static uint32_t detect_all_black_ms = 0;        /* 全黑识别消抖时间戳 */
+#define DETECT_ALL_BLACK_DEBOUNCE_MS  20        /* 全黑需稳定持续 20ms 才认为有效 */
 bool car_stop_flag;
 
 volatile int left_speed = 0;
@@ -194,11 +200,16 @@ __weak void Start_sensor(void const * argument)
   /* USER CODE BEGIN Start_sensor */
     static bool music_triggered = false;     /* 确保 Music_Play_Start 只调一次 */
     Key_Init();
+    __HAL_TIM_SET_COMPARE(&htim4, TIM_CHANNEL_3, 60);//开启循迹模块
   /* Infinite loop */
   for(;;)
   {
       Key_Update();
-
+      /* ---- SR04 超声波测距 ---- */
+      distance = SR04_Measure();
+      /*************寻迹ADC采样****************/
+      HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Value,5);
+      Detection_val_calc(ADC_Value);
       /* 首次 move_start_flag == 1 时启动非阻塞音乐 */
       if(move_start_flag == 1 && !music_triggered){
           music_triggered = true;
@@ -231,11 +242,11 @@ __weak void Start_chassis(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-      /* ---- SR04 超声波测距 ---- */
-      distance = SR04_Measure();
-      /*************寻迹ADC采样****************/
-      HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Value,5);
-      Detection_val_calc(ADC_Value);
+//      /* ---- SR04 超声波测距 ---- */
+//      distance = SR04_Measure();
+//      /*************寻迹ADC采样****************/
+//      HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Value,5);
+//      Detection_val_calc(ADC_Value);
 
       if(Key1.state == KEY_PRESSED && move_start_flag == 0){/*开始循迹*/
           move_start_flag = 1;
@@ -253,11 +264,10 @@ __weak void Start_chassis(void const * argument)
       }
 
 
-      OLED_ShowNum(1,1,obstacle_flag,1);
+//      OLED_ShowNum(1,1,obstacle_finish_flag,1);
       if(obstacle_flag == 0){
           if(car_stop_flag == 0){
               if(move_start_flag == 1 ){
-
                   pid_calculate(&track_pid, detect_value_current);
                   left_speed = (int)(Basic_vel + track_pid.output);
                   right_speed = (int)(Basic_vel - track_pid.output);
@@ -267,9 +277,9 @@ __weak void Start_chassis(void const * argument)
               if(move_start_flag == 1 && detect_detect_lost == 1){
                   Car_move(-45);
               }
-//              if(move_stop_flag > 5 ){
-//                  car_stop_flag = 1;
-//              }
+              if(move_stop_flag > 3 ){
+                  car_stop_flag = 1;
+              }
           }else{
               Car_move(0);
           }
@@ -296,11 +306,27 @@ void Detection_val_calc(uint16_t *adc_value)
                    | ((adc_value[1] > ADC_HRESHOLD_VALUE_OUT1) << 3)
                    | ((adc_value[0] > ADC_HRESHOLD_VALUE_OUT2) << 4);
 
-    detect_detect_lost = (detect_current == 0x00);
+    if(obstacle_finish_flag == 1){
+        obstacle_finish_delta_ms = dwt_get_time_ms() -  obstacle_finish_start_ms;
+        if((obstacle_finish_delta_ms) < 2000){
+            detect_detect_lost = (detect_current == 0x00);
+        }else{
+            detect_detect_lost = 0;
+        }
+    }
 
     if(detect_current == 0x1F){
-        move_stop_flag++;
+        /* 首次检测到全黑 → 启动计时 */
+        if(detect_all_black_ms == 0){
+            detect_all_black_ms = dwt_get_time_ms();
+        }
+        /* 全黑稳定持续 >= 消抖时间 → 视为有效, 累加并重置计时 */
+        if(dwt_get_time_ms() - detect_all_black_ms >= DETECT_ALL_BLACK_DEBOUNCE_MS){
+            move_stop_flag++;
+            detect_all_black_ms = dwt_get_time_ms();   // 防同一段黑线反复触发
+        }
     }else{
+        detect_all_black_ms = 0;   // 跳变 → 立即复位
         move_stop_flag = 0;
     }
     /* === 2. 偏差值查表 (O(1) 直接索引，替代 16 路 switch) ===
@@ -346,14 +372,14 @@ void obstacle_avoid(void){
             obstacle_turn2_flag = 1;
             obstacle_turn3_delta_ms = dwt_get_time_ms() - obstacle_turn3_start_ms;
             if((obstacle_turn3_delta_ms < OBSTACLE_TURN3_DELTA) && obstacle_turn3_flag == 0){
-                pid_calculate(&track_pid, -10);
+                pid_calculate(&track_pid, 0);
                 obstacle_turn4_start_ms = dwt_get_time_ms();
             }else
             {
                 obstacle_turn3_flag = 1;
                 obstacle_turn4_delta_ms = dwt_get_time_ms() - obstacle_turn4_start_ms;
                 if(obstacle_turn4_delta_ms < OBSTACLE_TURN4_DELTA){
-                    pid_calculate(&track_pid, 25);
+                    pid_calculate(&track_pid, 0);
                 }
             }
         }
@@ -364,9 +390,12 @@ void obstacle_avoid(void){
 
     if((detect_current > 0)&&(obstacle_turn1_flag == 1 &&obstacle_turn2_flag == 1 && obstacle_turn3_flag == 1)){/*避障完成后寻到线,继续进行巡线*/
         obstacle_flag = 0;
+        obstacle_finish_flag = 1;
         obstacle_turn1_flag = 0;
         obstacle_turn2_flag = 0;
         obstacle_turn3_flag = 0;
+        obstacle_finish_start_ms = dwt_get_time_ms();
+
     }
 }
 /* USER CODE END Application */

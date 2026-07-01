@@ -117,9 +117,9 @@ int main(void)
     HAL_TIM_PWM_Start(&htim4,TIM_CHANNEL_4);
 
     dwt_init(72);
-    OLED_Init(); //
+//    OLED_Init(); //
     Key_Init(); // 初始化按键
-    OLED_Clear();
+//    OLED_Clear();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */

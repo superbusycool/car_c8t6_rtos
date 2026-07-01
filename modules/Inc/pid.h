@@ -14,9 +14,9 @@ typedef struct {
 } PID_HandleTypeDef;
 
 // PID参数宏定义（需根据实际调试调整）
-#define KP  9.0f    // 比例系数（主要控制响应速度）
+#define KP  12.0f    // 比例系数（主要控制响应速度）
 #define KI  0.001f    // 积分系数（消除静态误差，避免过大）
-#define KD  0.001f    // 微分系数（抑制超调，增强稳定性）
+#define KD  0.01f    // 微分系数（抑制超调，增强稳定性）
 
 // PID输出限制（对应转向幅度范围，与之前的-4~4等级对应）
 #define PID_OUTPUT_MIN  -60.0f
